@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wagon Demo</title>
+    <link rel="stylesheet" href="../static/index.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $.getJSON('/wagon', function(data){
+            let table = document.getElementById("info").getElementsByTagName("TBODY")[0];
+            $.each(data, function(key, val){
+                addRow();
+                let k = 0;
+                $.each(val, function (key1, val1){
+                    table.getElementsByTagName("tr")[key+1].getElementsByTagName("td")[k].innerHTML = val1;
+                    k++;
+                });
+
+                // document.getElementById(key).innerHTML = val;
+            });
+        });
+
+        function addRow(){
+            let tbody = document.getElementById("info").getElementsByTagName("TBODY")[0];
+            let row = document.createElement("TR")
+            for (let i=0;i<4;i++){
+                let td = document.createElement("TD")
+                td.appendChild(document.createTextNode("column " + i))
+                row.appendChild(td);
+            }
+            tbody.appendChild(row);
+        }
+    </script>
+</head>
+</head>
+<body>
+<table border="1" id="info">
+    <caption>wagon info</caption>
+    <tr>
+        <th>id</th>
+        <th>number</th>
+        <th>weight</th>
+        <th>type</th>
+    </tr>
+<!--    <tr><td><p id="number"></p></td>-->
+<!--        <td><p id="weight"></p></td>-->
+<!--        <td><p id="type"></p></td>-->
+<!--    </tr>-->
+</table>
+</body>
+</html>
