@@ -20,7 +20,7 @@ public class WagonController {
         return new ResponseEntity<>(wagonService.getWagons(), HttpStatus.OK);
     }
 
-    @GetMapping("/wagon{id}")
+    @GetMapping("/wagon/{id}")
     private ResponseEntity<WagonDto> getWagonById(@PathVariable("id") int id) throws WagonNotFoundException{
         return new ResponseEntity<>(wagonService.getWagonById(id), HttpStatus.OK);
     }

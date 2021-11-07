@@ -20,32 +20,33 @@
             //     });
             //
             // });
-            $('#info').append(`
-                  <tbody>${data.map(n => `
+            $('tbody').append(`
+                 ${data.map(n => `
                     <tr>
                       <td>${n.id}</td>
                       <td>${n.number}</td>
                       <td>${n.weight}</td>
                       <td>${n.type}</td>
                     </tr>`).join('')}
-                  </tbody>
-`           );
-        });
 
+            `);
+        });
     </script>
 </head>
 </head>
 <body>
-<form>
 <table border="1" id="info">
     <caption>wagon info</caption>
-    <tr>
-        <th>id</th>
-        <th>number</th>
-        <th>weight</th>
-        <th>type</th>
-    </tr>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>number</th>
+            <th>weight</th>
+            <th>type</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
 </table>
-</form>
 </body>
 </html>
+
