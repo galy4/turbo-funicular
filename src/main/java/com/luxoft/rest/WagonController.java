@@ -5,8 +5,7 @@ import com.luxoft.services.WagonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,8 +15,19 @@ public class WagonController {
 
     private final WagonService wagonService;
 
-    @GetMapping("/wagon")
+    @GetMapping("/wagons")
     private ResponseEntity<List<WagonDto>> getWagon(){
-        return new ResponseEntity<>(wagonService.getWagon(), HttpStatus.OK);
+        return new ResponseEntity<>(wagonService.getWagons(), HttpStatus.OK);
+    }
+
+    @GetMapping("/wagon{id}")
+    private ResponseEntity<WagonDto> getWagonById(@PathVariable("id") int id) throws WagonNotFoundException{
+        return new ResponseEntity<>(wagonService.getWagonById(id), HttpStatus.OK);
+    }
+
+    @ExceptionHandler(WagonNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    private String handleWagonNotFoundException(WagonNotFoundException e){
+        return e.getMessage();
     }
 }

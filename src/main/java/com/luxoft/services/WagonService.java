@@ -9,7 +9,9 @@ import java.util.List;
 @Service
 public class WagonService {
 
-    public List<WagonDto> getWagon() {
+    private List<WagonDto> wagons;
+
+    public WagonService() {
         List<WagonDto> list = new ArrayList<>();
         WagonDto wagonDto = new WagonDto();
         wagonDto.setId(5);
@@ -23,6 +25,16 @@ public class WagonService {
         wagonDto1.setWeight(40.82);
         list.add(wagonDto);
         list.add(wagonDto1);
-        return list;
+        this.wagons = list;
     }
+
+    public List<WagonDto> getWagons() {
+        return wagons;
+    }
+
+    public WagonDto getWagonById(int id) {
+        return wagons.stream().filter(item -> id == item.getId()).findAny().get();
+    }
+
+
 }
