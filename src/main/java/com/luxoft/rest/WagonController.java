@@ -25,6 +25,11 @@ public class WagonController {
         return new ResponseEntity<>(wagonService.getWagonById(id), HttpStatus.OK);
     }
 
+    @PutMapping("/wagon")
+    private List<WagonDto> updateWagon(@RequestBody WagonDto wagonDto){
+        return wagonService.update(wagonDto);
+    }
+
     @ExceptionHandler(WagonNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     private String handleWagonNotFoundException(WagonNotFoundException e){

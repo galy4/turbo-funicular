@@ -34,12 +34,17 @@ public class WagonService {
     }
 
     public WagonDto getWagonById(int id){
-        try {
-            return wagons.stream().filter(item -> id == item.getId()).findAny().get();
-        }catch (Exception e){
-            throw new WagonNotFoundException("No Such Wagon");
-        }
+            return wagons.stream()
+                    .filter(item -> id == item.getId())
+                    .findAny()
+                    .orElseThrow(()->new WagonNotFoundException("No Such Wagon"));
+
     }
 
-
+    public List<WagonDto> update(WagonDto wagonDto) {
+        wagons.remove(wagons.stream().filter(w-> w.getId() == wagonDto.getId()).findFirst()
+                .orElse(null));
+        wagons.add(wagonDto);
+        return wagons;
+    }
 }

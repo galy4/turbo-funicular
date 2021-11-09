@@ -6,3 +6,18 @@ table, th, td {
 input[type="submit" i]{
     color: darkred;
 }
+
+/* Выставляем все label друг под другом */
+label {
+    display:block;
+}
+
+label > span{
+    display:inline-block;
+    width: 100px;
+}
+
+label > input{
+    display:inline-block;
+    width: 100px;
+}
