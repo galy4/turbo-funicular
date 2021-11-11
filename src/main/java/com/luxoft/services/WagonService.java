@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class WagonService {
 
-    private List<WagonDto> wagons;
+    private final List<WagonDto> wagons;
 
     public WagonService() {
         List<WagonDto> list = new ArrayList<>();
