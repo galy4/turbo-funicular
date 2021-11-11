@@ -1,0 +1,8 @@
+table, th, td {
+    width: 30%;
+    border: 2px solid blue;
+}
+
+input[type="submit" i]{
+    color: darkred;
+}
