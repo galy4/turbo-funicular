@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class WagonService {
 
-    private List<WagonDto> wagons;
+    private final List<WagonDto> wagons;
 
     public WagonService() {
         List<WagonDto> list = new ArrayList<>();
@@ -34,11 +34,10 @@ public class WagonService {
     }
 
     public WagonDto getWagonById(int id){
-        try {
-            return wagons.stream().filter(item -> id == item.getId()).findAny().get();
-        }catch (Exception e){
-            throw new WagonNotFoundException("No Such Wagon");
-        }
+        return wagons.stream()
+                .filter(item -> id == item.getId())
+                .findAny()
+                .orElseThrow(() -> new WagonNotFoundException("No Such Wagon") );
     }
 
 
