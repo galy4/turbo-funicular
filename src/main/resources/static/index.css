@@ -3,7 +3,7 @@ table, th, td {
     border: 2px solid blue;
 }
 
-input[type="submit" i]{
+input[type="button" i]{
     color: darkred;
 }
 
