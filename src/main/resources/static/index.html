@@ -42,6 +42,43 @@
     <br/>
     <input type="button" id = "q" value="Put">
 </form>
+
+<a href="#modal" name="modal">Добавить вагон</a>
+
+<!-- #customize - здесь будет располагаться модальное окно -->
+<div id="modal" class="modalwindow">
+
+    <!-- Заголовок модального окна -->
+    <h3>Простое jQuery модальное окно</h3>
+
+    <!-- кнопка закрытия окна определяется как класс close -->
+    <a href="#" class="close">X</a>
+
+    <div class="content">
+        <form action="" align=left>
+            <fieldset>
+                <div class="container">
+                    <label>
+                        <span>Number</span>
+                        <input id = "newNum" type="text" placeholder="0">
+                    </label>
+                    <label>
+                        <span>Weight</span>
+                        <input id = "newWeight" type="number">
+                    </label>
+                    <label>
+                        <span>Type</span>
+                        <input id = "newType" type="text">
+                    </label>
+                </div>
+            </fieldset>
+            <br/>
+            <input type="submit" id = "add1" value="Submit">
+        </form>
+    </div>
+
+</div>
+
 </body>
 </html>
 

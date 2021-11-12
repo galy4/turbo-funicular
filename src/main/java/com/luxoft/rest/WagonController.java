@@ -29,4 +29,9 @@ public class WagonController {
     private List<WagonDto> updateWagon(@RequestBody WagonDto wagonDto){
         return wagonService.update(wagonDto);
     }
+
+    @PostMapping("/wagon")
+    private void create(@RequestBody WagonDto wagonDto){
+        wagonService.create(wagonDto);
+    }
 }

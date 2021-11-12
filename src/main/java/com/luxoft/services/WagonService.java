@@ -5,6 +5,7 @@ import com.luxoft.rest.WagonNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -46,5 +47,13 @@ public class WagonService {
                 .orElse(null));
         wagons.add(wagonDto);
         return wagons;
+    }
+
+    public void create(WagonDto wagonDto) {
+        int maxId = wagons.stream()
+                .max(Comparator.comparing(WagonDto::getId))
+                .get().getId();
+        wagonDto.setId(++maxId);
+        wagons.add(wagonDto);
     }
 }
