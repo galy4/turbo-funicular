@@ -19,7 +19,7 @@ label > span{
 
 label > input{
     display:inline-block;
-    width: 100px;
+    width: 150px;
 }
 
 .modalwindow {
@@ -27,7 +27,7 @@ label > input{
     display:none; /* Скрываем модальное окно по умолчанию */
     z-index:9999;
     width:500px;
-    background: #FF5722;
+    background: darkgoldenrod;
     -webkit-box-shadow: 0 8px 6px -6px black;
     -moz-box-shadow: 0 8px 6px -6px black;
     box-shadow: 0 8px 6px -6px black;

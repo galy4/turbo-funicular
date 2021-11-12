@@ -89,12 +89,7 @@ $(document).ready(function () {
             type: 'PUT',
             url: '/wagon',
             contentType: 'application/json',
-            data: JSON.stringify( {
-                "id": 0,
-                "number": $("#number").val(),
-                "weight": $("#weight").val(),
-                "type": $("#type").val()
-        }), // access in body
+            data: JSON.stringify(data), // access in body
         }).done(function () {
             window.location.reload(true);
             console.log('SUCCESS');
