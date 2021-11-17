@@ -21,7 +21,7 @@ public class WagonController {
     }
 
     @GetMapping("/wagon/{id}")
-    private ResponseEntity<WagonDto> getWagonById(@PathVariable("id") int id){
+    private ResponseEntity<WagonDto> getWagonById(@PathVariable("id") int id) {
         return new ResponseEntity<>(wagonService.getWagonById(id), HttpStatus.OK);
     }
 

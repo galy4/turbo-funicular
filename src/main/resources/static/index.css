@@ -31,9 +31,6 @@ label > input{
     -webkit-box-shadow: 0 8px 6px -6px black;
     -moz-box-shadow: 0 8px 6px -6px black;
     box-shadow: 0 8px 6px -6px black;
-    -webkit-box-shadow: 0 8px 6px -6px black;
-    -moz-box-shadow: 0 8px 6px -6px black;
-    box-shadow: 0 8px 6px -6px black;
 }
 h2 {
     background-color: #E64A19;
@@ -41,7 +38,7 @@ h2 {
     font-size: 25px;
     color: #000;
     margin: 0;
-    font-family: arial;
+    font-family: arial, serif;
     text-align: center;
 }
 .content {
@@ -62,5 +59,10 @@ h2 {
     text-align: center;
     text-decoration: none;
     font-weight: bold;
-    font-family: arial;
+    font-family: arial, serif;
+}
+
+.form {
+    text-align: left;
+    margin-bottom: auto;
 }
