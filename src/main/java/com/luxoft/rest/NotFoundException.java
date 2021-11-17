@@ -4,10 +4,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "No wagon found")
-public class WagonNotFoundException extends RuntimeException{
+public class NotFoundException extends RuntimeException{
 
 
-    public WagonNotFoundException(String message) {
-        super(message);
+    public NotFoundException(Class<?> clazz, int id) {
+        super("Entity " + clazz.getName() + " with id='" + id + "' not found");
     }
 }

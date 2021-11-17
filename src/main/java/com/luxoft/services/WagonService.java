@@ -1,10 +1,11 @@
 package com.luxoft.services;
 
 import com.luxoft.dto.WagonDto;
-import com.luxoft.rest.WagonNotFoundException;
+import com.luxoft.rest.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -37,7 +38,7 @@ public class WagonService {
             return wagons.stream()
                     .filter(item -> id == item.getId())
                     .findAny()
-                    .orElseThrow(()->new WagonNotFoundException("No Such Wagon"));
+                    .orElseThrow(()->new NotFoundException(WagonDto.class, id));
 
     }
 
@@ -46,5 +47,13 @@ public class WagonService {
                 .orElse(null));
         wagons.add(wagonDto);
         return wagons;
+    }
+
+    public void create(WagonDto wagonDto) {
+        int maxId = wagons.stream()
+                .max(Comparator.comparing(WagonDto::getId))
+                .get().getId();
+        wagonDto.setId(++maxId);
+        wagons.add(wagonDto);
     }
 }

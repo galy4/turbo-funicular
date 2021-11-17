@@ -8,7 +8,7 @@
     <script type="text/javascript" src="main.js"></script>
 </head>
 <body>
-<table border="1" id="info">
+<table id="info">
     <caption>wagon info</caption>
     <thead>
         <tr>
@@ -22,7 +22,7 @@
 </table>
 
 <br/>
-<form action="" align=left>
+<form action="">
     <fieldset>
         <div class="container">
             <label>
@@ -42,6 +42,42 @@
     <br/>
     <input type="button" id = "q" value="Put">
 </form>
+
+<a href="#modal" name="modal">Добавить вагон</a>
+
+<!-- #customize - здесь будет располагаться модальное окно -->
+<div id="modal" class="modalwindow">
+
+    <!-- Заголовок модального окна -->
+    <h3>Какой вагон добавить</h3>
+
+    <!-- кнопка закрытия окна определяется как класс close -->
+    <a href="#" class="close">X</a>
+
+    <div class="content">
+        <form action="">
+            <fieldset>
+                <div class="container">
+                    <label>
+                        <span>Number</span>
+                        <input id = "newNum" type="text" placeholder="0">
+                    </label>
+                    <label>
+                        <span>Weight</span>
+                        <input id = "newWeight" type="number" step="any">
+                    </label>
+                    <label>
+                        <span>Type</span>
+                        <input id = "newType" type="text">
+                    </label>
+                </div>
+            </fieldset>
+            <input type="submit" id = "add1" value="Submit">
+        </form>
+    </div>
+
+</div>
+
 </body>
 </html>
 

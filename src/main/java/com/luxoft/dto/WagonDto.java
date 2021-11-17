@@ -11,6 +11,6 @@ public class WagonDto {
 
     private int id;
     private int number;
-    private Double weight;
+    private double weight;
     private String type;
 }

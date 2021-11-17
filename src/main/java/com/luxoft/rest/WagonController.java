@@ -21,12 +21,17 @@ public class WagonController {
     }
 
     @GetMapping("/wagon/{id}")
-    private ResponseEntity<WagonDto> getWagonById(@PathVariable("id") int id){
+    private ResponseEntity<WagonDto> getWagonById(@PathVariable("id") int id) {
         return new ResponseEntity<>(wagonService.getWagonById(id), HttpStatus.OK);
     }
 
     @PutMapping("/wagon")
     private List<WagonDto> updateWagon(@RequestBody WagonDto wagonDto){
         return wagonService.update(wagonDto);
+    }
+
+    @PostMapping("/wagon")
+    private void create(@RequestBody WagonDto wagonDto){
+        wagonService.create(wagonDto);
     }
 }
