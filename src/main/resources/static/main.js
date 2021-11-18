@@ -43,6 +43,8 @@ $(document).ready(()=>{
         createWagon();
     });
 
+    readResources();
+
 });
 
 function getWagon(id) {
@@ -112,6 +114,16 @@ function createWagon(){
     });
 }
 
+function readResources(){
+    $.getJSON( "/resource", function(items) {
+        $.each(items, function(key, value) {
+            $('#resources')
+                .append($("<option></option>")
+                    .attr("value", key)
+                    .text(value));
+        });
+    });
+}
 
 
 
