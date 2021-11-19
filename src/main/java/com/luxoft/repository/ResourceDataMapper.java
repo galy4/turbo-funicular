@@ -16,7 +16,7 @@ public class ResourceDataMapper implements RowMapper<Resource> {
         return new Resource(
                 rs.getString("material_name"),
                 rs.getString("material_code"),
-                rs.getString("supplierName"),
-                rs.getString("supplierCode"));
+                rs.getString("supplier_name"),
+                rs.getString("supplier_code"));
         }
 }

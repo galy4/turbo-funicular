@@ -45,6 +45,10 @@ $(document).ready(()=>{
 
     readResources();
 
+    $('#resourceData').click(function (){
+       getNSIResourceData();
+    });
+
 });
 
 function getWagon(id) {
@@ -123,6 +127,16 @@ function readResources(){
                     .text(value));
         });
     });
+}
+
+function getNSIResourceData(){
+    let opt = $( "#resources option:selected" ).text();
+    $.getJSON(`/resource/${opt}`,
+        function (data) {
+            $.each(data, function (key, value){
+                $('body').append("<p>" + key+ " : " + value + "</p>")
+            });
+        });
 }
 
 

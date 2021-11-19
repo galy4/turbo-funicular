@@ -24,7 +24,7 @@ public class RetrieveNsiData {
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     private final ResourceDataMapper resourceDataMapper;
 
-    public Resource retrieveResourseData(Map<String,String> parameters){
+    public Resource retrieveResourceData(Map<String,String> parameters){
         Resource resource;
         resource = namedParameterJdbcTemplate.query(
                 "select mr.full_name as material_name, mr.source_transport_code as material_code, s.code as supplier_code, s.\"name\" " +
