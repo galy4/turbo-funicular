@@ -50,8 +50,8 @@ public class WagonController {
         HttpHeaders headers = new HttpHeaders();
 //        headers.add("Authorization", "Basic " + authToken);
         headers.setBasicAuth("test_user", "test_user_test");
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+        headers.add("Content-type", "application/vnd.kafka.avro.v2+json");
+        headers.add("Accept", "*/*");
         UnloadDto unloadDto = new UnloadDto();
         unloadDto.setKeySchema("{\"type\": \"string\"}");
         unloadDto.setValueSchema(SchemaValues.UNLOAD.getSchema());
