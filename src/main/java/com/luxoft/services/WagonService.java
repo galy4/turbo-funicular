@@ -2,6 +2,7 @@ package com.luxoft.services;
 
 import com.luxoft.dto.WagonDto;
 import com.luxoft.glossary.WagonType;
+import com.luxoft.model.Wagon;
 import com.luxoft.rest.NotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.util.List;
 public class WagonService {
 
     private final List<WagonDto> wagons = new ArrayList<>();
+    private final List<Wagon> wagonList = new ArrayList<>();
 
     public WagonService() {
         wagons.add(new WagonDto(5,10, 52.30,  WagonType.HALF.getType()));
