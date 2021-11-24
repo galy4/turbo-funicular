@@ -1,5 +1,6 @@
 package com.luxoft.rest;
 
+import com.luxoft.dto.ResourceDto;
 import com.luxoft.model.Resource;
 import com.luxoft.services.ResourceService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,7 @@ public class ResourceDataController {
     }
 
     @GetMapping("/resource/{name}")
-    public Resource getResource(@PathVariable("name") String name){
+    public ResourceDto getResource(@PathVariable("name") String name){
         return resourceService.getResource(name);
     }
 

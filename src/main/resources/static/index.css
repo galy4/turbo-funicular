@@ -46,6 +46,8 @@ h2 {
     color: #fff;
     font-size: 22px;
     line-height: 30px;
+    margin-top: 30px;
+    width: 350px;
 }
 .close {
     float: right;
@@ -67,8 +69,9 @@ h2 {
     margin-bottom: auto;
 }
 
-a{
-    margin-bottom: auto;
+.mwl{
+    display: block;
+    margin-block: inherit;
 }
 
 select{
