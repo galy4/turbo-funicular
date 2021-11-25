@@ -17,14 +17,21 @@ public class RetrieveNsiData {
 
     private final JdbcTemplate jdbcTemplate;
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-    private final ResourceDataMapper resourceDataMapper;
+//    private final ResourceDataMapper resourceDataMapper;
 
     public Resource retrieveResourceData(String name){
         Resource resource = namedParameterJdbcTemplate.queryForObject(
                 "select mr.full_name as material_name, mr.source_transport_code as material_code, s.code as supplier_code, s.\"name\" " +
                 "as supplier_name  from material_resource mr join supplier_material_resource smr on smr.material_resource_id = mr.id \n" +
                 "join supplier s on s.id = smr.supplier_id where mr.full_name = :material_name",
-                Collections.singletonMap("material_name", name), resourceDataMapper);
+//                Collections.singletonMap("material_name", name), resourceDataMapper);
+                Collections.singletonMap("material_name", name), (rs, i) -> new Resource(
+                        rs.getString("material_name"),
+                        rs.getString("material_code"),
+                        rs.getString("supplier_name"),
+                        rs.getString("supplier_code")
+                )
+        );
         log.info("material_code {}, material_name {}", resource.getMaterialCode(), resource.getMaterialName());
         return resource;
     }

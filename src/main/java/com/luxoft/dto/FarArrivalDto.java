@@ -17,7 +17,7 @@ public class FarArrivalDto {
     @JsonProperty("value_schema")
     private String valueSchema;
     @JsonProperty("records")
-    private List<Record> records = null;
+    private List<Record> records;
 
     @Getter @Setter
     public static class Record{
@@ -64,7 +64,7 @@ public class FarArrivalDto {
         @JsonProperty("materialName")
         private String materialName;
         @JsonProperty("positions")
-        private List<Position> positions = null;
+        private List<Position> positions;
     }
 
     @Getter @Setter
