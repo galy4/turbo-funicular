@@ -39,11 +39,10 @@
             </label>
         </div>
     </fieldset>
-    <br/>
     <input type="button" id = "q" value="Put">
 </form>
 
-<a href="#modal" name="modal">Добавить вагон</a>
+<a href="#modal" name="modal" class="mwl">Добавить вагон</a>
 
 <!-- #customize - здесь будет располагаться модальное окно -->
 <div id="modal" class="modalwindow">
@@ -77,6 +76,21 @@
     </div>
 
 </div>
+<br/>
+<label for="resources"></label><select id="resources"></select>
+<input type="button" id="resourceData" value="Получить данные">
+
+<form action="">
+    <fieldset>
+        <div class="container">
+            <label>
+                <span>Invoice Number</span>
+                <input id = "invoice" type="text" placeholder="ЭЖ152478">
+            </label>
+        </div>
+    </fieldset>
+    <input type="button" id = "far" value="Создать партию">
+</form>
 
 </body>
 </html>

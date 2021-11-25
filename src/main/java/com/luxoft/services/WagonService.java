@@ -1,59 +1,58 @@
 package com.luxoft.services;
 
 import com.luxoft.dto.WagonDto;
+import com.luxoft.glossary.WagonType;
+import com.luxoft.model.Wagon;
+import com.luxoft.repository.WagonRepository;
 import com.luxoft.rest.NotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class WagonService {
 
-    private final List<WagonDto> wagons;
+//    private final List<WagonDto> wagons = new ArrayList<>();
+//    private final List<Wagon> wagonList = new ArrayList<>();
+    private final WagonRepository wagonRepository;
+    private final WagonConvertor wagonConvertor;
 
-    public WagonService() {
-        List<WagonDto> list = new ArrayList<>();
-        WagonDto wagonDto = new WagonDto();
-        wagonDto.setId(5);
-        wagonDto.setNumber(10);
-        wagonDto.setType("Полувагон");
-        wagonDto.setWeight(52.30);
-        WagonDto wagonDto1 = new WagonDto();
-        wagonDto1.setId(8);
-        wagonDto1.setNumber(20);
-        wagonDto1.setType("ОК АГЛ");
-        wagonDto1.setWeight(40.82);
-        list.add(wagonDto);
-        list.add(wagonDto1);
-        this.wagons = list;
-    }
+//    public WagonService() {
+////        wagonRepository.getWagonList().add(new Wagon(5,"10", 52.30,  WagonType.HALF.getType(), ""));
+////        wagonRepository.getWagonList().add(new Wagon(10,"20", 41.34,  WagonType.OK.getType(), ""));
+//        this.wagonConvertor = new WagonConvertor();
+//    }
 
     public List<WagonDto> getWagons() {
-        return wagons;
+        return wagonConvertor.convertAll(wagonRepository.getWagonList());
     }
 
     public WagonDto getWagonById(int id){
-            return wagons.stream()
+            Wagon wagon =  wagonRepository.getWagonList().stream()
                     .filter(item -> id == item.getId())
                     .findAny()
-                    .orElseThrow(()->new NotFoundException(WagonDto.class, id));
+                    .orElseThrow(()->new NotFoundException(Wagon.class, id));
+            return wagonConvertor.convert(wagon);
 
     }
 
     public List<WagonDto> update(WagonDto wagonDto) {
-        wagons.remove(wagons.stream().filter(w-> w.getId() == wagonDto.getId()).findFirst()
+        wagonRepository.getWagonList().remove(wagonRepository.getWagonList().stream().filter(w-> w.getId() == wagonDto.getId()).findFirst()
                 .orElse(null));
-        wagons.add(wagonDto);
-        return wagons;
+        wagonRepository.getWagonList().add(wagonConvertor.convert(wagonDto));
+        return wagonConvertor.convertAll(wagonRepository.getWagonList());
     }
 
     public void create(WagonDto wagonDto) {
-        int maxId = wagons.stream()
-                .max(Comparator.comparing(WagonDto::getId))
+        int maxId = wagonRepository.getWagonList().stream()
+                .max(Comparator.comparing(Wagon::getId))
                 .get().getId();
         wagonDto.setId(++maxId);
-        wagons.add(wagonDto);
+        wagonRepository.getWagonList().add(wagonConvertor.convert(wagonDto));
     }
 }

@@ -5,14 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Getter @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
-public class WagonDto {
+public class ResourceDto {
 
-    private int id;
-    private int number;
-    private double weight;
-    private String type;
+    private final String materialName;
+    private final String materialCode;
+    private final String supplierName;
+    private final String supplierCode;
 }

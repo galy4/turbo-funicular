@@ -43,6 +43,17 @@ $(document).ready(()=>{
         createWagon();
     });
 
+    readResources();
+
+    $('#resourceData').click(function (){
+       getNSIResourceData();
+    });
+
+    $("#far").click(()=> {
+        sendFarArrival();
+    });
+
+
 });
 
 function getWagon(id) {
@@ -112,6 +123,33 @@ function createWagon(){
     });
 }
 
+function readResources(){
+    $.getJSON( "/resource", function(items) {
+        $.each(items, function(key, value) {
+            $('#resources')
+                .append($("<option></option>")
+                    .attr("value", key)
+                    .text(value));
+        });
+    });
+}
+
+function getNSIResourceData(){
+    let opt = $( "#resources option:selected" ).text();
+    $.getJSON(`/resource/${opt}`,
+        function (data) {
+            $.each(data, function (key, value){
+                $('body').append("<p>" + key+ " : " + value + "</p>")
+            });
+        });
+}
+
+function sendFarArrival(){
+    let inv = $('#invoice').val();
+    $.post(`/farArrival/${inv}`, function (){
+        console.log(`data sent to backend`);
+        });
+}
 
 
 
