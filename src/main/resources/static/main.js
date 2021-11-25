@@ -2,7 +2,7 @@ let wagonId = 0;
 $(document).ready(()=>{
 
     getAllWagons();
-
+    $('#kafka').hide();
     $("#q").click(function () {
         if (wagonId === 0) {
             alert("No row for update selected");
@@ -15,6 +15,10 @@ $(document).ready(()=>{
             type: $("#type").val()
         });
     });
+
+    readResources();
+
+    //Обработчики:
 
     //выбираем все теги с именем  modal
     $('a[name=modal]').click(function (e) {
@@ -43,8 +47,6 @@ $(document).ready(()=>{
         createWagon();
     });
 
-    readResources();
-
     $('#resourceData').click(function (){
        getNSIResourceData();
     });
@@ -53,9 +55,12 @@ $(document).ready(()=>{
         sendFarArrival();
     });
 
+    $("#clone").click(()=> {
+        cloneWagon();
+    });
 
 });
-
+//Функции:
 function getWagon(id) {
     $.getJSON(`/wagon/${id}`,
         function (data) {
@@ -72,9 +77,7 @@ function updateWagon(data) {
         contentType: 'application/json',
         data: JSON.stringify(data), // access in body
     }).done(function () {
-        removeTableRows();
         getAllWagons();
-        // window.location.reload(true);
         console.log('data reloaded with ajax');
     }).fail(function (msg) {
         console.log('FAIL');
@@ -84,6 +87,7 @@ function updateWagon(data) {
 }
 
 function getAllWagons(){
+    $('#info tbody').remove();
     $.getJSON('/wagon', function (data) {
         $('#info').append(`
                   <tbody>${data.map(n => `
@@ -101,10 +105,6 @@ function getAllWagons(){
             getWagon(wagonId);
         });
     });
-}
-
-function removeTableRows(){
-    $('tbody > tr').remove();
 }
 
 function createWagon(){
@@ -142,6 +142,7 @@ function getNSIResourceData(){
                 $('body').append("<p>" + key+ " : " + value + "</p>")
             });
         });
+    $('#kafka').fadeIn(1000);
 }
 
 function sendFarArrival(){
@@ -149,6 +150,24 @@ function sendFarArrival(){
     $.post(`/farArrival/${inv}`, function (){
         console.log(`data sent to backend`);
         });
+}
+
+function cloneWagon(){
+    let lastRow = $('tbody tr').last();
+    $.ajax({
+        type: 'POST',
+        url: '/wagon',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            id: 0,
+            number: Number(lastRow.last().children()[1].textContent) + 1,
+            weight: lastRow.last().children()[2].textContent,
+            type: lastRow.last().children()[3].textContent
+        }), // access in body
+    }).done(function () {
+        console.log(`data sent to backend`);
+        getAllWagons();
+    });
 }
 
 

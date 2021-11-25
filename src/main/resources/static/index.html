@@ -39,10 +39,13 @@
             </label>
         </div>
     </fieldset>
-    <input type="button" id = "q" value="Put">
+    <div>
+        <input type="button" id = "q" value="Изменить выбраный вагон">
+        <input type="button" id = "clone" value="Клонировать вагон">
+    </div>
 </form>
 
-<a href="#modal" name="modal" class="mwl">Добавить вагон</a>
+<a href="#modal" name="modal" class="mwl">Добавить вагон вручную</a>
 
 <!-- #customize - здесь будет располагаться модальное окно -->
 <div id="modal" class="modalwindow">
@@ -80,7 +83,7 @@
 <label for="resources"></label><select id="resources"></select>
 <input type="button" id="resourceData" value="Получить данные">
 
-<form action="">
+<form id="kafka" action="">
     <fieldset>
         <div class="container">
             <label>

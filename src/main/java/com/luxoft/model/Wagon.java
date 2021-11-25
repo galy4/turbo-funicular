@@ -8,7 +8,7 @@ import lombok.Setter;
 
 @Getter @Setter
 @AllArgsConstructor
-public class Wagon {
+public class Wagon implements Comparable<Wagon>{
 
     private int id;
     private String vehicleNumber;
@@ -16,4 +16,8 @@ public class Wagon {
     private String wagonType;
     private String wagonLink;
 
+    @Override
+    public int compareTo(Wagon w) {
+        return Integer.parseInt(this.vehicleNumber) - Integer.parseInt(w.vehicleNumber);
+    }
 }
