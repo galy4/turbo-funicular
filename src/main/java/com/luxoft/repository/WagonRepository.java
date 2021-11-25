@@ -1,17 +1,23 @@
 package com.luxoft.repository;
 
+import com.luxoft.glossary.WagonType;
 import com.luxoft.model.Wagon;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@RequiredArgsConstructor
 @Getter @Setter
 public class WagonRepository {
 
-    private final List<Wagon> wagonList;
+    private List<Wagon> wagonList = new ArrayList<>();
+
+    public WagonRepository() {
+        wagonList.add(new Wagon(5,"10", 52.30,  WagonType.HALF.getType(), ""));
+        wagonList.add(new Wagon(10,"20", 41.34,  WagonType.OK.getType(), ""));
+    }
 }

@@ -12,17 +12,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import static com.luxoft.utils.TimeStampGenerator.getCurrentTimeStamp;
+import static com.luxoft.utils.TimeStampGenerator.getDepartureDate;
 
 @Component
 @RequiredArgsConstructor
 public class BuildFarArrival {
-    private  FarArrivalDto.Pk pk = new FarArrivalDto.Pk();
-    private  FarArrivalDto.Data data = new FarArrivalDto.Data();
-    private  List<FarArrivalDto.Position> positionList = new ArrayList<>();
+    private final FarArrivalDto.Pk pk = new FarArrivalDto.Pk();
+    private final FarArrivalDto.Data data = new FarArrivalDto.Data();
+    private final List<FarArrivalDto.Position> positionList = new ArrayList<>();
 
     private final FarArrivalDto model = new FarArrivalDto();
 
-    public FarArrivalDto configureModel(Resource resource, List<Wagon> wagonList)  {
+    public FarArrivalDto configureModel(String invoice, Resource resource, List<Wagon> wagonList)  {
         model.setValueSchema(SchemaValues.FAR_ARRIVAL_SCHEMA.getSchema());
         FarArrivalDto.Value value = new FarArrivalDto.Value();
         value.setTs(getCurrentTimeStamp());
@@ -34,7 +35,7 @@ public class BuildFarArrival {
         record.setValue(value);
         records.add(record);
         model.setRecords(records);
-        setPk("СР402715", "2021-11-16T15:58:59+06:00");
+        setPk(invoice, getDepartureDate(5));
         setData(resource);
         configureTrain(wagonList);
         return model;

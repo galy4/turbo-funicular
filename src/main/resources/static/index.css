@@ -5,6 +5,8 @@ table, th, td {
 
 input[type="button" i]{
     color: darkred;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* Выставляем все label друг под другом */
@@ -14,7 +16,7 @@ label {
 
 label > span{
     display:inline-block;
-    width: 100px;
+    width: 150px;
 }
 
 label > input{
@@ -42,7 +44,7 @@ h2 {
     text-align: center;
 }
 .content {
-    padding: 20px;
+    padding: 10px;
     color: #fff;
     font-size: 22px;
     line-height: 30px;
@@ -66,14 +68,15 @@ h2 {
 
 .form {
     text-align: left;
-    margin-bottom: auto;
+    margin-bottom: 20px;
 }
 
 .mwl{
     display: block;
     margin-block: inherit;
 }
-
-select{
-    margin-top: auto;
+.container{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

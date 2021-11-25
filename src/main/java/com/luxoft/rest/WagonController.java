@@ -41,8 +41,8 @@ public class WagonController {
     }
 
 
-    @GetMapping("/unload")
-    private void restTemplateExample(){
-        farArrivalService.sendFarArrival();
+    @PostMapping("/farArrival/{invoice}")
+    private void restTemplateExample(@PathVariable("invoice") String invoice) {
+        farArrivalService.sendFarArrival(invoice);
     }
 }

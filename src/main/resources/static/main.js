@@ -49,6 +49,11 @@ $(document).ready(()=>{
        getNSIResourceData();
     });
 
+    $("#far").click(()=> {
+        sendFarArrival();
+    });
+
+
 });
 
 function getWagon(id) {
@@ -136,6 +141,13 @@ function getNSIResourceData(){
             $.each(data, function (key, value){
                 $('body').append("<p>" + key+ " : " + value + "</p>")
             });
+        });
+}
+
+function sendFarArrival(){
+    let inv = $('#invoice').val();
+    $.post(`/farArrival/${inv}`, function (){
+        console.log(`data sent to backend`);
         });
 }
 
