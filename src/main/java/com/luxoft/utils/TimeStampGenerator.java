@@ -1,39 +1,36 @@
 package com.luxoft.utils;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 public class TimeStampGenerator {
 
     public static String getCurrentTimeStamp(){
-        SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z'");
-        return ft.format(new Date());
+        DateTimeFormatter ft = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        return ft.format(ZonedDateTime.now());
     }
 
     public static String getDepartureDate(int delta){
-        SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss+06:00");
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE, -delta);
-        return ft.format(new Date(calendar.getTimeInMillis()));
+        DateTimeFormatter ft = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss x:00");
+        ZonedDateTime date = ZonedDateTime.now().minusDays(delta);
+        return ft.format(date);
     }
 
     public static String generateTimeStampNODelimeters(){
-        SimpleDateFormat ft = new SimpleDateFormat("ddMMyyhhmmss");
-        return ft.format(new Date());
+        DateTimeFormatter ft = DateTimeFormatter.ofPattern("ddMMyyHHmmss");
+        return ft.format(ZonedDateTime.now());
     }
 
     public static String getCurrentDate(){
-        SimpleDateFormat ft = new SimpleDateFormat("ddMMyy");
-        return ft.format(new Date());
+        DateTimeFormatter ft = DateTimeFormatter.ofPattern("ddMMyy");
+        return ft.format(ZonedDateTime.now());
     }
 
     public static String getDepartureDateWithMs(int delta){
-        SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS+06:00");
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE, -delta);
-        return ft.format(new Date(calendar.getTimeInMillis()));
+        DateTimeFormatter ft = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS x:00");
+        ZonedDateTime date = ZonedDateTime.now().minusDays(delta);
+        return ft.format(date);
     }
 }
 

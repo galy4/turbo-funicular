@@ -3,7 +3,7 @@ $(document).ready(()=>{
 
     getAllWagons();
     $('#kafka').hide();
-    $("#q").click(function () {
+    $("#q").click(()=> {
         if (wagonId === 0) {
             alert("No row for update selected");
             return;
@@ -37,7 +37,7 @@ $(document).ready(()=>{
     });
 
     //если нажата кнопка закрытия окна
-    $('.modalwindow .close').click(function (e) {
+    $('.modalwindow .close').click((e)=> {
         //Отменяем поведение ссылки
         e.preventDefault();
         $('.modalwindow').fadeOut(500);
@@ -47,7 +47,7 @@ $(document).ready(()=>{
         createWagon();
     });
 
-    $('#resourceData').click(function (){
+    $('#resourceData').click(()=>{
        getNSIResourceData();
     });
 
@@ -88,7 +88,7 @@ function updateWagon(data) {
 
 function getAllWagons(){
     $('#info tbody').remove();
-    $.getJSON('/wagon', function (data) {
+    $.getJSON('/wagon', (data)=> {
         $('#info').append(`
                   <tbody>${data.map(n => `
                     <tr>
@@ -124,8 +124,8 @@ function createWagon(){
 }
 
 function readResources(){
-    $.getJSON( "/resource", function(items) {
-        $.each(items, function(key, value) {
+    $.getJSON( "/resource", (items) =>{
+        $.each(items, (key, value)=> {
             $('#resources')
                 .append($("<option></option>")
                     .attr("value", key)

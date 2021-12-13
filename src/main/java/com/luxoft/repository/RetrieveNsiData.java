@@ -23,7 +23,7 @@ public class RetrieveNsiData {
         Resource resource = namedParameterJdbcTemplate.queryForObject(
                 "select mr.full_name as material_name, mr.source_transport_code as material_code, s.code as supplier_code, s.\"name\" " +
                 "as supplier_name  from material_resource mr join supplier_material_resource smr on smr.material_resource_id = mr.id \n" +
-                "join supplier s on s.id = smr.supplier_id where mr.full_name = :material_name",
+                "join supplier s on s.id = smr.supplier_id where mr.full_name = :material_name limit 1",
 //                Collections.singletonMap("material_name", name), resourceDataMapper);
                 Collections.singletonMap("material_name", name), (rs, i) -> new Resource(
                         rs.getString("material_name"),

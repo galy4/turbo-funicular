@@ -10,11 +10,11 @@ import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import static com.luxoft.utils.TimeStampGenerator.getCurrentTimeStamp;
 import static com.luxoft.utils.TimeStampGenerator.getDepartureDate;
 
-@Component
 @RequiredArgsConstructor
 public class BuildFarArrival {
     private final FarArrivalDto.Pk pk = new FarArrivalDto.Pk();
@@ -30,10 +30,11 @@ public class BuildFarArrival {
         value.setOp("I");
         value.setPk(pk);
         value.setData(data);
-        List<FarArrivalDto.Record> records = new ArrayList<>();
+//        List<FarArrivalDto.Record> records = new ArrayList<>();
         FarArrivalDto.Record record = new FarArrivalDto.Record();
         record.setValue(value);
-        records.add(record);
+//        records.add(record);
+        List<FarArrivalDto.Record> records = List.of(record);
         model.setRecords(records);
         setPk(invoice, getDepartureDate(5));
         setData(resource);

@@ -20,6 +20,7 @@ public class FarArrivalService {
 
     private final ResourceRepository resourceRepository;
     private final WagonRepository wagonRepository;
+    private final ResourceService resourceService;
 
     private final RestTemplate restTemplate = new RestTemplate();
     private final String kafkaUrl =  "https://kafka-rest-000-1.dp.nlmk.com/topics/000-1.l3-transport.db.nlmk.far-arrival.0";
@@ -31,7 +32,8 @@ public class FarArrivalService {
         headers.add("Accept", "*/*");
         FarArrivalDto farArrivalDto = new BuildFarArrival().configureModel(
                 invoice,
-                resourceRepository.getResource(),
+//                resourceRepository.getResource(),
+                resourceService.getResource(),
                 wagonRepository.getWagonList()
         );
 
