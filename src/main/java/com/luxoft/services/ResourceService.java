@@ -2,7 +2,6 @@ package com.luxoft.services;
 
 import com.luxoft.dto.ResourceDto;
 import com.luxoft.model.Resource;
-import com.luxoft.repository.ResourceRepository;
 import com.luxoft.repository.RetrieveNsiData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,7 +14,7 @@ public class ResourceService {
 
     private final RetrieveNsiData retrieveNsiData;
     private final ResourceConvertor resourceConvertor;
-    private final ResourceRepository resourceRepository;
+
 
     private Resource resource;
 

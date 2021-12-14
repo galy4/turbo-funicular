@@ -1,0 +1,159 @@
+{
+  "type": "record",
+  "name": "FarArrival",
+  "namespace": "nlmk.l3.transport.far_arrival",
+  "doc": "Накладная Дальний подход",
+  "fields": [
+    {
+      "name": "ts",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "doc": "Дата и время передачи"
+    },
+    {
+      "name": "op",
+      "type": {
+        "type": "enum",
+        "name": "enum_op",
+        "symbols": [
+          "I",
+          "U"
+        ]
+      },
+      "doc": "Код операции"
+    },
+    {
+      "name": "pk",
+      "type": {
+        "type": "record",
+        "name": "RecordPk",
+        "fields": [
+          {
+            "name": "waybillNum",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            },
+            "doc": "Номер накладной"
+          },
+          {
+            "name": "departureDate",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            },
+            "doc": "Дата отправления (в формате YYYY-MM-DDThh:mm:ss+hh:mm)"
+          }
+        ]
+      },
+      "doc": "???? ???????"
+    },
+    {
+      "name": "data",
+      "type": {
+        "type": "record",
+        "name": "RecordData",
+        "doc": "Ключ объекта",
+        "fields": [
+          {
+            "name": "stationDepartureCode",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            },
+            "doc": "Код станции отправления"
+          },
+          {
+            "name": "stationDepartureName",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            },
+            "doc": "Название станции отправления"
+          },
+          {
+            "name": "stationArrivalCode",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            },
+            "doc": "Код станции назначения"
+          },
+          {
+            "name": "stationArrivalName",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            },
+            "doc": "Название станции назначения"
+          },
+          {
+            "name": "supplierCode",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            },
+            "doc": "Код грузоотправителя"
+          },
+          {
+            "name": "supplierName",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            },
+            "doc": "Наименование грузоотправителя"
+          },
+          {
+            "name": "materialCode",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            },
+            "doc": "Код груза"
+          },
+          {
+            "name": "materialName",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            },
+            "doc": "Наименование груза"
+          },
+          {
+            "name": "positions",
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "record",
+                "name": "RecordPositions",
+                "fields": [
+                  {
+                    "name": "wagonNum",
+                    "type": "int",
+                    "doc": "Номер вагона"
+                  },
+                  {
+                    "name": "wagonType",
+                    "type": {
+                      "type": "string",
+                      "avro.java.string": "String"
+                    },
+                    "doc": "Тип вагона"
+                  },
+                  {
+                    "name": "weightNet",
+                    "type": "float",
+                    "doc": "Вес груза, т"
+                  }
+                ]
+              }
+            },
+            "doc": "Позиции накладной"
+          }
+        ]
+      }
+    }
+  ]
+}

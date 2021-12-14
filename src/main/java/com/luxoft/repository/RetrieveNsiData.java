@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
-@Slf4j
+@Slf4j(topic = "database")
 public class RetrieveNsiData {
 
     private final JdbcTemplate jdbcTemplate;
