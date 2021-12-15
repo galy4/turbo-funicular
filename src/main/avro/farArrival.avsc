@@ -48,14 +48,14 @@
           }
         ]
       },
-      "doc": "???? ???????"
+      "doc": "Ключ объекта"
     },
     {
       "name": "data",
       "type": {
         "type": "record",
         "name": "RecordData",
-        "doc": "Ключ объекта",
+        "doc": "Данные операции",
         "fields": [
           {
             "name": "stationDepartureCode",

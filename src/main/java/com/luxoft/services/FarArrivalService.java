@@ -39,15 +39,22 @@ public class FarArrivalService {
     private final RestTemplate restTemplate = new RestTemplate();
     private final String kafkaUrl =  "https://kafka-rest-000-1.dp.nlmk.com/topics/000-1.l3-transport.db.nlmk.far-arrival.0";
 
-    public void sendFarArrival(String invoice){
-        FarArrivalDto farArrivalDto = new BuildFarArrival().configureModel(
-                invoice,
-//                resourceRepository.getResource(),
-                resourceService.getResource(),
-                wagonRepository.getWagonList()
-        );
+//    public void sendFarArrival(String invoice){
+//        FarArrivalDto farArrivalDto = new BuildFarArrival().configureModel(
+//                invoice,
+//                resourceService.getResource(),
+//                wagonRepository.getWagonList()
+//        );
+//
+//        HttpEntity<Object> entity = new HttpEntity<>(farArrivalDto, headersSupplier.get());
+//        ResponseEntity<String> response = restTemplate.postForEntity(kafkaUrl, entity, String.class);
+//        log.info(response.getBody());
+//    }
 
-        HttpEntity<Object> entity = new HttpEntity<>(farArrivalDto, headersSupplier.get());
+
+    public void sendFarArrival(String invoice){
+        FarArrival farArrival = sendAvro(invoice);
+        HttpEntity<Object> entity = new HttpEntity<>(farArrival, headersSupplier.get());
         ResponseEntity<String> response = restTemplate.postForEntity(kafkaUrl, entity, String.class);
         log.info(response.getBody());
     }
