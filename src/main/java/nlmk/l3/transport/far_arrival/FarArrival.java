@@ -18,7 +18,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
   private static final long serialVersionUID = -2887978009503974397L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"FarArrival\",\"namespace\":\"nlmk.l3.transport.far_arrival\",\"doc\":\"Накладная Дальний подход\",\"fields\":[{\"name\":\"ts\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата и время передачи\"},{\"name\":\"op\",\"type\":{\"type\":\"enum\",\"name\":\"enum_op\",\"symbols\":[\"I\",\"U\"]},\"doc\":\"Код операции\"},{\"name\":\"pk\",\"type\":{\"type\":\"record\",\"name\":\"RecordPk\",\"fields\":[{\"name\":\"waybillNum\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Номер накладной\"},{\"name\":\"departureDate\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата отправления (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"}]},\"doc\":\"???? ???????\"},{\"name\":\"data\",\"type\":{\"type\":\"record\",\"name\":\"RecordData\",\"doc\":\"Ключ объекта\",\"fields\":[{\"name\":\"stationDepartureCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции отправления\"},{\"name\":\"stationDepartureName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Название станции отправления\"},{\"name\":\"stationArrivalCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции назначения\"},{\"name\":\"stationArrivalName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Название станции назначения\"},{\"name\":\"supplierCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код грузоотправителя\"},{\"name\":\"supplierName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование грузоотправителя\"},{\"name\":\"materialCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код груза\"},{\"name\":\"materialName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование груза\"},{\"name\":\"positions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"RecordPositions\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"wagonType\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Тип вагона\"},{\"name\":\"weightNet\",\"type\":\"float\",\"doc\":\"Вес груза, т\"}]}},\"doc\":\"Позиции накладной\"}]}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"FarArrival\",\"namespace\":\"nlmk.l3.transport.far_arrival\",\"doc\":\"Накладная Дальний подход\",\"fields\":[{\"name\":\"ts\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата и время передачи\"},{\"name\":\"op\",\"type\":{\"type\":\"enum\",\"name\":\"enum_op\",\"symbols\":[\"I\",\"U\"]},\"doc\":\"Код операции\"},{\"name\":\"pk\",\"type\":{\"type\":\"record\",\"name\":\"RecordPk\",\"fields\":[{\"name\":\"waybillNum\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Номер накладной\"},{\"name\":\"departureDate\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата отправления (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"}]},\"doc\":\"Ключ объекта\"},{\"name\":\"data\",\"type\":{\"type\":\"record\",\"name\":\"RecordData\",\"doc\":\"Данные операции\",\"fields\":[{\"name\":\"stationDepartureCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции отправления\"},{\"name\":\"stationDepartureName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Название станции отправления\"},{\"name\":\"stationArrivalCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции назначения\"},{\"name\":\"stationArrivalName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Название станции назначения\"},{\"name\":\"supplierCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код грузоотправителя\"},{\"name\":\"supplierName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование грузоотправителя\"},{\"name\":\"materialCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код груза\"},{\"name\":\"materialName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование груза\"},{\"name\":\"positions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"RecordPositions\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"wagonType\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Тип вагона\"},{\"name\":\"weightNet\",\"type\":\"float\",\"doc\":\"Вес груза, т\"}]}},\"doc\":\"Позиции накладной\"}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -75,10 +75,10 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /** Дата и время передачи */
-  private java.lang.CharSequence ts;
+  private java.lang.String ts;
   /** Код операции */
   private nlmk.l3.transport.far_arrival.enum_op op;
-  /** ???? ??????? */
+  /** Ключ объекта */
   private nlmk.l3.transport.far_arrival.RecordPk pk;
   private nlmk.l3.transport.far_arrival.RecordData data;
 
@@ -93,10 +93,10 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
    * All-args constructor.
    * @param ts Дата и время передачи
    * @param op Код операции
-   * @param pk ???? ???????
+   * @param pk Ключ объекта
    * @param data The new value for data
    */
-  public FarArrival(java.lang.CharSequence ts, nlmk.l3.transport.far_arrival.enum_op op, nlmk.l3.transport.far_arrival.RecordPk pk, nlmk.l3.transport.far_arrival.RecordData data) {
+  public FarArrival(java.lang.String ts, nlmk.l3.transport.far_arrival.enum_op op, nlmk.l3.transport.far_arrival.RecordPk pk, nlmk.l3.transport.far_arrival.RecordData data) {
     this.ts = ts;
     this.op = op;
     this.pk = pk;
@@ -120,7 +120,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: ts = (java.lang.CharSequence)value$; break;
+    case 0: ts = value$ != null ? value$.toString() : null; break;
     case 1: op = (nlmk.l3.transport.far_arrival.enum_op)value$; break;
     case 2: pk = (nlmk.l3.transport.far_arrival.RecordPk)value$; break;
     case 3: data = (nlmk.l3.transport.far_arrival.RecordData)value$; break;
@@ -132,7 +132,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'ts' field.
    * @return Дата и время передачи
    */
-  public java.lang.CharSequence getTs() {
+  public java.lang.String getTs() {
     return ts;
   }
 
@@ -142,7 +142,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
    * Дата и время передачи
    * @param value the value to set.
    */
-  public void setTs(java.lang.CharSequence value) {
+  public void setTs(java.lang.String value) {
     this.ts = value;
   }
 
@@ -166,7 +166,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
 
   /**
    * Gets the value of the 'pk' field.
-   * @return ???? ???????
+   * @return Ключ объекта
    */
   public nlmk.l3.transport.far_arrival.RecordPk getPk() {
     return pk;
@@ -175,7 +175,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
 
   /**
    * Sets the value of the 'pk' field.
-   * ???? ???????
+   * Ключ объекта
    * @param value the value to set.
    */
   public void setPk(nlmk.l3.transport.far_arrival.RecordPk value) {
@@ -241,10 +241,10 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
     implements org.apache.avro.data.RecordBuilder<FarArrival> {
 
     /** Дата и время передачи */
-    private java.lang.CharSequence ts;
+    private java.lang.String ts;
     /** Код операции */
     private nlmk.l3.transport.far_arrival.enum_op op;
-    /** ???? ??????? */
+    /** Ключ объекта */
     private nlmk.l3.transport.far_arrival.RecordPk pk;
     private nlmk.l3.transport.far_arrival.RecordPk.Builder pkBuilder;
     private nlmk.l3.transport.far_arrival.RecordData data;
@@ -316,7 +316,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
       * Дата и время передачи
       * @return The value.
       */
-    public java.lang.CharSequence getTs() {
+    public java.lang.String getTs() {
       return ts;
     }
 
@@ -327,7 +327,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'ts'.
       * @return This builder.
       */
-    public nlmk.l3.transport.far_arrival.FarArrival.Builder setTs(java.lang.CharSequence value) {
+    public nlmk.l3.transport.far_arrival.FarArrival.Builder setTs(java.lang.String value) {
       validate(fields()[0], value);
       this.ts = value;
       fieldSetFlags()[0] = true;
@@ -401,7 +401,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
 
     /**
       * Gets the value of the 'pk' field.
-      * ???? ???????
+      * Ключ объекта
       * @return The value.
       */
     public nlmk.l3.transport.far_arrival.RecordPk getPk() {
@@ -411,7 +411,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
 
     /**
       * Sets the value of the 'pk' field.
-      * ???? ???????
+      * Ключ объекта
       * @param value The value of 'pk'.
       * @return This builder.
       */
@@ -425,7 +425,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
 
     /**
       * Checks whether the 'pk' field has been set.
-      * ???? ???????
+      * Ключ объекта
       * @return True if the 'pk' field has been set, false otherwise.
       */
     public boolean hasPk() {
@@ -434,7 +434,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
 
     /**
      * Gets the Builder instance for the 'pk' field and creates one if it doesn't exist yet.
-     * ???? ???????
+     * Ключ объекта
      * @return This builder.
      */
     public nlmk.l3.transport.far_arrival.RecordPk.Builder getPkBuilder() {
@@ -450,7 +450,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
 
     /**
      * Sets the Builder instance for the 'pk' field
-     * ???? ???????
+     * Ключ объекта
      * @param value The builder instance that must be set.
      * @return This builder.
      */
@@ -463,7 +463,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
 
     /**
      * Checks whether the 'pk' field has an active Builder instance
-     * ???? ???????
+     * Ключ объекта
      * @return True if the 'pk' field has an active Builder instance
      */
     public boolean hasPkBuilder() {
@@ -472,7 +472,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
 
     /**
       * Clears the value of the 'pk' field.
-      * ???? ???????
+      * Ключ объекта
       * @return This builder.
       */
     public nlmk.l3.transport.far_arrival.FarArrival.Builder clearPk() {
@@ -563,7 +563,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
     public FarArrival build() {
       try {
         FarArrival record = new FarArrival();
-        record.ts = fieldSetFlags()[0] ? this.ts : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.ts = fieldSetFlags()[0] ? this.ts : (java.lang.String) defaultValue(fields()[0]);
         record.op = fieldSetFlags()[1] ? this.op : (nlmk.l3.transport.far_arrival.enum_op) defaultValue(fields()[1]);
         if (pkBuilder != null) {
           try {
@@ -632,7 +632,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
   {
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
-      this.ts = in.readString(this.ts instanceof Utf8 ? (Utf8)this.ts : null);
+      this.ts = in.readString();
 
       this.op = nlmk.l3.transport.far_arrival.enum_op.values()[in.readEnum()];
 
@@ -650,7 +650,7 @@ public class FarArrival extends org.apache.avro.specific.SpecificRecordBase impl
       for (int i = 0; i < 4; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
-          this.ts = in.readString(this.ts instanceof Utf8 ? (Utf8)this.ts : null);
+          this.ts = in.readString();
           break;
 
         case 1:

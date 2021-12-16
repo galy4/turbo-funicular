@@ -74,9 +74,9 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
   }
 
   /** Номер накладной */
-  private java.lang.CharSequence waybillNum;
+  private java.lang.String waybillNum;
   /** Дата отправления (в формате YYYY-MM-DDThh:mm:ss+hh:mm) */
-  private java.lang.CharSequence departureDate;
+  private java.lang.String departureDate;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -90,7 +90,7 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
    * @param waybillNum Номер накладной
    * @param departureDate Дата отправления (в формате YYYY-MM-DDThh:mm:ss+hh:mm)
    */
-  public RecordPk(java.lang.CharSequence waybillNum, java.lang.CharSequence departureDate) {
+  public RecordPk(java.lang.String waybillNum, java.lang.String departureDate) {
     this.waybillNum = waybillNum;
     this.departureDate = departureDate;
   }
@@ -110,8 +110,8 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: waybillNum = (java.lang.CharSequence)value$; break;
-    case 1: departureDate = (java.lang.CharSequence)value$; break;
+    case 0: waybillNum = value$ != null ? value$.toString() : null; break;
+    case 1: departureDate = value$ != null ? value$.toString() : null; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -120,7 +120,7 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'waybillNum' field.
    * @return Номер накладной
    */
-  public java.lang.CharSequence getWaybillNum() {
+  public java.lang.String getWaybillNum() {
     return waybillNum;
   }
 
@@ -130,7 +130,7 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
    * Номер накладной
    * @param value the value to set.
    */
-  public void setWaybillNum(java.lang.CharSequence value) {
+  public void setWaybillNum(java.lang.String value) {
     this.waybillNum = value;
   }
 
@@ -138,7 +138,7 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'departureDate' field.
    * @return Дата отправления (в формате YYYY-MM-DDThh:mm:ss+hh:mm)
    */
-  public java.lang.CharSequence getDepartureDate() {
+  public java.lang.String getDepartureDate() {
     return departureDate;
   }
 
@@ -148,7 +148,7 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
    * Дата отправления (в формате YYYY-MM-DDThh:mm:ss+hh:mm)
    * @param value the value to set.
    */
-  public void setDepartureDate(java.lang.CharSequence value) {
+  public void setDepartureDate(java.lang.String value) {
     this.departureDate = value;
   }
 
@@ -194,9 +194,9 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
     implements org.apache.avro.data.RecordBuilder<RecordPk> {
 
     /** Номер накладной */
-    private java.lang.CharSequence waybillNum;
+    private java.lang.String waybillNum;
     /** Дата отправления (в формате YYYY-MM-DDThh:mm:ss+hh:mm) */
-    private java.lang.CharSequence departureDate;
+    private java.lang.String departureDate;
 
     /** Creates a new Builder */
     private Builder() {
@@ -240,7 +240,7 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
       * Номер накладной
       * @return The value.
       */
-    public java.lang.CharSequence getWaybillNum() {
+    public java.lang.String getWaybillNum() {
       return waybillNum;
     }
 
@@ -251,7 +251,7 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'waybillNum'.
       * @return This builder.
       */
-    public nlmk.l3.transport.far_arrival.RecordPk.Builder setWaybillNum(java.lang.CharSequence value) {
+    public nlmk.l3.transport.far_arrival.RecordPk.Builder setWaybillNum(java.lang.String value) {
       validate(fields()[0], value);
       this.waybillNum = value;
       fieldSetFlags()[0] = true;
@@ -284,7 +284,7 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
       * Дата отправления (в формате YYYY-MM-DDThh:mm:ss+hh:mm)
       * @return The value.
       */
-    public java.lang.CharSequence getDepartureDate() {
+    public java.lang.String getDepartureDate() {
       return departureDate;
     }
 
@@ -295,7 +295,7 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'departureDate'.
       * @return This builder.
       */
-    public nlmk.l3.transport.far_arrival.RecordPk.Builder setDepartureDate(java.lang.CharSequence value) {
+    public nlmk.l3.transport.far_arrival.RecordPk.Builder setDepartureDate(java.lang.String value) {
       validate(fields()[1], value);
       this.departureDate = value;
       fieldSetFlags()[1] = true;
@@ -328,8 +328,8 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
     public RecordPk build() {
       try {
         RecordPk record = new RecordPk();
-        record.waybillNum = fieldSetFlags()[0] ? this.waybillNum : (java.lang.CharSequence) defaultValue(fields()[0]);
-        record.departureDate = fieldSetFlags()[1] ? this.departureDate : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.waybillNum = fieldSetFlags()[0] ? this.waybillNum : (java.lang.String) defaultValue(fields()[0]);
+        record.departureDate = fieldSetFlags()[1] ? this.departureDate : (java.lang.String) defaultValue(fields()[1]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -373,19 +373,19 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
   {
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
-      this.waybillNum = in.readString(this.waybillNum instanceof Utf8 ? (Utf8)this.waybillNum : null);
+      this.waybillNum = in.readString();
 
-      this.departureDate = in.readString(this.departureDate instanceof Utf8 ? (Utf8)this.departureDate : null);
+      this.departureDate = in.readString();
 
     } else {
       for (int i = 0; i < 2; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
-          this.waybillNum = in.readString(this.waybillNum instanceof Utf8 ? (Utf8)this.waybillNum : null);
+          this.waybillNum = in.readString();
           break;
 
         case 1:
-          this.departureDate = in.readString(this.departureDate instanceof Utf8 ? (Utf8)this.departureDate : null);
+          this.departureDate = in.readString();
           break;
 
         default:

@@ -12,13 +12,13 @@ import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
 
-/** Ключ объекта */
+/** Данные операции */
 @org.apache.avro.specific.AvroGenerated
 public class RecordData extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 4237066131091929286L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordData\",\"namespace\":\"nlmk.l3.transport.far_arrival\",\"doc\":\"Ключ объекта\",\"fields\":[{\"name\":\"stationDepartureCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции отправления\"},{\"name\":\"stationDepartureName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Название станции отправления\"},{\"name\":\"stationArrivalCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции назначения\"},{\"name\":\"stationArrivalName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Название станции назначения\"},{\"name\":\"supplierCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код грузоотправителя\"},{\"name\":\"supplierName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование грузоотправителя\"},{\"name\":\"materialCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код груза\"},{\"name\":\"materialName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование груза\"},{\"name\":\"positions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"RecordPositions\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"wagonType\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Тип вагона\"},{\"name\":\"weightNet\",\"type\":\"float\",\"doc\":\"Вес груза, т\"}]}},\"doc\":\"Позиции накладной\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordData\",\"namespace\":\"nlmk.l3.transport.far_arrival\",\"doc\":\"Данные операции\",\"fields\":[{\"name\":\"stationDepartureCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции отправления\"},{\"name\":\"stationDepartureName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Название станции отправления\"},{\"name\":\"stationArrivalCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции назначения\"},{\"name\":\"stationArrivalName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Название станции назначения\"},{\"name\":\"supplierCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код грузоотправителя\"},{\"name\":\"supplierName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование грузоотправителя\"},{\"name\":\"materialCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код груза\"},{\"name\":\"materialName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование груза\"},{\"name\":\"positions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"RecordPositions\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"wagonType\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Тип вагона\"},{\"name\":\"weightNet\",\"type\":\"float\",\"doc\":\"Вес груза, т\"}]}},\"doc\":\"Позиции накладной\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -75,21 +75,21 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /** Код станции отправления */
-  private java.lang.CharSequence stationDepartureCode;
+  private java.lang.String stationDepartureCode;
   /** Название станции отправления */
-  private java.lang.CharSequence stationDepartureName;
+  private java.lang.String stationDepartureName;
   /** Код станции назначения */
-  private java.lang.CharSequence stationArrivalCode;
+  private java.lang.String stationArrivalCode;
   /** Название станции назначения */
-  private java.lang.CharSequence stationArrivalName;
+  private java.lang.String stationArrivalName;
   /** Код грузоотправителя */
-  private java.lang.CharSequence supplierCode;
+  private java.lang.String supplierCode;
   /** Наименование грузоотправителя */
-  private java.lang.CharSequence supplierName;
+  private java.lang.String supplierName;
   /** Код груза */
-  private java.lang.CharSequence materialCode;
+  private java.lang.String materialCode;
   /** Наименование груза */
-  private java.lang.CharSequence materialName;
+  private java.lang.String materialName;
   /** Позиции накладной */
   private java.util.List<nlmk.l3.transport.far_arrival.RecordPositions> positions;
 
@@ -112,7 +112,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * @param materialName Наименование груза
    * @param positions Позиции накладной
    */
-  public RecordData(java.lang.CharSequence stationDepartureCode, java.lang.CharSequence stationDepartureName, java.lang.CharSequence stationArrivalCode, java.lang.CharSequence stationArrivalName, java.lang.CharSequence supplierCode, java.lang.CharSequence supplierName, java.lang.CharSequence materialCode, java.lang.CharSequence materialName, java.util.List<nlmk.l3.transport.far_arrival.RecordPositions> positions) {
+  public RecordData(java.lang.String stationDepartureCode, java.lang.String stationDepartureName, java.lang.String stationArrivalCode, java.lang.String stationArrivalName, java.lang.String supplierCode, java.lang.String supplierName, java.lang.String materialCode, java.lang.String materialName, java.util.List<nlmk.l3.transport.far_arrival.RecordPositions> positions) {
     this.stationDepartureCode = stationDepartureCode;
     this.stationDepartureName = stationDepartureName;
     this.stationArrivalCode = stationArrivalCode;
@@ -146,14 +146,14 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: stationDepartureCode = (java.lang.CharSequence)value$; break;
-    case 1: stationDepartureName = (java.lang.CharSequence)value$; break;
-    case 2: stationArrivalCode = (java.lang.CharSequence)value$; break;
-    case 3: stationArrivalName = (java.lang.CharSequence)value$; break;
-    case 4: supplierCode = (java.lang.CharSequence)value$; break;
-    case 5: supplierName = (java.lang.CharSequence)value$; break;
-    case 6: materialCode = (java.lang.CharSequence)value$; break;
-    case 7: materialName = (java.lang.CharSequence)value$; break;
+    case 0: stationDepartureCode = value$ != null ? value$.toString() : null; break;
+    case 1: stationDepartureName = value$ != null ? value$.toString() : null; break;
+    case 2: stationArrivalCode = value$ != null ? value$.toString() : null; break;
+    case 3: stationArrivalName = value$ != null ? value$.toString() : null; break;
+    case 4: supplierCode = value$ != null ? value$.toString() : null; break;
+    case 5: supplierName = value$ != null ? value$.toString() : null; break;
+    case 6: materialCode = value$ != null ? value$.toString() : null; break;
+    case 7: materialName = value$ != null ? value$.toString() : null; break;
     case 8: positions = (java.util.List<nlmk.l3.transport.far_arrival.RecordPositions>)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
@@ -163,7 +163,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'stationDepartureCode' field.
    * @return Код станции отправления
    */
-  public java.lang.CharSequence getStationDepartureCode() {
+  public java.lang.String getStationDepartureCode() {
     return stationDepartureCode;
   }
 
@@ -173,7 +173,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * Код станции отправления
    * @param value the value to set.
    */
-  public void setStationDepartureCode(java.lang.CharSequence value) {
+  public void setStationDepartureCode(java.lang.String value) {
     this.stationDepartureCode = value;
   }
 
@@ -181,7 +181,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'stationDepartureName' field.
    * @return Название станции отправления
    */
-  public java.lang.CharSequence getStationDepartureName() {
+  public java.lang.String getStationDepartureName() {
     return stationDepartureName;
   }
 
@@ -191,7 +191,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * Название станции отправления
    * @param value the value to set.
    */
-  public void setStationDepartureName(java.lang.CharSequence value) {
+  public void setStationDepartureName(java.lang.String value) {
     this.stationDepartureName = value;
   }
 
@@ -199,7 +199,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'stationArrivalCode' field.
    * @return Код станции назначения
    */
-  public java.lang.CharSequence getStationArrivalCode() {
+  public java.lang.String getStationArrivalCode() {
     return stationArrivalCode;
   }
 
@@ -209,7 +209,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * Код станции назначения
    * @param value the value to set.
    */
-  public void setStationArrivalCode(java.lang.CharSequence value) {
+  public void setStationArrivalCode(java.lang.String value) {
     this.stationArrivalCode = value;
   }
 
@@ -217,7 +217,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'stationArrivalName' field.
    * @return Название станции назначения
    */
-  public java.lang.CharSequence getStationArrivalName() {
+  public java.lang.String getStationArrivalName() {
     return stationArrivalName;
   }
 
@@ -227,7 +227,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * Название станции назначения
    * @param value the value to set.
    */
-  public void setStationArrivalName(java.lang.CharSequence value) {
+  public void setStationArrivalName(java.lang.String value) {
     this.stationArrivalName = value;
   }
 
@@ -235,7 +235,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'supplierCode' field.
    * @return Код грузоотправителя
    */
-  public java.lang.CharSequence getSupplierCode() {
+  public java.lang.String getSupplierCode() {
     return supplierCode;
   }
 
@@ -245,7 +245,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * Код грузоотправителя
    * @param value the value to set.
    */
-  public void setSupplierCode(java.lang.CharSequence value) {
+  public void setSupplierCode(java.lang.String value) {
     this.supplierCode = value;
   }
 
@@ -253,7 +253,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'supplierName' field.
    * @return Наименование грузоотправителя
    */
-  public java.lang.CharSequence getSupplierName() {
+  public java.lang.String getSupplierName() {
     return supplierName;
   }
 
@@ -263,7 +263,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * Наименование грузоотправителя
    * @param value the value to set.
    */
-  public void setSupplierName(java.lang.CharSequence value) {
+  public void setSupplierName(java.lang.String value) {
     this.supplierName = value;
   }
 
@@ -271,7 +271,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'materialCode' field.
    * @return Код груза
    */
-  public java.lang.CharSequence getMaterialCode() {
+  public java.lang.String getMaterialCode() {
     return materialCode;
   }
 
@@ -281,7 +281,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * Код груза
    * @param value the value to set.
    */
-  public void setMaterialCode(java.lang.CharSequence value) {
+  public void setMaterialCode(java.lang.String value) {
     this.materialCode = value;
   }
 
@@ -289,7 +289,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'materialName' field.
    * @return Наименование груза
    */
-  public java.lang.CharSequence getMaterialName() {
+  public java.lang.String getMaterialName() {
     return materialName;
   }
 
@@ -299,7 +299,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * Наименование груза
    * @param value the value to set.
    */
-  public void setMaterialName(java.lang.CharSequence value) {
+  public void setMaterialName(java.lang.String value) {
     this.materialName = value;
   }
 
@@ -363,21 +363,21 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
     implements org.apache.avro.data.RecordBuilder<RecordData> {
 
     /** Код станции отправления */
-    private java.lang.CharSequence stationDepartureCode;
+    private java.lang.String stationDepartureCode;
     /** Название станции отправления */
-    private java.lang.CharSequence stationDepartureName;
+    private java.lang.String stationDepartureName;
     /** Код станции назначения */
-    private java.lang.CharSequence stationArrivalCode;
+    private java.lang.String stationArrivalCode;
     /** Название станции назначения */
-    private java.lang.CharSequence stationArrivalName;
+    private java.lang.String stationArrivalName;
     /** Код грузоотправителя */
-    private java.lang.CharSequence supplierCode;
+    private java.lang.String supplierCode;
     /** Наименование грузоотправителя */
-    private java.lang.CharSequence supplierName;
+    private java.lang.String supplierName;
     /** Код груза */
-    private java.lang.CharSequence materialCode;
+    private java.lang.String materialCode;
     /** Наименование груза */
-    private java.lang.CharSequence materialName;
+    private java.lang.String materialName;
     /** Позиции накладной */
     private java.util.List<nlmk.l3.transport.far_arrival.RecordPositions> positions;
 
@@ -479,7 +479,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * Код станции отправления
       * @return The value.
       */
-    public java.lang.CharSequence getStationDepartureCode() {
+    public java.lang.String getStationDepartureCode() {
       return stationDepartureCode;
     }
 
@@ -490,7 +490,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'stationDepartureCode'.
       * @return This builder.
       */
-    public nlmk.l3.transport.far_arrival.RecordData.Builder setStationDepartureCode(java.lang.CharSequence value) {
+    public nlmk.l3.transport.far_arrival.RecordData.Builder setStationDepartureCode(java.lang.String value) {
       validate(fields()[0], value);
       this.stationDepartureCode = value;
       fieldSetFlags()[0] = true;
@@ -523,7 +523,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * Название станции отправления
       * @return The value.
       */
-    public java.lang.CharSequence getStationDepartureName() {
+    public java.lang.String getStationDepartureName() {
       return stationDepartureName;
     }
 
@@ -534,7 +534,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'stationDepartureName'.
       * @return This builder.
       */
-    public nlmk.l3.transport.far_arrival.RecordData.Builder setStationDepartureName(java.lang.CharSequence value) {
+    public nlmk.l3.transport.far_arrival.RecordData.Builder setStationDepartureName(java.lang.String value) {
       validate(fields()[1], value);
       this.stationDepartureName = value;
       fieldSetFlags()[1] = true;
@@ -567,7 +567,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * Код станции назначения
       * @return The value.
       */
-    public java.lang.CharSequence getStationArrivalCode() {
+    public java.lang.String getStationArrivalCode() {
       return stationArrivalCode;
     }
 
@@ -578,7 +578,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'stationArrivalCode'.
       * @return This builder.
       */
-    public nlmk.l3.transport.far_arrival.RecordData.Builder setStationArrivalCode(java.lang.CharSequence value) {
+    public nlmk.l3.transport.far_arrival.RecordData.Builder setStationArrivalCode(java.lang.String value) {
       validate(fields()[2], value);
       this.stationArrivalCode = value;
       fieldSetFlags()[2] = true;
@@ -611,7 +611,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * Название станции назначения
       * @return The value.
       */
-    public java.lang.CharSequence getStationArrivalName() {
+    public java.lang.String getStationArrivalName() {
       return stationArrivalName;
     }
 
@@ -622,7 +622,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'stationArrivalName'.
       * @return This builder.
       */
-    public nlmk.l3.transport.far_arrival.RecordData.Builder setStationArrivalName(java.lang.CharSequence value) {
+    public nlmk.l3.transport.far_arrival.RecordData.Builder setStationArrivalName(java.lang.String value) {
       validate(fields()[3], value);
       this.stationArrivalName = value;
       fieldSetFlags()[3] = true;
@@ -655,7 +655,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * Код грузоотправителя
       * @return The value.
       */
-    public java.lang.CharSequence getSupplierCode() {
+    public java.lang.String getSupplierCode() {
       return supplierCode;
     }
 
@@ -666,7 +666,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'supplierCode'.
       * @return This builder.
       */
-    public nlmk.l3.transport.far_arrival.RecordData.Builder setSupplierCode(java.lang.CharSequence value) {
+    public nlmk.l3.transport.far_arrival.RecordData.Builder setSupplierCode(java.lang.String value) {
       validate(fields()[4], value);
       this.supplierCode = value;
       fieldSetFlags()[4] = true;
@@ -699,7 +699,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * Наименование грузоотправителя
       * @return The value.
       */
-    public java.lang.CharSequence getSupplierName() {
+    public java.lang.String getSupplierName() {
       return supplierName;
     }
 
@@ -710,7 +710,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'supplierName'.
       * @return This builder.
       */
-    public nlmk.l3.transport.far_arrival.RecordData.Builder setSupplierName(java.lang.CharSequence value) {
+    public nlmk.l3.transport.far_arrival.RecordData.Builder setSupplierName(java.lang.String value) {
       validate(fields()[5], value);
       this.supplierName = value;
       fieldSetFlags()[5] = true;
@@ -743,7 +743,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * Код груза
       * @return The value.
       */
-    public java.lang.CharSequence getMaterialCode() {
+    public java.lang.String getMaterialCode() {
       return materialCode;
     }
 
@@ -754,7 +754,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'materialCode'.
       * @return This builder.
       */
-    public nlmk.l3.transport.far_arrival.RecordData.Builder setMaterialCode(java.lang.CharSequence value) {
+    public nlmk.l3.transport.far_arrival.RecordData.Builder setMaterialCode(java.lang.String value) {
       validate(fields()[6], value);
       this.materialCode = value;
       fieldSetFlags()[6] = true;
@@ -787,7 +787,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * Наименование груза
       * @return The value.
       */
-    public java.lang.CharSequence getMaterialName() {
+    public java.lang.String getMaterialName() {
       return materialName;
     }
 
@@ -798,7 +798,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'materialName'.
       * @return This builder.
       */
-    public nlmk.l3.transport.far_arrival.RecordData.Builder setMaterialName(java.lang.CharSequence value) {
+    public nlmk.l3.transport.far_arrival.RecordData.Builder setMaterialName(java.lang.String value) {
       validate(fields()[7], value);
       this.materialName = value;
       fieldSetFlags()[7] = true;
@@ -875,14 +875,14 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
     public RecordData build() {
       try {
         RecordData record = new RecordData();
-        record.stationDepartureCode = fieldSetFlags()[0] ? this.stationDepartureCode : (java.lang.CharSequence) defaultValue(fields()[0]);
-        record.stationDepartureName = fieldSetFlags()[1] ? this.stationDepartureName : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.stationArrivalCode = fieldSetFlags()[2] ? this.stationArrivalCode : (java.lang.CharSequence) defaultValue(fields()[2]);
-        record.stationArrivalName = fieldSetFlags()[3] ? this.stationArrivalName : (java.lang.CharSequence) defaultValue(fields()[3]);
-        record.supplierCode = fieldSetFlags()[4] ? this.supplierCode : (java.lang.CharSequence) defaultValue(fields()[4]);
-        record.supplierName = fieldSetFlags()[5] ? this.supplierName : (java.lang.CharSequence) defaultValue(fields()[5]);
-        record.materialCode = fieldSetFlags()[6] ? this.materialCode : (java.lang.CharSequence) defaultValue(fields()[6]);
-        record.materialName = fieldSetFlags()[7] ? this.materialName : (java.lang.CharSequence) defaultValue(fields()[7]);
+        record.stationDepartureCode = fieldSetFlags()[0] ? this.stationDepartureCode : (java.lang.String) defaultValue(fields()[0]);
+        record.stationDepartureName = fieldSetFlags()[1] ? this.stationDepartureName : (java.lang.String) defaultValue(fields()[1]);
+        record.stationArrivalCode = fieldSetFlags()[2] ? this.stationArrivalCode : (java.lang.String) defaultValue(fields()[2]);
+        record.stationArrivalName = fieldSetFlags()[3] ? this.stationArrivalName : (java.lang.String) defaultValue(fields()[3]);
+        record.supplierCode = fieldSetFlags()[4] ? this.supplierCode : (java.lang.String) defaultValue(fields()[4]);
+        record.supplierName = fieldSetFlags()[5] ? this.supplierName : (java.lang.String) defaultValue(fields()[5]);
+        record.materialCode = fieldSetFlags()[6] ? this.materialCode : (java.lang.String) defaultValue(fields()[6]);
+        record.materialName = fieldSetFlags()[7] ? this.materialName : (java.lang.String) defaultValue(fields()[7]);
         record.positions = fieldSetFlags()[8] ? this.positions : (java.util.List<nlmk.l3.transport.far_arrival.RecordPositions>) defaultValue(fields()[8]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
@@ -952,21 +952,21 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
   {
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
-      this.stationDepartureCode = in.readString(this.stationDepartureCode instanceof Utf8 ? (Utf8)this.stationDepartureCode : null);
+      this.stationDepartureCode = in.readString();
 
-      this.stationDepartureName = in.readString(this.stationDepartureName instanceof Utf8 ? (Utf8)this.stationDepartureName : null);
+      this.stationDepartureName = in.readString();
 
-      this.stationArrivalCode = in.readString(this.stationArrivalCode instanceof Utf8 ? (Utf8)this.stationArrivalCode : null);
+      this.stationArrivalCode = in.readString();
 
-      this.stationArrivalName = in.readString(this.stationArrivalName instanceof Utf8 ? (Utf8)this.stationArrivalName : null);
+      this.stationArrivalName = in.readString();
 
-      this.supplierCode = in.readString(this.supplierCode instanceof Utf8 ? (Utf8)this.supplierCode : null);
+      this.supplierCode = in.readString();
 
-      this.supplierName = in.readString(this.supplierName instanceof Utf8 ? (Utf8)this.supplierName : null);
+      this.supplierName = in.readString();
 
-      this.materialCode = in.readString(this.materialCode instanceof Utf8 ? (Utf8)this.materialCode : null);
+      this.materialCode = in.readString();
 
-      this.materialName = in.readString(this.materialName instanceof Utf8 ? (Utf8)this.materialName : null);
+      this.materialName = in.readString();
 
       long size0 = in.readArrayStart();
       java.util.List<nlmk.l3.transport.far_arrival.RecordPositions> a0 = this.positions;
@@ -990,35 +990,35 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       for (int i = 0; i < 9; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
-          this.stationDepartureCode = in.readString(this.stationDepartureCode instanceof Utf8 ? (Utf8)this.stationDepartureCode : null);
+          this.stationDepartureCode = in.readString();
           break;
 
         case 1:
-          this.stationDepartureName = in.readString(this.stationDepartureName instanceof Utf8 ? (Utf8)this.stationDepartureName : null);
+          this.stationDepartureName = in.readString();
           break;
 
         case 2:
-          this.stationArrivalCode = in.readString(this.stationArrivalCode instanceof Utf8 ? (Utf8)this.stationArrivalCode : null);
+          this.stationArrivalCode = in.readString();
           break;
 
         case 3:
-          this.stationArrivalName = in.readString(this.stationArrivalName instanceof Utf8 ? (Utf8)this.stationArrivalName : null);
+          this.stationArrivalName = in.readString();
           break;
 
         case 4:
-          this.supplierCode = in.readString(this.supplierCode instanceof Utf8 ? (Utf8)this.supplierCode : null);
+          this.supplierCode = in.readString();
           break;
 
         case 5:
-          this.supplierName = in.readString(this.supplierName instanceof Utf8 ? (Utf8)this.supplierName : null);
+          this.supplierName = in.readString();
           break;
 
         case 6:
-          this.materialCode = in.readString(this.materialCode instanceof Utf8 ? (Utf8)this.materialCode : null);
+          this.materialCode = in.readString();
           break;
 
         case 7:
-          this.materialName = in.readString(this.materialName instanceof Utf8 ? (Utf8)this.materialName : null);
+          this.materialName = in.readString();
           break;
 
         case 8:

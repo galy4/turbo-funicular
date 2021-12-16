@@ -28,39 +28,19 @@ public class FarArrivalService {
 
     private final WagonRepository wagonRepository;
     private final ResourceService resourceService;
-    private final Supplier<HttpHeaders> headersSupplier = ()->{
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBasicAuth("test_user", "test_user_test");
-        headers.add("Content-type", "application/vnd.kafka.avro.v2+json");
-        headers.add("Accept", "*/*");
-        return headers;
-    };
+    private final KafkaSender kafkaSender;
+
 
     private final RestTemplate restTemplate = new RestTemplate();
     private final String kafkaUrl =  "https://kafka-rest-000-1.dp.nlmk.com/topics/000-1.l3-transport.db.nlmk.far-arrival.0";
 
-//    public void sendFarArrival(String invoice){
-//        FarArrivalDto farArrivalDto = new BuildFarArrival().configureModel(
-//                invoice,
-//                resourceService.getResource(),
-//                wagonRepository.getWagonList()
-//        );
-//
-//        HttpEntity<Object> entity = new HttpEntity<>(farArrivalDto, headersSupplier.get());
-//        ResponseEntity<String> response = restTemplate.postForEntity(kafkaUrl, entity, String.class);
-//        log.info(response.getBody());
-//    }
-
-
     public void sendFarArrival(String invoice){
-        FarArrival farArrival = sendAvro(invoice);
-        HttpEntity<Object> entity = new HttpEntity<>(farArrival, headersSupplier.get());
-        ResponseEntity<String> response = restTemplate.postForEntity(kafkaUrl, entity, String.class);
-        log.info(response.getBody());
+        kafkaSender.sendMessage(buildFarArrival(invoice));
     }
 
 
-    public FarArrival sendAvro(String invoice){
+
+    public FarArrival buildFarArrival(String invoice){
         List<RecordPositions> recordPositions = new ArrayList<>(wagonRepository.getWagonList().size());
                 wagonRepository.getWagonList().forEach(w-> {
                     recordPositions.add(

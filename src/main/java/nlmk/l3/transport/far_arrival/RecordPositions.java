@@ -76,7 +76,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
   /** Номер вагона */
   private int wagonNum;
   /** Тип вагона */
-  private java.lang.CharSequence wagonType;
+  private java.lang.String wagonType;
   /** Вес груза, т */
   private float weightNet;
 
@@ -93,7 +93,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
    * @param wagonType Тип вагона
    * @param weightNet Вес груза, т
    */
-  public RecordPositions(java.lang.Integer wagonNum, java.lang.CharSequence wagonType, java.lang.Float weightNet) {
+  public RecordPositions(java.lang.Integer wagonNum, java.lang.String wagonType, java.lang.Float weightNet) {
     this.wagonNum = wagonNum;
     this.wagonType = wagonType;
     this.weightNet = weightNet;
@@ -116,7 +116,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: wagonNum = (java.lang.Integer)value$; break;
-    case 1: wagonType = (java.lang.CharSequence)value$; break;
+    case 1: wagonType = value$ != null ? value$.toString() : null; break;
     case 2: weightNet = (java.lang.Float)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
@@ -144,7 +144,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
    * Gets the value of the 'wagonType' field.
    * @return Тип вагона
    */
-  public java.lang.CharSequence getWagonType() {
+  public java.lang.String getWagonType() {
     return wagonType;
   }
 
@@ -154,7 +154,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
    * Тип вагона
    * @param value the value to set.
    */
-  public void setWagonType(java.lang.CharSequence value) {
+  public void setWagonType(java.lang.String value) {
     this.wagonType = value;
   }
 
@@ -220,7 +220,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
     /** Номер вагона */
     private int wagonNum;
     /** Тип вагона */
-    private java.lang.CharSequence wagonType;
+    private java.lang.String wagonType;
     /** Вес груза, т */
     private float weightNet;
 
@@ -317,7 +317,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
       * Тип вагона
       * @return The value.
       */
-    public java.lang.CharSequence getWagonType() {
+    public java.lang.String getWagonType() {
       return wagonType;
     }
 
@@ -328,7 +328,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
       * @param value The value of 'wagonType'.
       * @return This builder.
       */
-    public nlmk.l3.transport.far_arrival.RecordPositions.Builder setWagonType(java.lang.CharSequence value) {
+    public nlmk.l3.transport.far_arrival.RecordPositions.Builder setWagonType(java.lang.String value) {
       validate(fields()[1], value);
       this.wagonType = value;
       fieldSetFlags()[1] = true;
@@ -405,7 +405,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
       try {
         RecordPositions record = new RecordPositions();
         record.wagonNum = fieldSetFlags()[0] ? this.wagonNum : (java.lang.Integer) defaultValue(fields()[0]);
-        record.wagonType = fieldSetFlags()[1] ? this.wagonType : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.wagonType = fieldSetFlags()[1] ? this.wagonType : (java.lang.String) defaultValue(fields()[1]);
         record.weightNet = fieldSetFlags()[2] ? this.weightNet : (java.lang.Float) defaultValue(fields()[2]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
@@ -454,7 +454,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
     if (fieldOrder == null) {
       this.wagonNum = in.readInt();
 
-      this.wagonType = in.readString(this.wagonType instanceof Utf8 ? (Utf8)this.wagonType : null);
+      this.wagonType = in.readString();
 
       this.weightNet = in.readFloat();
 
@@ -466,7 +466,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
           break;
 
         case 1:
-          this.wagonType = in.readString(this.wagonType instanceof Utf8 ? (Utf8)this.wagonType : null);
+          this.wagonType = in.readString();
           break;
 
         case 2:
