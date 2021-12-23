@@ -6,31 +6,21 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 @Component
 public class WagonConvertor {
 
-    public List<WagonDto> convertAll(List<Wagon> wagon){
-        List<WagonDto> wagonDtoList = new ArrayList<>(15);
-        wagon.forEach(v-> wagonDtoList.add(new WagonDto(
+    public List<WagonDto> convertAll(List<Wagon> wagons){
+        List<WagonDto> wagonDtoList = new ArrayList<>(wagons.size());
+        wagons.forEach(v-> wagonDtoList.add(new WagonDto(
                 v.getId(),
                 Integer.parseInt(v.getVehicleNumber()),
                 v.getWeightNet(),
                 v.getWagonType()
         )));
         return wagonDtoList;
-    }
-
-    public List<Wagon>convertAllW(List<WagonDto> wagonDto){
-        List<Wagon> wagonList = new ArrayList<>(15);
-        wagonDto.forEach(v-> wagonList.add(new Wagon(
-                v.getId(),
-                String.valueOf(v.getNumber()),
-                v.getWeight(),
-                v.getType(),
-                ""
-        )));
-        return wagonList;
     }
 
     public WagonDto convert(Wagon v){

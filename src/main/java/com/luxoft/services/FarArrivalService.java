@@ -1,16 +1,16 @@
 package com.luxoft.services;
 
-import com.luxoft.dto.FarArrivalDto;
-import com.luxoft.repository.ResourceRepository;
 import com.luxoft.repository.WagonRepository;
-import com.luxoft.services.messages.BuildFarArrival;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
+import nlmk.l3.transport.far_arrival.*;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.luxoft.utils.TimeStampGenerator.getCurrentTimeStamp;
+import static com.luxoft.utils.TimeStampGenerator.getDepartureDate;
 
 
 @Service
@@ -18,26 +18,48 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 public class FarArrivalService {
 
-    private final ResourceRepository resourceRepository;
     private final WagonRepository wagonRepository;
-
-    private final RestTemplate restTemplate = new RestTemplate();
-    private final String kafkaUrl =  "https://kafka-rest-000-1.dp.nlmk.com/topics/000-1.l3-transport.db.nlmk.far-arrival.0";
+    private final ResourceService resourceService;
+    private final KafkaSender kafkaSender;
 
     public void sendFarArrival(String invoice){
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBasicAuth("test_user", "test_user_test");
-        headers.add("Content-type", "application/vnd.kafka.avro.v2+json");
-        headers.add("Accept", "*/*");
-        FarArrivalDto farArrivalDto = new BuildFarArrival().configureModel(
-                invoice,
-                resourceRepository.getResource(),
-                wagonRepository.getWagonList()
-        );
+        kafkaSender.sendMessage(buildFarArrival(invoice));
+    }
 
-        HttpEntity<Object> entity = new HttpEntity<>(farArrivalDto, headers);
-        ResponseEntity<String> response = restTemplate.postForEntity(kafkaUrl, entity, String.class);
-        log.info(response.getBody());
+
+    public FarArrival buildFarArrival(String invoice){
+        List<RecordPositions> recordPositions = new ArrayList<>(wagonRepository.getWagonList().size());
+                wagonRepository.getWagonList().forEach(w-> recordPositions.add(
+                RecordPositions.newBuilder()
+                        .setWagonNum(Integer.parseInt(w.getVehicleNumber()))
+                        .setWagonType(w.getWagonType())
+                        .setWeightNet((float) w.getWeightNet())
+                        .build()
+                ));
+
+        FarArrival farArrival = FarArrival.newBuilder()
+                .setOp(enum_op.I)
+                .setTs(getCurrentTimeStamp())
+                .setPk(RecordPk.newBuilder()
+                        .setWaybillNum(invoice)
+                        .setDepartureDate(getDepartureDate(5))
+                        .build()
+                )
+                .setData(RecordData.newBuilder()
+                        .setMaterialCode(resourceService.getResource().getMaterialCode())
+                        .setMaterialName(resourceService.getResource().getMaterialName())
+                        .setSupplierCode(resourceService.getResource().getSupplierCode())
+                        .setSupplierName(resourceService.getResource().getSupplierName())
+                        .setStationDepartureCode("2200")
+                        .setStationArrivalCode("2")
+                        .setStationArrivalName("Чугун-2")
+                        .setStationDepartureName("ЗАРИНСКАЯ")
+                        .setPositions(recordPositions)
+                        .build()
+                )
+                .build();
+        log.info(farArrival.toString());
+        return farArrival;
     }
 
 
