@@ -1,71 +1,87 @@
 package com.luxoft.services;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.luxoft.dto.FarArrivalDto;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import nlmk.l3.transport.far_arrival.FarArrival;
 import org.apache.avro.specific.SpecificRecordBase;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
-import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 @Service
 @Slf4j
 public class KafkaSender {
-    private final RestTemplate restTemplate = new RestTemplate();
-    private final String kafkaUrl =  "https://kafka-rest-000-1.dp.nlmk.com/topics/000-1.l3-transport.db.nlmk.far-arrival.0";
-    private final Supplier<HttpHeaders> headersSupplier = ()->{
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBasicAuth("test_user", "test_user_test");
-        headers.add("Content-type", "application/vnd.kafka.avro.v2+json");
-        headers.add("Accept", "*/*");
-        return headers;
-    };
+    private final RestTemplate restTemplate;
+    private final ObjectMapper objectMapper;
+    private final String kafkaUrl;
+    private final String userName;
+    private final String password;
 
-    public<T extends SpecificRecordBase> void sendMessage(T body){
+    public KafkaSender(
+            @Qualifier("kafkaRestTemplate") RestTemplate restTemplate,
+            @Qualifier("kafkaObjectMapper") ObjectMapper objectMapper,
+            @Value("${application.kafka.far-arrival-url}") String kafkaUrl,
+            @Value("${application.kafka.username}") String userName,
+            @Value("${application.kafka.password}") String password
+    ) {
+        this.restTemplate = restTemplate;
+        this.objectMapper = objectMapper;
+        this.kafkaUrl = kafkaUrl;
+        this.userName = userName;
+        this.password = password;
+    }
+
+    @SneakyThrows
+    public <T extends SpecificRecordBase> void sendMessage(T body) {
         var dto = new RestProxyRequestDto<T>();
-//        dto.setValueSchema(body.getSchema().toString());
-        RestProxyRequestDto.Record<T> record = new RestProxyRequestDto.Record<>();
+        dto.setValueSchema(body.getSchema().toString());
+        var record = new KafkaSender.Record<T>();
         record.setValue(body);
         dto.setRecords(List.of(record));
 
-//        JsonSerializer<T> jsonSerializer = new JsonSerializer<T>();
-//        log.info("Body:" +new String(jsonSerializer.serialize(kafkaUrl, body)));
-
-        HttpEntity<RestProxyRequestDto<T>> entity = new HttpEntity<>(dto, getHeaders());
-        ResponseEntity<String> response = restTemplate.postForEntity(kafkaUrl, entity, String.class);
-        log.info(response.getBody());
+        var bodyAsJson = objectMapper.writeValueAsString(dto);
+        var request = new HttpEntity<>(bodyAsJson, buildHeaders());
+        var response = restTemplate.postForEntity(kafkaUrl, request, String.class);
+        log.info("RESPONSE IS: {}", response.getBody());
     }
 
-    private HttpHeaders getHeaders(){
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBasicAuth("test_user", "test_user_test");
-        headers.add("Content-type", "application/vnd.kafka.avro.v2+json");
+    private HttpHeaders buildHeaders() {
+        var headers = new HttpHeaders();
+        headers.setBasicAuth(userName, password);
+        headers.add("Content-Type", "application/vnd.kafka.avro.v2+json");
+        headers.add("User-Agent", "PostmanRuntime/7.28.4");
         headers.add("Accept", "*/*");
         return headers;
     }
 
-    @Getter @Setter
+    @Getter
+    @Setter
+    @JsonIgnoreProperties(ignoreUnknown = true, allowGetters = true)
     private static class RestProxyRequestDto<T extends SpecificRecordBase> {
+
         @JsonProperty("value_schema")
         private String valueSchema;
+
         @JsonProperty("records")
         private List<Record<T>> records;
-
-        @Getter @Setter
-        public static class Record<T> {
-            @JsonProperty("value")
-            private T value;
-        }
     }
 
+    @Getter
+    @Setter
+    @JsonIgnoreProperties(ignoreUnknown = true, allowGetters = true)
+    public static class Record<T> {
+
+        @JsonProperty("value")
+        private T value;
+    }
 
 }

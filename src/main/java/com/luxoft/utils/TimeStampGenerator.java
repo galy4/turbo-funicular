@@ -12,7 +12,7 @@ public class TimeStampGenerator {
     }
 
     public static String getDepartureDate(int delta){
-        DateTimeFormatter ft = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss x:00");
+        DateTimeFormatter ft = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssx:00");
         ZonedDateTime date = ZonedDateTime.now().minusDays(delta);
         return ft.format(date);
     }
@@ -28,7 +28,7 @@ public class TimeStampGenerator {
     }
 
     public static String getDepartureDateWithMs(int delta){
-        DateTimeFormatter ft = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS x:00");
+        DateTimeFormatter ft = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSx:00");
         ZonedDateTime date = ZonedDateTime.now().minusDays(delta);
         return ft.format(date);
     }

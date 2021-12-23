@@ -1,6 +1,5 @@
 package com.luxoft.rest;
 
-import com.luxoft.dto.FarArrivalDto;
 import com.luxoft.dto.WagonDto;
 import com.luxoft.services.FarArrivalService;
 import com.luxoft.services.WagonService;
@@ -8,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
