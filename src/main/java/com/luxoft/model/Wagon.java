@@ -10,6 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Wagon implements Comparable<Wagon>{
 
+
     private int id;
     private String vehicleNumber;
     private double weightNet;
@@ -20,4 +21,5 @@ public class Wagon implements Comparable<Wagon>{
     public int compareTo(Wagon w) {
         return Integer.parseInt(this.vehicleNumber) - Integer.parseInt(w.vehicleNumber);
     }
+
 }
