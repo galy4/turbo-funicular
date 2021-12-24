@@ -3,6 +3,7 @@ package com.luxoft.services;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.luxoft.rest.KafkaTopics;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.SneakyThrows;
@@ -22,26 +23,24 @@ import java.util.List;
 public class KafkaSender {
     private final RestTemplate restTemplate;
     private final ObjectMapper objectMapper;
-    private final String kafkaUrl;
     private final String userName;
     private final String password;
 
     public KafkaSender(
             @Qualifier("kafkaRestTemplate") RestTemplate restTemplate,
             @Qualifier("kafkaObjectMapper") ObjectMapper objectMapper,
-            @Value("${application.kafka.far-arrival-url}") String kafkaUrl,
+//            @Value("${application.kafka.far-arrival-url}") String kafkaUrl,
             @Value("${application.kafka.username}") String userName,
             @Value("${application.kafka.password}") String password
     ) {
         this.restTemplate = restTemplate;
         this.objectMapper = objectMapper;
-        this.kafkaUrl = kafkaUrl;
         this.userName = userName;
         this.password = password;
     }
 
     @SneakyThrows
-    public <T extends SpecificRecordBase> void sendMessage(T body) {
+    public <T extends SpecificRecordBase> void sendMessage(T body, KafkaTopics topic) {
         var dto = new RestProxyRequestDto<T>();
         dto.setValueSchema(body.getSchema().toString());
         var record = new KafkaSender.Record<T>();
@@ -49,8 +48,13 @@ public class KafkaSender {
         dto.setRecords(List.of(record));
 
         var bodyAsJson = objectMapper.writeValueAsString(dto);
+        if (topic.equals(KafkaTopics.INVOICE)) {
+            bodyAsJson = bodyAsJson.replace("\"data\":{", "\"data\":{\"nlmk.l3.transport.invoice.RecordData\":{");
+            bodyAsJson = bodyAsJson.replace("}]}}}", "}]}}}}");
+        }
+        log.info(bodyAsJson);
         var request = new HttpEntity<>(bodyAsJson, buildHeaders());
-        var response = restTemplate.postForEntity(kafkaUrl, request, String.class);
+        var response = restTemplate.postForEntity(topic.getUrl(), request, String.class);
         log.info("RESPONSE IS: {}", response.getBody());
     }
 
