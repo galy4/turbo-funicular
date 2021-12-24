@@ -1,14 +1,13 @@
 package com.luxoft.rest;
 
-import com.luxoft.dto.FarArrivalDto;
 import com.luxoft.dto.WagonDto;
 import com.luxoft.services.FarArrivalService;
+import com.luxoft.services.InvoiceService;
 import com.luxoft.services.WagonService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -19,6 +18,7 @@ public class WagonController {
 
     private final WagonService wagonService;
     private final FarArrivalService farArrivalService;
+    private final InvoiceService invoiceService;
 
     @GetMapping("/wagon")
     private List<WagonDto> getWagon(){
@@ -40,10 +40,13 @@ public class WagonController {
         wagonService.create(wagonDto);
     }
 
-
     @PostMapping("/farArrival/{invoice}")
-    private void restTemplateExample(@PathVariable("invoice") String invoice) {
+    private void createLot(@PathVariable("invoice") String invoice) {
         farArrivalService.sendFarArrival(invoice);
-//        farArrivalService.sendAvro(invoice);
+    }
+
+    @PostMapping("/invoice/{invoice}")
+    private void moveLotOnSite(@PathVariable("invoice") String invoice) {
+        invoiceService.sendInvoice(invoice);
     }
 }

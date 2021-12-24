@@ -55,6 +55,10 @@ $(document).ready(()=>{
         sendFarArrival();
     });
 
+    $("#inv").click(()=> {
+        sendInvoice();
+    });
+
     $("#clone").click(()=> {
         cloneWagon();
     });
@@ -150,6 +154,13 @@ function sendFarArrival(){
     $.post(`/farArrival/${inv}`, function (){
         console.log(`data sent to backend`);
         });
+}
+
+function sendInvoice(){
+    let inv = $('#invoice').val();
+    $.post(`/invoice/${inv}`, function (){
+        console.log(`data sent to backend`);
+    });
 }
 
 function cloneWagon(){

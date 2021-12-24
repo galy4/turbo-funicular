@@ -47,6 +47,7 @@ public class WagonService {
                 .orElse(null));
         wagonRepository.getWagonList().add(wagonConvertor.convert(wagonDto));
         wagonRepository.setWagonList(wagonRepository.getWagonList().stream().sorted().collect(Collectors.toList()));
+        return wagonConvertor.convertAll(wagonRepository.getWagonList());
 
     }
 
