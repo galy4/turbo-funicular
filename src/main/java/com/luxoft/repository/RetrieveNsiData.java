@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -20,7 +21,7 @@ public class RetrieveNsiData {
 //    private final ResourceDataMapper resourceDataMapper;
 
     public Resource retrieveResourceData(String name){
-        Resource resource = namedParameterJdbcTemplate.queryForObject(
+        return namedParameterJdbcTemplate.queryForObject(
                 "select mr.full_name as material_name, mr.source_transport_code as material_code, s.code as supplier_code, s.\"name\" " +
                 "as supplier_name  from material_resource mr join supplier_material_resource smr on smr.material_resource_id = mr.id \n" +
                 "join supplier s on s.id = smr.supplier_id where mr.full_name = :material_name limit 1",
@@ -32,12 +33,18 @@ public class RetrieveNsiData {
                         rs.getString("supplier_code")
                 )
         );
-        log.info("material_code {}, material_name {}", resource.getMaterialCode(), resource.getMaterialName());
-        return resource;
     }
 
     public List<String> retrieveResourceNames()  {
         return jdbcTemplate.queryForList("select full_name as material_name from material_resource mr join supplier_material_resource smr " +
                 "on smr.material_resource_id = mr.id", String.class);
+    }
+
+    public String retrievePathCode(String shortName){
+        Optional<List<String>> pathcode;
+        pathcode = Optional.of(namedParameterJdbcTemplate.queryForList("select code from \"path\" where short_name = :short_name",
+                Collections.singletonMap("short_name", shortName), String.class));
+        log.info(pathcode.orElse(Collections.singletonList("110236")).get(0));
+        return pathcode.orElse(Collections.singletonList("110236")).get(0);
     }
 }

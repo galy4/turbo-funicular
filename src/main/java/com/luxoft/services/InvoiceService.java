@@ -28,18 +28,18 @@ public class InvoiceService {
     }
 
     @SneakyThrows
-    public Invoice buildInvoice(String wayBillNum){
-        String prefix = wayBillNum.replaceAll("[A-Za-z]+", "");
+    private Invoice buildInvoice(String wayBillNum){
+        addWagonLinks(wayBillNum);
         List<RecordPositions> recordPositions = new ArrayList<>(wagonRepository.getWagonList().size());
         wagonRepository.getWagonList().forEach(w-> recordPositions.add(
                 RecordPositions.newBuilder()
                         .setWagonNum(Integer.parseInt(w.getVehicleNumber()))
                         .setWagonType(w.getWagonType())
                         .setWeightNet((float) w.getWeightNet())
-                        .setWaybillWagonLink(prefix + w.getVehicleNumber())
+                        .setWaybillWagonLink(w.getWagonLink())
                         .build()
         ));
-        Invoice invoice = Invoice.newBuilder()
+        var invoice = Invoice.newBuilder()
                 .setOp(enum_op.I)
                 .setTs(getCurrentTimeStamp())
                 .setPk(RecordPk.newBuilder()
@@ -65,5 +65,12 @@ public class InvoiceService {
                 .build();
         log.info(invoice.toString());
         return invoice;
+    }
+
+    private void addWagonLinks(String wayBillNum){
+        String prefix = wayBillNum.replaceAll("[A-Za-zА-Яа-я]+", "");
+        wagonRepository.getWagonList().forEach(w->
+                w.setWagonLink(prefix + w.getVehicleNumber())
+        );
     }
 }

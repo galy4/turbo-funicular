@@ -26,15 +26,15 @@
     <fieldset>
         <div class="container">
             <label>
-                <span>Number</span>
+                <span>Номер вагона</span>
                 <input id = "number" type="text" placeholder="0">
             </label>
             <label>
-                <span>Weight</span>
+                <span>Вес накл.</span>
                 <input id = "weight" type="number">
             </label>
             <label>
-                <span>Type</span>
+                <span>Тип</span>
                 <input id = "type" type="text">
             </label>
         </div>
@@ -90,14 +90,23 @@
     <fieldset>
         <div class="container">
             <label>
-                <span>Invoice Number</span>
+                <span>Номер накладной</span>
                 <input id = "invoice" type="text" placeholder="ЭЖ152478">
+            </label>
+            <label>
+                <span>Путь</span>
+                <input id = "path" type="text" placeholder="4А">
+            </label>
+            <label>
+                <span>Время постановки на путь</span>
+                <input id = "time" type="text" value="2021-12-16T13:06:08+06:00">
             </label>
         </div>
     </fieldset>
     <div class="lifecycle">
         <input type="button" id = "far" value="Создать партию">
         <input type="button" id = "inv" value="Прибытие на территорию">
+        <input type="button" id = "cur" value="Постановка на путь">
     </div>
 </form>
 

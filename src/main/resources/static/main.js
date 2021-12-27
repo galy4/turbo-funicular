@@ -47,10 +47,15 @@ $(document).ready(()=>{
         createWagon();
     });
 
+    $("#clone").click(()=> {
+        cloneWagon();
+    });
+
     $('#resourceData').click(()=>{
        getNSIResourceData();
     });
 
+    //-------wagon lifecycle-----
     $("#far").click(()=> {
         sendFarArrival();
     });
@@ -59,9 +64,10 @@ $(document).ready(()=>{
         sendInvoice();
     });
 
-    $("#clone").click(()=> {
-        cloneWagon();
+    $("#cur").click(()=> {
+        sendCurrentLocation();
     });
+
 
 });
 //Функции:
@@ -152,14 +158,24 @@ function getNSIResourceData(){
 function sendFarArrival(){
     let inv = $('#invoice').val();
     $.post(`/farArrival/${inv}`, function (){
-        console.log(`data sent to backend`);
+        console.log(`Far arrival data sent to backend`);
+        $("#inv").prop("disabled",true);
         });
 }
 
 function sendInvoice(){
     let inv = $('#invoice').val();
     $.post(`/invoice/${inv}`, function (){
-        console.log(`data sent to backend`);
+        console.log(`Invoice data sent to backend`);
+        $("#inv").prop("disabled",true);
+    });
+}
+
+function sendCurrentLocation(){
+    let path = $('#path').val();
+    let time = $('#time').val();
+    $.post(`/currentLocation/${path}&${time}`, function () {
+        console.log(`Current location data sent to backend`);
     });
 }
 

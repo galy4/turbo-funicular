@@ -38,7 +38,7 @@ public class FarArrivalService {
                         .build()
                 ));
 
-        FarArrival farArrival = FarArrival.newBuilder()
+        var farArrival = FarArrival.newBuilder()
                 .setOp(enum_op.I)
                 .setTs(getCurrentTimeStamp())
                 .setPk(RecordPk.newBuilder()
