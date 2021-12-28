@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -48,8 +49,9 @@ public class KafkaSender {
         dto.setRecords(List.of(record));
 
         var bodyAsJson = objectMapper.writeValueAsString(dto);
-        if (topic.equals(KafkaTopics.INVOICE)) {
-            bodyAsJson = bodyAsJson.replace("\"data\":{", "\"data\":{\"nlmk.l3.transport.invoice.RecordData\":{");
+        if (topic.equals(KafkaTopics.INVOICE) || topic.equals(KafkaTopics.WEIGHING)) {
+//            bodyAsJson = bodyAsJson.replace("\"data\":{", "\"data\":{\"nlmk.l3.transport.invoice.RecordData\":{");
+            bodyAsJson = bodyAsJson.replace("\"data\":{", "\"data\":{\""+body.getClass().getPackageName()+".RecordData\":{");
             bodyAsJson = bodyAsJson.replace("}]}}}", "}]}}}}");
         }
         log.info(bodyAsJson);

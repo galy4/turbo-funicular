@@ -1,0 +1,155 @@
+{
+    "name": "Weighing",
+    "doc": "Отвесная",
+    "type": "record",
+    "fields": [
+        {
+            "name": "ts",
+            "doc": "Дата и время передачи",
+            "type": "string"
+        },
+        {
+            "name": "op",
+            "doc": "Код операции",
+            "type": {
+                "symbols": [
+                    "I",
+                    "U",
+                    "D"
+                ],
+                "name": "enum_op",
+                "type": "enum"
+            }
+        },
+        {
+            "name": "pk",
+            "doc": "Ключ записи",
+            "type": {
+                "name": "RecordPk",
+                "type": "record",
+                "fields": [
+                    {
+                        "name": "id",
+                        "doc": "ИД отвесной",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "data",
+            "type": [
+                "null",
+                {
+                    "name": "RecordData",
+                    "doc": "Данные операции",
+                    "type": "record",
+                    "fields": [
+                        {
+                            "name": "templateDocType",
+                            "doc": "Код шаблона документа",
+                            "type": "string"
+                        },
+                        {
+                            "name": "weighingDocNum",
+                            "doc": "Номер документа",
+                            "type": "string"
+                        },
+                        {
+                            "name": "weighingDocDate",
+                            "doc": "Дата документа (в формате YYYY-MM-DDThh:mm:ss+hh:mm)",
+                            "type": "string"
+                        },
+                        {
+                            "name": "scalesCode",
+                            "doc": "Код весов",
+                            "type": "string"
+                        },
+                        {
+                            "name": "scalesName",
+                            "doc": "Наименование весов",
+                            "type": "string"
+                        },
+                        {
+                            "name": "positions",
+                            "doc": "Позиции отвесной",
+                            "type": {
+                                "items": {
+                                    "name": "RecordPositions",
+                                    "type": "record",
+                                    "fields": [
+                                        {
+                                            "name": "wagonNum",
+                                            "doc": "Номер вагона",
+                                            "type": "int"
+                                        },
+                                        {
+                                            "name": "materialCode",
+                                            "doc": "Код груза",
+                                            "type": "string"
+                                        },
+                                        {
+                                            "name": "materialName",
+                                            "doc": "Наименование груза",
+                                            "type": "string"
+                                        },
+                                        {
+                                            "name": "weighingDate",
+                                            "doc": "Дата провески вагона (в формате YYYY-MM-DDThh:mm:ss+hh:mm)",
+                                            "type": "string"
+                                        },
+                                        {
+                                            "name": "weightGross",
+                                            "doc": "Вес брутто, т",
+                                            "type": "float"
+                                        },
+                                        {
+                                            "name": "weightTare",
+                                            "doc": "Вес тары, т",
+                                            "type": "float"
+                                        },
+                                        {
+                                            "name": "weightTareEmpty",
+                                            "doc": "Вес тары до выгрузки",
+                                            "type": [
+                                                "null",
+                                                "float"
+                                            ]
+                                        },
+                                        {
+                                            "name": "tonnage",
+                                            "doc": "Грузоподъёмность",
+                                            "type": [
+                                                "null",
+                                                "float"
+                                            ]
+                                        },
+                                        {
+                                            "name": "waybillWagonLink",
+                                            "doc": "Идентификатор конкретного вагона в конкретной накладной",
+                                            "type": "string"
+                                        },
+                                        {
+                                            "name": "supplierType",
+                                            "doc": "Тип поставщика (EXTERNAL - внешний INTERNAL - внутренний)",
+                                            "type": {
+                                                "symbols": [
+                                                    "INTERNAL",
+                                                    "EXTERNAL"
+                                                ],
+                                                "name": "enum_supplierType",
+                                                "type": "enum"
+                                            }
+                                        }
+                                    ]
+                                },
+                                "type": "array"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "namespace": "nlmk.l3.transport.weighing"
+}

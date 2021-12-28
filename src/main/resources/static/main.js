@@ -68,6 +68,10 @@ $(document).ready(()=>{
         sendCurrentLocation();
     });
 
+    $("#weigh").click(()=> {
+        sendWeighing();
+    });
+
 
 });
 //Функции:
@@ -159,7 +163,7 @@ function sendFarArrival(){
     let inv = $('#invoice').val();
     $.post(`/farArrival/${inv}`, function (){
         console.log(`Far arrival data sent to backend`);
-        $("#inv").prop("disabled",true);
+        $("#far").prop("disabled",true);
         });
 }
 
@@ -176,6 +180,14 @@ function sendCurrentLocation(){
     let time = $('#time').val();
     $.post(`/currentLocation/${path}&${time}`, function () {
         console.log(`Current location data sent to backend`);
+    });
+}
+
+function sendWeighing(){
+    let brutto = $('#brutto').val();
+    let tare = $('#tare').val();
+    $.post(`/weigh/${brutto}&${tare}`, function (){
+        console.log(`weighing data sent to backend`);
     });
 }
 
