@@ -24,7 +24,7 @@ public class InvoiceService {
     private final KafkaSender kafkaSender;
 
     public void sendInvoice(String invoice){
-        kafkaSender.sendMessage(buildInvoice(invoice), KafkaTopics.INVOICE);
+        kafkaSender.sendMessage(buildInvoice(invoice), "invoice");
     }
 
     @SneakyThrows

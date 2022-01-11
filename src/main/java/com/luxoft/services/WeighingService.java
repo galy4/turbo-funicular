@@ -25,7 +25,7 @@ public class WeighingService {
     private final KafkaSender kafkaSender;
 
     public void sendWeighing(float brutto, float tare) {
-        kafkaSender.sendMessage(buildWeighing(brutto, tare), KafkaTopics.WEIGHING);
+        kafkaSender.sendMessage(buildWeighing(brutto, tare), "weighing");
     }
 
     private Weighing buildWeighing(float brutto, float tare){
@@ -40,7 +40,7 @@ public class WeighingService {
                         .setWeighingDate(getDepartureDate(3))
                         .setWeightGross(brutto)
                         .setWeightTare(tare)
-                        .setWeightTareEmpty(null)
+                        .setWeightTareEmpty(tare)
                         .setTonnage(null)
                         .build()
         ));

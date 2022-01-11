@@ -163,7 +163,6 @@ function sendFarArrival(){
     let inv = $('#invoice').val();
     $.post(`/farArrival/${inv}`, function (){
         console.log(`Far arrival data sent to backend`);
-        $("#far").prop("disabled",true);
         });
 }
 
@@ -171,7 +170,6 @@ function sendInvoice(){
     let inv = $('#invoice').val();
     $.post(`/invoice/${inv}`, function (){
         console.log(`Invoice data sent to backend`);
-        $("#inv").prop("disabled",true);
     });
 }
 

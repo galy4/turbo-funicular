@@ -24,7 +24,7 @@ public class FarArrivalService {
     private final KafkaSender kafkaSender;
 
     public void sendFarArrival(String invoice){
-        kafkaSender.sendMessage(buildFarArrival(invoice), KafkaTopics.FAR_ARRIVAL);
+        kafkaSender.sendMessage(buildFarArrival(invoice), "fararrival");
     }
 
 

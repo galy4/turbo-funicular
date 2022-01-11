@@ -24,7 +24,7 @@ public class LocationService {
     private final RetrieveNsiData retrieveNsiData;
 
     public void sendCurrentLocation(String path, String time) {
-        kafkaSender.sendMessage(buildCurrentLocation(path, time), KafkaTopics.CURRENT_LOCATION);
+        kafkaSender.sendMessage(buildCurrentLocation(path, time), "currentlocation");
     }
 
     private CurrentLocation buildCurrentLocation(String path, String time){

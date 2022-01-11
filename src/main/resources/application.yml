@@ -1,0 +1,25 @@
+# DataSource (postgres)
+
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/nlmk-mes-nsi-proxy
+        username: adp-user
+        password: 1234
+
+application:
+    kafka:
+        username: test_user
+        password: test_user_test
+
+    topics:
+        - name: fararrival
+          url: https://kafka-rest-000-1.dp.nlmk.com/topics/000-1.l3-transport.db.nlmk.far-arrival.0
+        - name: invoice
+          url: https://kafka-rest-000-1.dp.nlmk.com/topics/000-1.l3-transport.db.nlmk.invoice.0
+        - name: currentlocation
+          url: https://kafka-rest-000-1.dp.nlmk.com/topics/000-1.l3-transport.db.nlmk.current-location.2777
+        - name: weighing
+          url: https://kafka-rest-000-1.dp.nlmk.com/topics/000-1.l3-transport.db.nlmk.weighing.2
+
+
+

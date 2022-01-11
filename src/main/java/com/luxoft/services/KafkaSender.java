@@ -3,18 +3,18 @@ package com.luxoft.services;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.luxoft.rest.KafkaTopics;
+import com.luxoft.configs.KafkaProperties;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.avro.specific.SpecificRecordBase;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -27,13 +27,15 @@ public class KafkaSender {
     private final String userName;
     private final String password;
 
+    @Autowired
+    KafkaProperties kafkaTopics;
+
+
     public KafkaSender(
             @Qualifier("kafkaRestTemplate") RestTemplate restTemplate,
             @Qualifier("kafkaObjectMapper") ObjectMapper objectMapper,
-//            @Value("${application.kafka.far-arrival-url}") String kafkaUrl,
             @Value("${application.kafka.username}") String userName,
-            @Value("${application.kafka.password}") String password
-    ) {
+            @Value("${application.kafka.password}") String password ){
         this.restTemplate = restTemplate;
         this.objectMapper = objectMapper;
         this.userName = userName;
@@ -41,7 +43,7 @@ public class KafkaSender {
     }
 
     @SneakyThrows
-    public <T extends SpecificRecordBase> void sendMessage(T body, KafkaTopics topic) {
+    public <T extends SpecificRecordBase> void sendMessage(T body, String topic) {
         var dto = new RestProxyRequestDto<T>();
         dto.setValueSchema(body.getSchema().toString());
         var record = new KafkaSender.Record<T>();
@@ -49,14 +51,22 @@ public class KafkaSender {
         dto.setRecords(List.of(record));
 
         var bodyAsJson = objectMapper.writeValueAsString(dto);
-        if (topic.equals(KafkaTopics.INVOICE) || topic.equals(KafkaTopics.WEIGHING)) {
-//            bodyAsJson = bodyAsJson.replace("\"data\":{", "\"data\":{\"nlmk.l3.transport.invoice.RecordData\":{");
+//        if (topic.equals(KafkaTopics.INVOICE) || topic.equals(KafkaTopics.WEIGHING)) {
+//            bodyAsJson = bodyAsJson.replace("\"data\":{", "\"data\":{\""+body.getClass().getPackageName()+".RecordData\":{");
+//            bodyAsJson = bodyAsJson.replace("}]}}}", "}]}}}}");
+//        }
+        if (topic.equalsIgnoreCase("invoice") || topic.equalsIgnoreCase("weighing")) {
             bodyAsJson = bodyAsJson.replace("\"data\":{", "\"data\":{\""+body.getClass().getPackageName()+".RecordData\":{");
             bodyAsJson = bodyAsJson.replace("}]}}}", "}]}}}}");
         }
         log.info(bodyAsJson);
+
+//        String avroString = AvroUtils.toJsonString(body);
+//        log.info(avroString);
+
         var request = new HttpEntity<>(bodyAsJson, buildHeaders());
-        var response = restTemplate.postForEntity(topic.getUrl(), request, String.class);
+//        var response = restTemplate.postForEntity(topic.getUrl(), request, String.class);
+        var response = restTemplate.postForEntity(extractTopicUrl(topic), request, String.class);
         log.info("RESPONSE IS: {}", response.getBody());
     }
 
@@ -69,6 +79,15 @@ public class KafkaSender {
         return headers;
     }
 
+    private String extractTopicUrl(String topic){
+        String url="about:blank";
+        for(int i=0;i<kafkaTopics.getTopics().size();i++){
+            if(kafkaTopics.getTopics().get(i).get("name").equalsIgnoreCase(topic))
+                url = kafkaTopics.getTopics().get(i).get("url");
+        }
+        return url;
+    }
+
     @Getter
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true, allowGetters = true)
@@ -79,6 +98,7 @@ public class KafkaSender {
 
         @JsonProperty("records")
         private List<Record<T>> records;
+
     }
 
     @Getter
