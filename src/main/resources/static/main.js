@@ -60,6 +60,10 @@ $(document).ready(()=>{
         sendFarArrival();
     });
 
+    $("#inner").click(()=> {
+        sendInnerInvoice();
+    });
+
     $("#inv").click(()=> {
         sendInvoice();
     });
@@ -186,6 +190,13 @@ function sendWeighing(){
     let tare = $('#tare').val();
     $.post(`/weigh/${brutto}&${tare}`, function (){
         console.log(`weighing data sent to backend`);
+    });
+}
+
+function sendInnerInvoice(){
+    let inv = $('#invoice').val();
+    $.post(`/innerInvoice/${inv}`, function (){
+        console.log(`Invoice data sent to backend`);
     });
 }
 

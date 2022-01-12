@@ -17,17 +17,17 @@ import java.io.IOException;
 @Configuration
 public class KafkaConfig {
 
-    @Bean
-    public ObjectMapper kafkaObjectMapper() {
-        var objectMapper = new ObjectMapper();
-        objectMapper.addMixIn(SpecificRecord.class, JacksonIgnoreAvroPropertiesMixIn.class);
-        objectMapper.addMixIn(nlmk.l3.transport.far_arrival.FarArrival.class, JacksonIgnoreAvroPropertiesMixIn.class);
-        objectMapper.addMixIn(nlmk.l3.transport.far_arrival.RecordPk.class, JacksonIgnoreAvroPropertiesMixIn.class);
-        SimpleModule module = new SimpleModule();
-        module.addSerializer(Float.class, new FloatSerializer());
-        objectMapper.registerModule(module);
-        return objectMapper;
-    }
+//    @Bean
+//    public ObjectMapper kafkaObjectMapper() {
+//        var objectMapper = new ObjectMapper();
+//        objectMapper.addMixIn(SpecificRecord.class, JacksonIgnoreAvroPropertiesMixIn.class);
+//        objectMapper.addMixIn(nlmk.l3.transport.far_arrival.FarArrival.class, JacksonIgnoreAvroPropertiesMixIn.class);
+//        objectMapper.addMixIn(nlmk.l3.transport.far_arrival.RecordPk.class, JacksonIgnoreAvroPropertiesMixIn.class);
+//        SimpleModule module = new SimpleModule();
+//        module.addSerializer(Float.class, new FloatSerializer());
+//        objectMapper.registerModule(module);
+//        return objectMapper;
+//    }
 
     @Bean
     public RestTemplate kafkaRestTemplate() {

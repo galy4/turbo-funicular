@@ -13,5 +13,11 @@ import java.util.Map;
 @Getter @Setter
 public class KafkaProperties {
 
-    private List<Map<String,String>> topics;
+    private List<Topic> topics;
+
+    @Getter @Setter
+    public static class Topic {
+        String name;
+        String url;
+    }
 }

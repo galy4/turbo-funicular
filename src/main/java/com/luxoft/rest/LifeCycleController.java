@@ -1,9 +1,6 @@
 package com.luxoft.rest;
 
-import com.luxoft.services.FarArrivalService;
-import com.luxoft.services.InvoiceService;
-import com.luxoft.services.LocationService;
-import com.luxoft.services.WeighingService;
+import com.luxoft.services.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +13,7 @@ public class LifeCycleController {
     private final InvoiceService invoiceService;
     private final LocationService locationService;
     private final WeighingService weighingService;
+    private final InnerInvoiceService innerInvoiceService;
 
     @PostMapping("/farArrival/{invoice}")
     private void createLot(@PathVariable("invoice") String invoice) {
@@ -25,6 +23,11 @@ public class LifeCycleController {
     @PostMapping("/invoice/{invoice}")
     private void moveLotOnSite(@PathVariable("invoice") String invoice) {
         invoiceService.sendInvoice(invoice);
+    }
+
+    @PostMapping("/innerInvoice/{invoice}")
+    private void createLotOnSite(@PathVariable("invoice") String invoice) {
+        innerInvoiceService.sendInnerInvoice(invoice);
     }
 
     @PostMapping("/currentLocation/{path}&{time}")
