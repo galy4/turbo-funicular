@@ -2,7 +2,6 @@ package com.luxoft.services;
 
 import com.luxoft.repository.RetrieveNsiData;
 import com.luxoft.repository.WagonRepository;
-import com.luxoft.rest.KafkaTopics;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import nlmk.l3.transport.current_location.*;

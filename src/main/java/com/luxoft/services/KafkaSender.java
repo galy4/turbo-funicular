@@ -2,7 +2,6 @@ package com.luxoft.services;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.luxoft.configs.KafkaProperties;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,10 +23,10 @@ import java.util.List;
 @Slf4j
 public class KafkaSender {
     private final RestTemplate restTemplate;
-    private final ObjectMapper objectMapper;
+//    private final ObjectMapper objectMapper;
     private final String userName;
     private final String password;
-    private final MessageBatchMapper messageBatchMapper ;
+//    private final MessageBatchMapper messageBatchMapper ;
 
     @Autowired
     private KafkaProperties kafkaTopics;
@@ -35,16 +34,16 @@ public class KafkaSender {
 
     public KafkaSender(
             @Qualifier("kafkaRestTemplate") RestTemplate restTemplate,
-//            @Qualifier("kafkaObjectMapper")
-                    ObjectMapper objectMapper,
+//            @Qualifier("kafkaObjectMapper") ObjectMapper objectMapper,
             @Value("${application.kafka.username}") String userName,
-            @Value("${application.kafka.password}") String password,
-            MessageBatchMapper messageBatchMapper){
+            @Value("${application.kafka.password}") String password
+//            MessageBatchMapper messageBatchMapper
+            ){
         this.restTemplate = restTemplate;
-        this.objectMapper = objectMapper;
+//        this.objectMapper = objectMapper;
         this.userName = userName;
         this.password = password;
-        this.messageBatchMapper = messageBatchMapper;
+//        this.messageBatchMapper = messageBatchMapper;
     }
 
     @SneakyThrows
@@ -66,13 +65,21 @@ public class KafkaSender {
 //        }
 //        log.info(bodyAsJson);
 //
-//        String avroString = AvroUtils.toJsonString(body);
+        String avroString = AvroUtils.toJsonString(body);
 //        log.info(avroString);
-        var dto = messageBatchMapper.buildBatchFromRecords("EEFAC958B41BCFE3324292D66CD244D7", Arrays.asList(body));
-        log.info(dto.toString());
+//        var dto = messageBatchMapper.buildBatchFromRecords("EEFAC958B41BCFE3324292D66CD244D7", Arrays.asList(body));
 
-        var request = new HttpEntity<>(dto, buildHeaders());
-//        var response = restTemplate.postForEntity(topic.getUrl(), request, String.class);
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("{\"value_schema\":")
+                .append("\"")
+                .append(body.getSchema().toString().replace("\"", "\\\""))
+                .append("\"")
+                .append(",\"records\": [{\"value\": ")
+                .append(avroString)
+                .append("}]}");
+
+//        var request = new HttpEntity<>(dto, buildHeaders());
+        var request = new HttpEntity<>(stringBuilder.toString(), buildHeaders());
         var response = restTemplate.postForEntity(extractTopicUrl(topic), request, String.class);
         log.info("RESPONSE IS: {}", response.getBody());
     }

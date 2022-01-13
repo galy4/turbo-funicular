@@ -18,7 +18,7 @@ public class RetrieveNsiData {
 
     private final JdbcTemplate jdbcTemplate;
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-//    private final ResourceDataMapper resourceDataMapper;
+    private final ResourceDataMapper resourceDataMapper;
 
     public Resource retrieveResourceData(String name){
         return namedParameterJdbcTemplate.queryForObject(
@@ -35,8 +35,21 @@ public class RetrieveNsiData {
         );
     }
 
+    public Resource retrieveInnerResourceData(String name){
+        return namedParameterJdbcTemplate.queryForObject(
+                "select mr.full_name as material_name, mr.source_transport_code as material_code, s.code as supplier_code, s.\"name\" \n" +
+                        "as supplier_name  from material_resource mr join structure_company_material_resource smr on smr.material_resource_id = mr.id \n" +
+                        "join structure_company s on s.id = smr.structure_company_id where mr.full_name = :material_name  limit 1",
+                Collections.singletonMap("material_name", name), resourceDataMapper);
+    }
+
     public List<String> retrieveResourceNames()  {
         return jdbcTemplate.queryForList("select full_name as material_name from material_resource mr join supplier_material_resource smr " +
+                "on smr.material_resource_id = mr.id", String.class);
+    }
+
+    public List<String> retrieveInnerResourceNames()  {
+        return jdbcTemplate.queryForList("select distinct full_name as material_name from material_resource mr join structure_company_material_resource smr \n" +
                 "on smr.material_resource_id = mr.id", String.class);
     }
 

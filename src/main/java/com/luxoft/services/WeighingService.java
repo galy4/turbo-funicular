@@ -1,7 +1,6 @@
 package com.luxoft.services;
 
 import com.luxoft.repository.WagonRepository;
-import com.luxoft.rest.KafkaTopics;
 import lombok.RequiredArgsConstructor;
 
 

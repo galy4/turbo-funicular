@@ -1,4 +1,5 @@
 let wagonId = 0;
+let resourceType = "";
 $(document).ready(()=>{
 
     getAllWagons();
@@ -16,9 +17,13 @@ $(document).ready(()=>{
         });
     });
 
-    readResources();
+    // readResources();
 
     //Обработчики:
+
+    $('input[name="int_ext"]').click( ()=> {
+        readResources($("input[type='radio']:checked").val());
+    });
 
     //выбираем все теги с именем  modal
     $('a[name=modal]').click(function (e) {
@@ -141,8 +146,10 @@ function createWagon(){
     });
 }
 
-function readResources(){
-    $.getJSON( "/resource", (items) =>{
+function readResources(type){
+    resourceType = type;
+    $('#resources').find('option').remove();
+    $.getJSON(`/resource/${type}`, (items) =>{
         $.each(items, (key, value)=> {
             $('#resources')
                 .append($("<option></option>")
@@ -153,8 +160,8 @@ function readResources(){
 }
 
 function getNSIResourceData(){
-    let opt = $( "#resources option:selected" ).text();
-    $.getJSON(`/resource/${opt}`,
+    let opt = $("#resources option:selected").text();
+    $.getJSON(`/resourceData/${opt}/${resourceType}`,
         function (data) {
             $.each(data, function (key, value){
                 $('body').append("<p>" + key+ " : " + value + "</p>")
