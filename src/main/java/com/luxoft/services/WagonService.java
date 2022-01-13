@@ -58,4 +58,11 @@ public class WagonService {
         wagonDto.setId(++maxId);
         wagonRepository.getWagonList().add(wagonConvertor.convert(wagonDto));
     }
+
+    public void addWagonLinks(String wayBillNum){
+        String prefix = wayBillNum.replaceAll("[A-Za-zА-Яа-я]+", "");
+        wagonRepository.getWagonList().forEach(w->
+                w.setWagonLink(prefix + w.getVehicleNumber())
+        );
+    }
 }

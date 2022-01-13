@@ -18,8 +18,11 @@ public class ResourceService {
 
     private Resource resource;
 
-    public List<String> getAll() {
-        return retrieveNsiData.retrieveResourceNames();
+    public List<String> getAll(String type) {
+        if(type.equalsIgnoreCase("external"))
+            return retrieveNsiData.retrieveResourceNames();
+        else
+            return retrieveNsiData.retrieveInnerResourceNames();
     }
 
 //    public ResourceDto getResource(String fullName){
@@ -29,8 +32,9 @@ public class ResourceService {
 //        return resourceConvertor.convertResource(resourceRepository.getResource());
 //    }
 
-    public ResourceDto getResource(String fullName){
-        resource = retrieveNsiData.retrieveResourceData(fullName);
+    public ResourceDto getResource(String fullName, String type){
+        resource = type.equalsIgnoreCase("external") ? retrieveNsiData.retrieveResourceData(fullName)
+                : retrieveNsiData.retrieveInnerResourceData(fullName);
         return resourceConvertor.convertResource(resource);
     }
 

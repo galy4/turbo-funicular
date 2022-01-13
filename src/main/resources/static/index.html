@@ -26,15 +26,15 @@
     <fieldset>
         <div class="container">
             <label>
-                <span>Number</span>
+                <span>Номер вагона</span>
                 <input id = "number" type="text" placeholder="0">
             </label>
             <label>
-                <span>Weight</span>
+                <span>Вес накл.</span>
                 <input id = "weight" type="number">
             </label>
             <label>
-                <span>Type</span>
+                <span>Тип</span>
                 <input id = "type" type="text">
             </label>
         </div>
@@ -48,6 +48,10 @@
 
 <a href="#modal" name="modal" class="mwl">Добавить вагон вручную</a>
 
+
+<p><b>Какое сырьё загрузить в вагоны?</b></p>
+<p><input name="int_ext" type="radio" value="internal"> Внутреннее</p>
+<p><input name="int_ext" type="radio" value="external"> Внешнее</p>
 
 <!-- #customize - здесь будет располагаться модальное окно -->
 <div id="modal" class="modalwindow">
@@ -90,14 +94,29 @@
     <fieldset>
         <div class="container">
             <label>
-                <span>Invoice Number</span>
+                <span>Номер накладной</span>
                 <input id = "invoice" type="text" placeholder="ЭЖ152478">
+                <span>Вес брутто</span>
+                <input id = "brutto" type="number" value="54.12" step="any">
+            </label>
+            <label>
+                <span>Путь</span>
+                <input id = "path" type="text" placeholder="4А">
+                <span>Вес тары</span>
+                <input id = "tare" type="number" value="14.62" step="any">
+            </label>
+            <label>
+                <span>Время постановки на путь</span>
+                <input id = "time" type="text" value="2022-01-13T13:06:08+06:00">
             </label>
         </div>
     </fieldset>
     <div class="lifecycle">
         <input type="button" id = "far" value="Создать партию">
+        <input type="button" id = "inner" value="Создать внутреннюю партию">
         <input type="button" id = "inv" value="Прибытие на территорию">
+        <input type="button" id = "cur" value="Постановка на путь">
+        <input type="button" id = "weigh" value="Провеска">
     </div>
 </form>
 

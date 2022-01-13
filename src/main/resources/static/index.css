@@ -12,16 +12,18 @@ input[type="button" i]{
 /* Выставляем все label друг под другом */
 label {
     display:block;
+    margin-bottom: 5px;
 }
 
 label > span{
     display:inline-block;
-    width: 150px;
+    width: 200px;
 }
 
 label > input{
     display:inline-block;
-    width: 150px;
+    width: 200px;
+    margin-right: 20px;
 }
 
 .modalwindow {

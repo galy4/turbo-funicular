@@ -1,4 +1,5 @@
 let wagonId = 0;
+let resourceType = "";
 $(document).ready(()=>{
 
     getAllWagons();
@@ -16,9 +17,13 @@ $(document).ready(()=>{
         });
     });
 
-    readResources();
+    // readResources();
 
     //Обработчики:
+
+    $('input[name="int_ext"]').click( ()=> {
+        readResources($("input[type='radio']:checked").val());
+    });
 
     //выбираем все теги с именем  modal
     $('a[name=modal]').click(function (e) {
@@ -47,21 +52,35 @@ $(document).ready(()=>{
         createWagon();
     });
 
+    $("#clone").click(()=> {
+        cloneWagon();
+    });
+
     $('#resourceData').click(()=>{
        getNSIResourceData();
     });
 
+    //-------wagon lifecycle-----
     $("#far").click(()=> {
         sendFarArrival();
+    });
+
+    $("#inner").click(()=> {
+        sendInnerInvoice();
     });
 
     $("#inv").click(()=> {
         sendInvoice();
     });
 
-    $("#clone").click(()=> {
-        cloneWagon();
+    $("#cur").click(()=> {
+        sendCurrentLocation();
     });
+
+    $("#weigh").click(()=> {
+        sendWeighing();
+    });
+
 
 });
 //Функции:
@@ -127,8 +146,10 @@ function createWagon(){
     });
 }
 
-function readResources(){
-    $.getJSON( "/resource", (items) =>{
+function readResources(type){
+    resourceType = type;
+    $('#resources').find('option').remove();
+    $.getJSON(`/resource/${type}`, (items) =>{
         $.each(items, (key, value)=> {
             $('#resources')
                 .append($("<option></option>")
@@ -139,8 +160,8 @@ function readResources(){
 }
 
 function getNSIResourceData(){
-    let opt = $( "#resources option:selected" ).text();
-    $.getJSON(`/resource/${opt}`,
+    let opt = $("#resources option:selected").text();
+    $.getJSON(`/resourceData/${opt}/${resourceType}`,
         function (data) {
             $.each(data, function (key, value){
                 $('body').append("<p>" + key+ " : " + value + "</p>")
@@ -152,14 +173,37 @@ function getNSIResourceData(){
 function sendFarArrival(){
     let inv = $('#invoice').val();
     $.post(`/farArrival/${inv}`, function (){
-        console.log(`data sent to backend`);
+        console.log(`Far arrival data sent to backend`);
         });
 }
 
 function sendInvoice(){
     let inv = $('#invoice').val();
     $.post(`/invoice/${inv}`, function (){
-        console.log(`data sent to backend`);
+        console.log(`Invoice data sent to backend`);
+    });
+}
+
+function sendCurrentLocation(){
+    let path = $('#path').val();
+    let time = $('#time').val();
+    $.post(`/currentLocation/${path}&${time}`, function () {
+        console.log(`Current location data sent to backend`);
+    });
+}
+
+function sendWeighing(){
+    let brutto = $('#brutto').val();
+    let tare = $('#tare').val();
+    $.post(`/weigh/${brutto}&${tare}`, function (){
+        console.log(`weighing data sent to backend`);
+    });
+}
+
+function sendInnerInvoice(){
+    let inv = $('#invoice').val();
+    $.post(`/innerInvoice/${inv}`, function (){
+        console.log(`Invoice data sent to backend`);
     });
 }
 

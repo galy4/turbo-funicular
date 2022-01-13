@@ -1,0 +1,176 @@
+{
+    "type": "record",
+    "name": "InnerInvoice",
+    "namespace": "nlmk.l3.transport.inner_invoice",
+    "doc": "Накладная Внутренняя",
+    "fields": [
+        {
+            "name": "ts",
+            "type": "string",
+            "doc": "Дата и время передачи"
+        },
+        {
+            "name": "op",
+            "type": {
+                "type": "enum",
+                "name": "enum_op",
+                "symbols": [
+                    "I",
+                    "U",
+                    "D"
+                ]
+            },
+            "doc": "Код операции"
+        },
+        {
+            "name": "pk",
+            "type": {
+                "type": "record",
+                "name": "RecordPk",
+                "fields": [
+                    {
+                        "name": "waybillNum",
+                        "type": "string",
+                        "doc": "Номер накладной"
+                    }
+                ]
+            },
+            "doc": "Ключ записи"
+        },
+        {
+            "name": "data",
+            "type": [
+                "null",
+                {
+                    "type": "record",
+                    "name": "RecordData",
+                    "doc": "Данные операции",
+                    "fields": [
+                        {
+                            "name": "departureDate",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Дата отправления (в формате YYYY-MM-DDThh:mm:ss+hh:mm)"
+                        },
+                        {
+                            "name": "arrivalDate",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Дата прибытия (в формате YYYY-MM-DDThh:mm:ss+hh:mm)"
+                        },
+                        {
+                            "name": "supplierCode",
+                            "type": "string",
+                            "doc": "Код грузоотправителя"
+                        },
+                        {
+                            "name": "supplierName",
+                            "type": "string",
+                            "doc": "Наименование грузоотправителя"
+                        },
+                        {
+                            "name": "stationDepartureCode",
+                            "type": "string",
+                            "doc": "Код станции отправления"
+                        },
+                        {
+                            "name": "stationDepartureName",
+                            "type": "string",
+                            "doc": "Наименование станции отправления"
+                        },
+                        {
+                            "name": "stationArrivalCode",
+                            "type": "string",
+                            "doc": "Код станции назначения"
+                        },
+                        {
+                            "name": "stationArrivalName",
+                            "type": "string",
+                            "doc": "Наименование станции назначения"
+                        },
+                        {
+                            "name": "kceh",
+                            "type": "string",
+                            "doc": "Код грузополучателя"
+                        },
+                        {
+                            "name": "kcehName",
+                            "type": "string",
+                            "doc": "Наименование грузополучателя"
+                        },
+                        {
+                            "name": "materialCode",
+                            "type": "string",
+                            "doc": "Код груза"
+                        },
+                        {
+                            "name": "materialName",
+                            "type": "string",
+                            "doc": "Наименование груза"
+                        },
+                        {
+                            "name": "weighingID",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Идентификатор отвесной"
+                        },
+                        {
+                            "name": "supplierType",
+                            "type": {
+                                "type": "enum",
+                                "name": "enum_supplierType",
+                                "symbols": [
+                                    "INTERNAL",
+                                    "EXTERNAL"
+                                ]
+                            },
+                            "doc": "Тип поставщика (внутренний, внешний)"
+                        },
+                        {
+                            "name": "positions",
+                            "type": {
+                                "type": "array",
+                                "items": {
+                                    "type": "record",
+                                    "name": "RecordPositions",
+                                    "fields": [
+                                        {
+                                            "name": "wagonNum",
+                                            "type": "int",
+                                            "doc": "Номер вагона"
+                                        },
+                                        {
+                                            "name": "wagonType",
+                                            "type": "string",
+                                            "doc": "Тип вагона"
+                                        },
+                                        {
+                                            "name": "weightNet",
+                                            "type": "float",
+                                            "doc": "Вес груза, т"
+                                        },
+                                        {
+                                            "name": "waybillWagonLink",
+                                            "type": [
+                                                "null",
+                                                "string"
+                                            ],
+                                            "doc": "Идентификатор конкретного вагона в конкретной накладной"
+                                        }
+                                    ]
+                                }
+                            },
+                            "doc": "Позиции накладной"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

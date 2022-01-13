@@ -2,8 +2,10 @@ package com.luxoft.services;
 
 import com.luxoft.repository.WagonRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import nlmk.l3.transport.far_arrival.*;
+import nlmk.l3.transport.inner_invoice.*;
+
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,57 +14,61 @@ import java.util.List;
 import static com.luxoft.utils.TimeStampGenerator.getCurrentTimeStamp;
 import static com.luxoft.utils.TimeStampGenerator.getDepartureDate;
 
-
 @Service
-@RequiredArgsConstructor
 @Slf4j
-public class FarArrivalService {
+@RequiredArgsConstructor
+public class InnerInvoiceService {
 
     private final WagonRepository wagonRepository;
     private final ResourceService resourceService;
+    private final WagonService wagonService;
     private final KafkaSender kafkaSender;
 
-    public void sendFarArrival(String invoice){
-        kafkaSender.sendMessage(buildFarArrival(invoice), "fararrival");
+    public void sendInnerInvoice(String innerInvoice){
+        kafkaSender.sendMessage(buildInnerInvoice(innerInvoice), "innerinvoice");
     }
 
-
-    private FarArrival buildFarArrival(String invoice){
+    @SneakyThrows
+    private InnerInvoice buildInnerInvoice(String wayBillNum){
+        wagonService.addWagonLinks(wayBillNum);
         List<RecordPositions> recordPositions = new ArrayList<>(wagonRepository.getWagonList().size());
-                wagonRepository.getWagonList().forEach(w-> recordPositions.add(
+        wagonRepository.getWagonList().forEach(w-> recordPositions.add(
                 RecordPositions.newBuilder()
                         .setWagonNum(Integer.parseInt(w.getVehicleNumber()))
                         .setWagonType(w.getWagonType())
                         .setWeightNet((float) w.getWeightNet())
+                        .setWaybillWagonLink(w.getWagonLink())
                         .build()
-                ));
-
-        var farArrival = FarArrival.newBuilder()
+        ));
+        var innerInvoice = InnerInvoice.newBuilder()
                 .setOp(enum_op.I)
                 .setTs(getCurrentTimeStamp())
                 .setPk(RecordPk.newBuilder()
-                        .setWaybillNum(invoice)
-                        .setDepartureDate(getDepartureDate(5))
+                        .setWaybillNum(wayBillNum)
                         .build()
                 )
                 .setData(RecordData.newBuilder()
+                        .setPositions(recordPositions)
                         .setMaterialCode(resourceService.getResource().getMaterialCode())
                         .setMaterialName(resourceService.getResource().getMaterialName())
                         .setSupplierCode(resourceService.getResource().getSupplierCode())
                         .setSupplierName(resourceService.getResource().getSupplierName())
+                        .setSupplierType(enum_supplierType.INTERNAL)
+                        .setWeighingID(null)
                         .setStationDepartureCode("2200")
                         .setStationArrivalCode("2")
                         .setStationArrivalName("Чугун-2")
                         .setStationDepartureName("ЗАРИНСКАЯ")
-                        .setPositions(recordPositions)
+                        .setKceh("18")
+                        .setKcehName("АГЦ")
+                        .setArrivalDate(getDepartureDate(3))
+                        .setDepartureDate(getDepartureDate(4))
                         .build()
                 )
                 .build();
-        log.info(farArrival.toString());
-        return farArrival;
+        log.info(innerInvoice.toString());
+        return innerInvoice;
     }
-
-
 
 
 }

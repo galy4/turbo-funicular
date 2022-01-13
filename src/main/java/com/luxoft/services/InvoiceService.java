@@ -1,7 +1,6 @@
 package com.luxoft.services;
 
 import com.luxoft.repository.WagonRepository;
-import com.luxoft.rest.KafkaTopics;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -21,25 +20,26 @@ public class InvoiceService {
 
     private final WagonRepository wagonRepository;
     private final ResourceService resourceService;
+    private final WagonService wagonService;
     private final KafkaSender kafkaSender;
 
     public void sendInvoice(String invoice){
-        kafkaSender.sendMessage(buildInvoice(invoice), KafkaTopics.INVOICE);
+        kafkaSender.sendMessage(buildInvoice(invoice), "invoice");
     }
 
     @SneakyThrows
-    public Invoice buildInvoice(String wayBillNum){
-        String prefix = wayBillNum.replaceAll("[A-Za-z]+", "");
+    private Invoice buildInvoice(String wayBillNum){
+        wagonService.addWagonLinks(wayBillNum);
         List<RecordPositions> recordPositions = new ArrayList<>(wagonRepository.getWagonList().size());
         wagonRepository.getWagonList().forEach(w-> recordPositions.add(
                 RecordPositions.newBuilder()
                         .setWagonNum(Integer.parseInt(w.getVehicleNumber()))
                         .setWagonType(w.getWagonType())
                         .setWeightNet((float) w.getWeightNet())
-                        .setWaybillWagonLink(prefix + w.getVehicleNumber())
+                        .setWaybillWagonLink(w.getWagonLink())
                         .build()
         ));
-        Invoice invoice = Invoice.newBuilder()
+        var invoice = Invoice.newBuilder()
                 .setOp(enum_op.I)
                 .setTs(getCurrentTimeStamp())
                 .setPk(RecordPk.newBuilder()
@@ -66,4 +66,5 @@ public class InvoiceService {
         log.info(invoice.toString());
         return invoice;
     }
+
 }
