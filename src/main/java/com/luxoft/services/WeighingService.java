@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 import static com.luxoft.utils.TimeStampGenerator.getCurrentTimeStamp;
@@ -23,17 +24,18 @@ public class WeighingService {
     private final ResourceService resourceService;
     private final KafkaSender kafkaSender;
 
-    public void sendWeighing(float brutto, float tare) {
-        kafkaSender.sendMessage(buildWeighing(brutto, tare), "weighing");
+    public void sendWeighing(float brutto, float tare, String isExternal) {
+        kafkaSender.sendMessage(buildWeighing(brutto, tare, isExternal), "weighing");
     }
 
-    private Weighing buildWeighing(float brutto, float tare){
+    private Weighing buildWeighing(float brutto, float tare, String isExternal){
+        String ext = isExternal.equalsIgnoreCase("internal")? isExternal.toUpperCase():"EXTERNAL";
         List<RecordPositions> recordPositions = new ArrayList<>(wagonRepository.getWagonList().size());
         wagonRepository.getWagonList().forEach(w-> recordPositions.add(
                 RecordPositions.newBuilder()
                         .setWagonNum(Integer.parseInt(w.getVehicleNumber()))
                         .setWaybillWagonLink(w.getWagonLink())
-                        .setSupplierType(enum_supplierType.EXTERNAL)
+                        .setSupplierType(enum_supplierType.valueOf(ext))
                         .setMaterialName(resourceService.getResource().getMaterialName())
                         .setMaterialCode(resourceService.getResource().getMaterialCode())
                         .setWeighingDate(getDepartureDate(3))

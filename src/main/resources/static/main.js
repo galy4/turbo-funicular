@@ -195,7 +195,7 @@ function sendCurrentLocation(){
 function sendWeighing(){
     let brutto = $('#brutto').val();
     let tare = $('#tare').val();
-    $.post(`/weigh/${brutto}&${tare}`, function (){
+    $.post(`/weigh/${brutto}&${tare}&${resourceType}`, function (){
         console.log(`weighing data sent to backend`);
     });
 }

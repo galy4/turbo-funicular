@@ -35,8 +35,8 @@ public class LifeCycleController {
         locationService.sendCurrentLocation(path, time);
     }
 
-    @PostMapping("/weigh/{brutto}&{tare}")
-    private void weighWagons(@PathVariable("brutto") float brutto, @PathVariable("tare") float tare) {
-        weighingService.sendWeighing(brutto, tare);
+    @PostMapping("/weigh/{brutto}&{tare}&{isExternal}")
+    private void weighWagons(@PathVariable("brutto") float brutto, @PathVariable("tare") float tare, @PathVariable("isExternal") String isExternal) {
+        weighingService.sendWeighing(brutto, tare, isExternal);
     }
 }
