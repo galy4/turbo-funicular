@@ -82,6 +82,13 @@ create table structure_company_material_resource
     PRIMARY KEY (ID)
 );
 
+create table if not exists message_history(
+    id int NOT NULL AUTO_INCREMENT,
+    created_at timestamp,
+    message varchar(5000),
+    PRIMARY KEY (ID)
+);
+
 
 
 

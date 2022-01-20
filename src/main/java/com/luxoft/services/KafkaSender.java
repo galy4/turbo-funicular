@@ -3,6 +3,7 @@ package com.luxoft.services;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.luxoft.configs.KafkaProperties;
+import com.luxoft.repository.MessageRepository;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.SneakyThrows;
@@ -16,13 +17,13 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Service
 @Slf4j
 public class KafkaSender {
     private final RestTemplate restTemplate;
+    private final MessageRepository messageRepository;
 //    private final ObjectMapper objectMapper;
     private final String userName;
     private final String password;
@@ -35,11 +36,12 @@ public class KafkaSender {
     public KafkaSender(
             @Qualifier("kafkaRestTemplate") RestTemplate restTemplate,
 //            @Qualifier("kafkaObjectMapper") ObjectMapper objectMapper,
-            @Value("${application.kafka.username}") String userName,
+            MessageRepository messageRepository, @Value("${application.kafka.username}") String userName,
             @Value("${application.kafka.password}") String password
 //            MessageBatchMapper messageBatchMapper
-            ){
+    ){
         this.restTemplate = restTemplate;
+        this.messageRepository = messageRepository;
 //        this.objectMapper = objectMapper;
         this.userName = userName;
         this.password = password;
@@ -82,6 +84,7 @@ public class KafkaSender {
         var request = new HttpEntity<>(stringBuilder.toString(), buildHeaders());
         var response = restTemplate.postForEntity(extractTopicUrl(topic), request, String.class);
         log.info("RESPONSE IS: {}", response.getBody());
+        messageRepository.insertMessage(stringBuilder.toString());
     }
 
     private HttpHeaders buildHeaders() {
