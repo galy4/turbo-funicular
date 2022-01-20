@@ -301,3 +301,132 @@ INSERT INTO structure_company_material_resource (ins_time,upd_time,material_reso
 ('2022-01-19 16:59:40.448',NULL,95,20),
 ('2022-01-19 16:59:40.448',NULL,14,13),
 ('2022-01-19 16:59:40.448',NULL,25,20);
+
+--------------path (в локалдной БД называется railway!!!)------------------------
+INSERT INTO railway ("name",short_name,full_name,ins_time,upd_time,code,path_type,path_capacity,source_up_agp_code,park_id,source_transport_code,source_axapta_code,source_lab_code,source_lifnr_code,inside_lode_code) VALUES
+('Путь 4','4А','Ст. Новолипецк, Парк А, Путь 4','2022-01-19 16:59:40.448',NULL,'111101','ACCUMULATOR_PATH',79,'1805041',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 5','5А','Ст. Новолипецк, Парк А, Путь 5','2022-01-19 16:59:40.448',NULL,'111102','ACCUMULATOR_PATH',71,'1805042',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 6','6А','Ст. Новолипецк, Парк А, Путь 6','2022-01-19 16:59:40.448',NULL,'111103','ACCUMULATOR_PATH',78,'1805043',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 7','7А','Ст. Новолипецк, Парк А, Путь 7','2022-01-19 16:59:40.448',NULL,'110104','ACCUMULATOR_PATH',83,'1805044',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 8','8А','Ст. Новолипецк, Парк А, Путь 8','2022-01-19 16:59:40.448',NULL,'111105','ACCUMULATOR_PATH',71,'1805045',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 9','9А','Ст. Новолипецк, Парк А, Путь 9','2022-01-19 16:59:40.448',NULL,'111106','ACCUMULATOR_PATH',71,'1805046',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 10','10А','Ст. Новолипецк, Парк А, Путь 10','2022-01-19 16:59:40.448',NULL,'111107','ACCUMULATOR_PATH',70,'1805047',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 20','20А','Ст. Новолипецк, Парк А, Путь 20','2022-01-19 16:59:40.448',NULL,'110110','ACCUMULATOR_PATH',34,'18050412',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 22','22А','Ст. Новолипецк, Парк А, Путь 22','2022-01-19 16:59:40.448',NULL,'111122','ACCUMULATOR_PATH',16,'18050413',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 23','23А','Ст. Новолипецк, Парк А, Путь 23','2022-01-19 16:59:40.448',NULL,'110113','ACCUMULATOR_PATH',16,'18050414',1,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO railway ("name",short_name,full_name,ins_time,upd_time,code,path_type,path_capacity,source_up_agp_code,park_id,source_transport_code,source_axapta_code,source_lab_code,source_lifnr_code,inside_lode_code) VALUES
+('Путь 25','ГР1 1с','Ст. Новолипецк, Парк А, Путь 25','2022-01-19 16:59:40.448',NULL,'510215','DEFROST_GARAGE_PATH',28,'180505011',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 26','ГР1 2с','Ст. Новолипецк, Парк А, Путь 26','2022-01-19 16:59:40.448',NULL,'510218','DEFROST_GARAGE_PATH',28,'180505012',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 27','ГР1 3с','Ст. Новолипецк, Парк А, Путь 27','2022-01-19 16:59:40.448',NULL,'510217','DEFROST_GARAGE_PATH',27,'180505013',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 34','ГР2 1с','Ст. Новолипецк, Парк А, Путь 34','2022-01-19 16:59:40.448',NULL,'11118','DEFROST_GARAGE_PATH',21,'180505021',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 35','ГР2 2с','Ст. Новолипецк, Парк А, Путь 35','2022-01-19 16:59:40.448',NULL,'11119','DEFROST_GARAGE_PATH',21,'180505022',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 36','ГР2 3с','Ст. Новолипецк, Парк А, Путь 36','2022-01-19 16:59:40.448',NULL,'11120','DEFROST_GARAGE_PATH',25,'180505023',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 42','ГР3 1с','Ст. Новолипецк, Парк А, Путь 42','2022-01-19 16:59:40.448',NULL,'11121','DEFROST_GARAGE_PATH',32,'180505031',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 43','ГР3 2с','Ст. Новолипецк, Парк А, Путь 43','2022-01-19 16:59:40.448',NULL,'11122','DEFROST_GARAGE_PATH',32,'180505032',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 44','ГР3 3с','Ст. Новолипецк, Парк А, Путь 44','2022-01-19 16:59:40.448',NULL,'11123','DEFROST_GARAGE_PATH',37,'180505033',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 45','ГР3 4с','Ст. Новолипецк, Парк А, Путь 45','2022-01-19 16:59:40.448',NULL,'11124','DEFROST_GARAGE_PATH',35,'180505034',1,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO railway ("name",short_name,full_name,ins_time,upd_time,code,path_type,path_capacity,source_up_agp_code,park_id,source_transport_code,source_axapta_code,source_lab_code,source_lifnr_code,inside_lode_code) VALUES
+('Путь 46','ГР3 5с','Ст. Новолипецк, Парк А, Путь 46','2022-01-19 16:59:40.448',NULL,'11125','DEFROST_GARAGE_PATH',35,'180505035',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 47','ГР3 6с','Ст. Новолипецк, Парк А, Путь 47','2022-01-19 16:59:40.448',NULL,'11126','DEFROST_GARAGE_PATH',22,'180505036',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 11','ВО-1 ОП','Ст. Новолипецк, Парк А, Путь 11','2022-01-19 16:59:40.448',NULL,'111111','CAR_DUMPER_PATH',29,'1805065',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 12','ВО-1 "Рыбка"','Ст. Новолипецк, Парк А, Путь 12','2022-01-19 16:59:40.448',NULL,'111128','CAR_DUMPER_PATH',29,'1805061',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 24','ВО-1 ОП','Ст. Новолипецк, Парк А, Путь 24','2022-01-19 16:59:40.448',NULL,'510213','ACCUMULATOR_FROM_CAR_DUMPER_PATH',40,'1805065',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 13','ВО-2 ОП','Ст. Новолипецк, Парк А, Путь 13','2022-01-19 16:59:40.448',NULL,'111113','CAR_DUMPER_PATH',27,'1805066',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 14','ВО-2 "Рыбка"','Ст. Новолипецк, Парк А, Путь 14','2022-01-19 16:59:40.448',NULL,'111129','CAR_DUMPER_PATH',27,'1805062',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 30','ВО-2 ОП','Ст. Новолипецк, Парк А, Путь 30','2022-01-19 16:59:40.448',NULL,'510214','ACCUMULATOR_FROM_CAR_DUMPER_PATH',38,'1805066',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 15','ВО-3 ОП','Ст. Новолипецк, Парк А, Путь 15','2022-01-19 16:59:40.448',NULL,'111115','CAR_DUMPER_PATH',20,'1805067',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 16','ВО-3 "Рыбка"','Ст. Новолипецк, Парк А, Путь 16','2022-01-19 16:59:40.448',NULL,'111116','CAR_DUMPER_PATH',20,'1805063',1,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO railway ("name",short_name,full_name,ins_time,upd_time,code,path_type,path_capacity,source_up_agp_code,park_id,source_transport_code,source_axapta_code,source_lab_code,source_lifnr_code,inside_lode_code) VALUES
+('Путь 25а','ВО-3 ОП','Ст. Новолипецк, Парк А, Путь 25а','2022-01-19 16:59:40.448',NULL,'11109','ACCUMULATOR_FROM_CAR_DUMPER_PATH',26,'1805067',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 29','ВО-3 ОП','Ст. Новолипецк, Парк А, Путь 29','2022-01-19 16:59:40.448',NULL,'510216','ACCUMULATOR_FROM_CAR_DUMPER_PATH',29,'1805067',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 17','ВО-4 ОП','Ст. Новолипецк, Парк А, Путь 17','2022-01-19 16:59:40.448',NULL,'111117','CAR_DUMPER_PATH',19,'1805068',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 18','ВО-4 "Рыбка"','Ст. Новолипецк, Парк А, Путь 18','2022-01-19 16:59:40.448',NULL,'111118','CAR_DUMPER_PATH',19,'1805064',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 26а','ВО-4 ОП','Ст. Новолипецк, Парк А, Путь 26а','2022-01-19 16:59:40.448',NULL,'11111','ACCUMULATOR_FROM_CAR_DUMPER_PATH',22,'1805068',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 27а','ВО-4 ОП','Ст. Новолипецк, Парк А, Путь 27а','2022-01-19 16:59:40.448',NULL,'11113','ACCUMULATOR_FROM_CAR_DUMPER_PATH',22,'1805068',1,NULL,NULL,NULL,NULL,NULL),
+('Путь 0','0Б','Ст. Новолипецк, Парк Б, Путь 0','2022-01-19 16:59:40.448',NULL,'110236','ACCUMULATOR_PATH',37,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 1','1Б','Ст. Новолипецк, Парк Б, Путь 1','2022-01-19 16:59:40.448',NULL,'110201','ACCUMULATOR_PATH',37,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 2','2Б','Ст. Новолипецк, Парк Б, Путь 2','2022-01-19 16:59:40.448',NULL,'110202','ACCUMULATOR_PATH',49,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 3','3Б','Ст. Новолипецк, Парк Б, Путь 3','2022-01-19 16:59:40.448',NULL,'110204','ACCUMULATOR_PATH',54,NULL,2,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO railway ("name",short_name,full_name,ins_time,upd_time,code,path_type,path_capacity,source_up_agp_code,park_id,source_transport_code,source_axapta_code,source_lab_code,source_lifnr_code,inside_lode_code) VALUES
+('Путь 4','4Б','Ст. Новолипецк, Парк Б, Путь 4','2022-01-19 16:59:40.448',NULL,'110205','ACCUMULATOR_PATH',58,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 5','5Б','Ст. Новолипецк, Парк Б, Путь 5','2022-01-19 16:59:40.448',NULL,'110206','ACCUMULATOR_PATH',92,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 6','6Б','Ст. Новолипецк, Парк Б, Путь 6','2022-01-19 16:59:40.448',NULL,'110207','ACCUMULATOR_PATH',85,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 7','7Б','Ст. Новолипецк, Парк Б, Путь 7','2022-01-19 16:59:40.448',NULL,'110208','ACCUMULATOR_PATH',85,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 8','8Б','Ст. Новолипецк, Парк Б, Путь 8','2022-01-19 16:59:40.448',NULL,'110209','ACCUMULATOR_PATH',76,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 9','9Б','Ст. Новолипецк, Парк Б, Путь 9','2022-01-19 16:59:40.448',NULL,'110210','ACCUMULATOR_PATH',80,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 10','10Б','Ст. Новолипецк, Парк Б, Путь 10','2022-01-19 16:59:40.448',NULL,'110211','ACCUMULATOR_PATH',79,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 11','11Б','Ст. Новолипецк, Парк Б, Путь 11','2022-01-19 16:59:40.448',NULL,'110212','ACCUMULATOR_PATH',76,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 12','12Б','Ст. Новолипецк, Парк Б, Путь 12','2022-01-19 16:59:40.448',NULL,'110213','ACCUMULATOR_PATH',77,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 13','13Б','Ст. Новолипецк, Парк Б, Путь 13','2022-01-19 16:59:40.448',NULL,'110214','ACCUMULATOR_PATH',81,NULL,2,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO railway ("name",short_name,full_name,ins_time,upd_time,code,path_type,path_capacity,source_up_agp_code,park_id,source_transport_code,source_axapta_code,source_lab_code,source_lifnr_code,inside_lode_code) VALUES
+('Путь 14','14Б','Ст. Новолипецк, Парк Б, Путь 14','2022-01-19 16:59:40.448',NULL,'110215','ACCUMULATOR_PATH',81,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 15','15Б','Ст. Новолипецк, Парк Б, Путь 15','2022-01-19 16:59:40.448',NULL,'110216','ACCUMULATOR_PATH',78,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 16','16Б','Ст. Новолипецк, Парк Б, Путь 16','2022-01-19 16:59:40.448',NULL,'110217','ACCUMULATOR_PATH',84,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 17','17Б','Ст. Новолипецк, Парк Б, Путь 17','2022-01-19 16:59:40.448',NULL,'110218','ACCUMULATOR_PATH',86,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 18','18Б','Ст. Новолипецк, Парк Б, Путь 18','2022-01-19 16:59:40.448',NULL,'110219','ACCUMULATOR_PATH',87,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 19','19Б','Ст. Новолипецк, Парк Б, Путь 19','2022-01-19 16:59:40.448',NULL,'110220','ACCUMULATOR_PATH',87,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 20','20Б','Ст. Новолипецк, Парк Б, Путь 20','2022-01-19 16:59:40.448',NULL,'110221','ACCUMULATOR_PATH',90,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 21','21Б','Ст. Новолипецк, Парк Б, Путь 21','2022-01-19 16:59:40.448',NULL,'110222','ACCUMULATOR_PATH',89,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 22','22Б','Ст. Новолипецк, Парк Б, Путь 22','2022-01-19 16:59:40.448',NULL,'110223','ACCUMULATOR_PATH',89,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 23','23Б','Ст. Новолипецк, Парк Б, Путь 23','2022-01-19 16:59:40.448',NULL,'110224','ACCUMULATOR_PATH',82,NULL,2,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO railway ("name",short_name,full_name,ins_time,upd_time,code,path_type,path_capacity,source_up_agp_code,park_id,source_transport_code,source_axapta_code,source_lab_code,source_lifnr_code,inside_lode_code) VALUES
+('Путь 24','24Б','Ст. Новолипецк, Парк Б, Путь 24','2022-01-19 16:59:40.448',NULL,'110225','ACCUMULATOR_PATH',82,NULL,2,NULL,NULL,NULL,NULL,NULL),
+('Путь 1','1В','Ст. Новолипецк, Парк В, Путь 1','2022-01-19 16:59:40.448',NULL,'110301','ACCUMULATOR_PATH',65,NULL,3,NULL,NULL,NULL,NULL,NULL),
+('Путь 2','2В','Ст. Новолипецк, Парк В, Путь 2','2022-01-19 16:59:40.448',NULL,'110302','ACCUMULATOR_PATH',68,NULL,3,NULL,NULL,NULL,NULL,NULL),
+('Путь 3','3В','Ст. Новолипецк, Парк В, Путь 3','2022-01-19 16:59:40.448',NULL,'110303','ACCUMULATOR_PATH',71,NULL,3,NULL,NULL,NULL,NULL,NULL),
+('Путь 4','4В','Ст. Новолипецк, Парк В, Путь 4','2022-01-19 16:59:40.448',NULL,'110304','ACCUMULATOR_PATH',72,NULL,3,NULL,NULL,NULL,NULL,NULL),
+('Путь 5','5В','Ст. Новолипецк, Парк В, Путь 5','2022-01-19 16:59:40.448',NULL,'110305','ACCUMULATOR_PATH',74,NULL,3,NULL,NULL,NULL,NULL,NULL),
+('Путь 6','6В','Ст. Новолипецк, Парк В, Путь 6','2022-01-19 16:59:40.448',NULL,'110306','ACCUMULATOR_PATH',73,NULL,3,NULL,NULL,NULL,NULL,NULL),
+('Путь 7','7В','Ст. Новолипецк, Парк В, Путь 7','2022-01-19 16:59:40.448',NULL,'110307','ACCUMULATOR_PATH',70,NULL,3,NULL,NULL,NULL,NULL,NULL),
+('Путь 8','8В','Ст. Новолипецк, Парк В, Путь 8','2022-01-19 16:59:40.448',NULL,'110308','ACCUMULATOR_PATH',68,NULL,3,NULL,NULL,NULL,NULL,NULL),
+('Путь 9','9В','Ст. Новолипецк, Парк В, Путь 9','2022-01-19 16:59:40.448',NULL,'510301','ACCUMULATOR_PATH',66,NULL,3,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO railway ("name",short_name,full_name,ins_time,upd_time,code,path_type,path_capacity,source_up_agp_code,park_id,source_transport_code,source_axapta_code,source_lab_code,source_lifnr_code,inside_lode_code) VALUES
+('Путь 10','10В','Ст. Новолипецк, Парк В, Путь 10','2022-01-19 16:59:40.448',NULL,'510302','ACCUMULATOR_PATH',67,NULL,3,NULL,NULL,NULL,NULL,NULL),
+('Путь 1','1Г','Ст. Новолипецк, Парк Г, Путь 1','2022-01-19 16:59:40.448',NULL,'110401','ACCUMULATOR_PATH',40,NULL,4,NULL,NULL,NULL,NULL,NULL),
+('Путь 2','2Г','Ст. Новолипецк, Парк Г, Путь 2','2022-01-19 16:59:40.448',NULL,'110402','ACCUMULATOR_PATH',42,NULL,4,NULL,NULL,NULL,NULL,NULL),
+('Путь 3','3Г','Ст. Новолипецк, Парк Г, Путь 3','2022-01-19 16:59:40.448',NULL,'110403','ACCUMULATOR_PATH',50,'1805048',4,NULL,NULL,NULL,NULL,NULL),
+('Путь 4','4Г','Ст. Новолипецк, Парк Г, Путь 4','2022-01-19 16:59:40.448',NULL,'110404','ACCUMULATOR_PATH',57,'1805049',4,NULL,NULL,NULL,NULL,NULL),
+('Путь 5','5Г','Ст. Новолипецк, Парк Г, Путь 5','2022-01-19 16:59:40.448',NULL,'110405','ACCUMULATOR_PATH',54,'18050410',4,NULL,NULL,NULL,NULL,NULL),
+('Путь 6','6Г','Ст. Новолипецк, Парк Г, Путь 6','2022-01-19 16:59:40.448',NULL,'110406','ACCUMULATOR_PATH',56,'18050411',4,NULL,NULL,NULL,NULL,NULL),
+('Путь 7','7Г','Ст. Новолипецк, Парк Г, Путь 7','2022-01-19 16:59:40.448',NULL,'110407','ACCUMULATOR_PATH',53,NULL,4,NULL,NULL,NULL,NULL,NULL),
+('Путь 8','8Г','Ст. Новолипецк, Парк Г, Путь 8','2022-01-19 16:59:40.448',NULL,'110408','ACCUMULATOR_PATH',68,NULL,4,NULL,NULL,NULL,NULL,NULL),
+('Путь 9','9Г','Ст. Новолипецк, Парк Г, Путь 9','2022-01-19 16:59:40.448',NULL,'110409','ACCUMULATOR_PATH',56,NULL,4,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO railway ("name",short_name,full_name,ins_time,upd_time,code,path_type,path_capacity,source_up_agp_code,park_id,source_transport_code,source_axapta_code,source_lab_code,source_lifnr_code,inside_lode_code) VALUES
+('Путь 10','10Г','Ст. Новолипецк, Парк Г, Путь 10','2022-01-19 16:59:40.448',NULL,'110410','ACCUMULATOR_PATH',52,NULL,4,NULL,NULL,NULL,NULL,NULL),
+('Путь 11','11Г','Ст. Новолипецк, Парк Г, Путь 11','2022-01-19 16:59:40.448',NULL,'110411','ACCUMULATOR_PATH',59,NULL,4,NULL,NULL,NULL,NULL,NULL),
+('Путь 12','12Г','Ст. Новолипецк, Парк Г, Путь 12','2022-01-19 16:59:40.448',NULL,'110412','ACCUMULATOR_PATH',60,NULL,4,NULL,NULL,NULL,NULL,NULL),
+('Путь 13','13Г','Ст. Новолипецк, Парк Г, Путь 13','2022-01-19 16:59:40.448',NULL,'110413','ACCUMULATOR_PATH',63,NULL,4,NULL,NULL,NULL,NULL,NULL),
+('Путь 1','1Д','Ст. Новолипецк, Парк Д, Путь 1','2022-01-19 16:59:40.448',NULL,'11081','ACCUMULATOR_PATH',13,NULL,5,NULL,NULL,NULL,NULL,NULL),
+('Путь 2','2Д','Ст. Новолипецк, Парк Д, Путь 2','2022-01-19 16:59:40.448',NULL,'11082','ACCUMULATOR_PATH',13,NULL,5,NULL,NULL,NULL,NULL,NULL),
+('Путь 3т','3Т','Ст. Новолипецк, Парк Д, Путь 3т','2022-01-19 16:59:40.448',NULL,'11083','ACCUMULATOR_PATH',2,NULL,5,NULL,NULL,NULL,NULL,NULL),
+('Путь 13','13Е','Ст. Новолипецк, Парк Е, Путь 13','2022-01-19 16:59:40.448',NULL,'518745','ACCUMULATOR_PATH',86,NULL,6,NULL,NULL,NULL,NULL,NULL),
+('Путь 1П','1П','Ст. Агломератная, Парк ПО, Путь 1П','2022-01-19 16:59:40.448',NULL,'30201','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 2П','2П','Ст. Агломератная, Парк ПО, Путь 2П','2022-01-19 16:59:40.448',NULL,'30202','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO railway ("name",short_name,full_name,ins_time,upd_time,code,path_type,path_capacity,source_up_agp_code,park_id,source_transport_code,source_axapta_code,source_lab_code,source_lifnr_code,inside_lode_code) VALUES
+('Путь 3П','3П','Ст. Агломератная, Парк ПО, Путь 3П','2022-01-19 16:59:40.448',NULL,'30203','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 4П','4П','Ст. Агломератная, Парк ПО, Путь 4П','2022-01-19 16:59:40.448',NULL,'30204','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 5П','5П','Ст. Агломератная, Парк ПО, Путь 5П','2022-01-19 16:59:40.448',NULL,'30205','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 7','7','Ст. Агломератная, Парк ПО, Путь 7','2022-01-19 16:59:40.448',NULL,'30206','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 8','8','Ст. Агломератная, Парк ПО, Путь 8','2022-01-19 16:59:40.448',NULL,'30207','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 9','9','Ст. Агломератная, Парк ПО, Путь 9','2022-01-19 16:59:40.448',NULL,'30208','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 12','12','Ст. Агломератная, Парк ПО, Путь 12','2022-01-19 16:59:40.448',NULL,'30209','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 13','13','Ст. Агломератная, Парк ПО, Путь 13','2022-01-19 16:59:40.448',NULL,'30210','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 14П','14П','Ст. Агломератная, Парк ПО, Путь 14П','2022-01-19 16:59:40.448',NULL,'30211','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 15','15','Ст. Агломератная, Парк ПО, Путь 15','2022-01-19 16:59:40.448',NULL,'30212','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO railway ("name",short_name,full_name,ins_time,upd_time,code,path_type,path_capacity,source_up_agp_code,park_id,source_transport_code,source_axapta_code,source_lab_code,source_lifnr_code,inside_lode_code) VALUES
+('Путь 16','16','Ст. Агломератная, Парк ПО, Путь 16','2022-01-19 16:59:40.448',NULL,'30213','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 17','17','Ст. Агломератная, Парк ПО, Путь 17','2022-01-19 16:59:40.448',NULL,'30214','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 18','18','Ст. Агломератная, Парк ПО, Путь 18','2022-01-19 16:59:40.448',NULL,'30215','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 8П','8П','Ст. Агломератная, Парк ПО, Путь 8П','2022-01-19 16:59:40.448',NULL,'30216','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 31П','31П','Ст. Агломератная, Парк ПО, Путь 31П','2022-01-19 16:59:40.448',NULL,'30217','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 21П','21П','Ст. Агломератная, Парк ПО, Путь 21П','2022-01-19 16:59:40.448',NULL,'30218','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 35П','35П','Ст. Агломератная, Парк ПО, Путь 35П','2022-01-19 16:59:40.448',NULL,'30219','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 33П','33П','Ст. Агломератная, Парк ПО, Путь 33П','2022-01-19 16:59:40.448',NULL,'30220','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 25П','25П','Ст. Агломератная, Парк ПО, Путь 25П','2022-01-19 16:59:40.448',NULL,'30221','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 26П','26П','Ст. Агломератная, Парк ПО, Путь 26П','2022-01-19 16:59:40.448',NULL,'30222','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO railway ("name",short_name,full_name,ins_time,upd_time,code,path_type,path_capacity,source_up_agp_code,park_id,source_transport_code,source_axapta_code,source_lab_code,source_lifnr_code,inside_lode_code) VALUES
+('Путь 27П','27П','Ст. Агломератная, Парк ПО, Путь 27П','2022-01-19 16:59:40.448',NULL,'30223','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 28П','28П','Ст. Агломератная, Парк ПО, Путь 28П','2022-01-19 16:59:40.448',NULL,'30224','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 29П','29П','Ст. Агломератная, Парк ПО, Путь 29П','2022-01-19 16:59:40.448',NULL,'30225','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 20П','20П','Ст. Агломератная, Парк ПО, Путь 20П','2022-01-19 16:59:40.448',NULL,'510439','ACCUMULATOR_PATH',NULL,NULL,8,NULL,NULL,NULL,NULL,NULL),
+('Путь 48','48А','Ст. Новолипецк, Парк А, Путь 48','2022-01-19 16:59:40.448',NULL,'111130','ACCUMULATOR_PATH',33,NULL,1,NULL,NULL,NULL,NULL,NULL);

@@ -55,7 +55,7 @@ public class RetrieveNsiData {
 
     public String retrievePathCode(String shortName){
         Optional<List<String>> pathcode;
-        pathcode = Optional.of(namedParameterJdbcTemplate.queryForList("select code from \"path\" where short_name = :short_name",
+        pathcode = Optional.of(namedParameterJdbcTemplate.queryForList("select code from railway where short_name = :short_name",
                 Collections.singletonMap("short_name", shortName), String.class));
         log.info(pathcode.orElse(Collections.singletonList("110236")).get(0));
         return pathcode.orElse(Collections.singletonList("110236")).get(0);

@@ -3,6 +3,7 @@ drop table if exists supplier_material_resource;
 drop table if exists supplier;
 drop table if exists structure_company;
 drop table if exists structure_company_material_resource;
+drop table if exists railway;
 
 create table material_resource
 (
@@ -79,6 +80,27 @@ create table structure_company_material_resource
     upd_time timestamp,
     material_resource_id int,
     structure_company_id int,
+    PRIMARY KEY (ID)
+);
+
+create table railway
+(
+    id int NOT NULL AUTO_INCREMENT,
+    "name" varchar(50),
+    short_name varchar(50),
+    full_name varchar(50),
+    ins_time timestamp,
+    upd_time timestamp,
+    code varchar(20),
+    path_type varchar(50),
+    path_capacity int,
+    source_up_agp_code varchar(50),
+    park_id int,
+    source_transport_code varchar(20),
+    source_axapta_code varchar(20),
+    source_lab_code varchar(20),
+    source_lifnr_code varchar(20),
+    inside_lode_code varchar(20),
     PRIMARY KEY (ID)
 );
 

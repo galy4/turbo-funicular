@@ -190,9 +190,10 @@ function sendCurrentLocation(){
 function sendWeighing(){
     let brutto = $('#brutto').val();
     let tare = $('#tare').val();
-    $.post(`/weigh/${brutto}&${tare}&${resourceType}`, function (){
-        console.log(`weighing data sent to backend`);
-    });
+    $.post(`/weght?brutto=${brutto}&tare=${tare}&isExternal=${resourceType}`)
+    // $.post(`/weigh/${brutto}&${tare}&${resourceType}`, function (){
+    //     console.log(`weighing data sent to backend`);
+    // });
 }
 
 function sendInnerInvoice(){
