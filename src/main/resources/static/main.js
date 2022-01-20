@@ -77,21 +77,16 @@ $(document).ready(()=>{
         sendCurrentLocation();
     });
 
-    $("#weigh").click(()=> {
-        sendWeighing();
-    });
+    $("#weigh").click(sendWeighing);
 
 
 });
 //Функции:
-function getWagon(id) {
-    $.getJSON(`/wagon/${id}`,
-        function (data) {
-            $("#number").val(data.number);
-            $("#weight").val(data.weight);
-            $("#type").val(data.type);
-        });
-}
+var getWagon = (id) => $.getJSON(`/wagon/${id}`, ({number, weight, type}) => {
+    $("#number").val(number);
+    $("#weight").val(weight);
+    $("#type").val(type);
+});
 
 function updateWagon(data) {
     $.ajax({
