@@ -75,9 +75,9 @@ create table structure_company
 
 create table structure_company_material_resource
 (
-    id int NOT NULL AUTO_INCREMENT,
-    ins_time timestamp,
-    upd_time timestamp,
+    id                   int NOT NULL AUTO_INCREMENT,
+    ins_time             timestamp,
+    upd_time             timestamp,
     material_resource_id int,
     structure_company_id int,
     PRIMARY KEY (ID)
@@ -85,30 +85,31 @@ create table structure_company_material_resource
 
 create table railway
 (
-    id int NOT NULL AUTO_INCREMENT,
-    "name" varchar(50),
-    short_name varchar(50),
-    full_name varchar(50),
-    ins_time timestamp,
-    upd_time timestamp,
-    code varchar(20),
-    path_type varchar(50),
-    path_capacity int,
-    source_up_agp_code varchar(50),
-    park_id int,
+    id                    int NOT NULL AUTO_INCREMENT,
+    "name"                varchar(50),
+    short_name            varchar(50),
+    full_name             varchar(50),
+    ins_time              timestamp,
+    upd_time              timestamp,
+    code                  varchar(20),
+    path_type             varchar(50),
+    path_capacity         int,
+    source_up_agp_code    varchar(50),
+    park_id               int,
     source_transport_code varchar(20),
-    source_axapta_code varchar(20),
-    source_lab_code varchar(20),
-    source_lifnr_code varchar(20),
-    inside_lode_code varchar(20),
+    source_axapta_code    varchar(20),
+    source_lab_code       varchar(20),
+    source_lifnr_code     varchar(20),
+    inside_lode_code      varchar(20),
     PRIMARY KEY (ID)
 );
 
-create table if not exists message_history(
-    id int NOT NULL AUTO_INCREMENT,
-    created_at timestamp,
-    message varchar(5000),
-    PRIMARY KEY (ID)
+create table if not exists message_history
+(
+    id          int NOT NULL AUTO_INCREMENT,
+    created_at  timestamp,
+    message     varchar(5000),
+    PRIMARY KEY(ID)
 );
 
 

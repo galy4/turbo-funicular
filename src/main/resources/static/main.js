@@ -17,8 +17,6 @@ $(document).ready(()=>{
         });
     });
 
-    // readResources();
-
     //Обработчики:
 
     $('input[name="int_ext"]').click( ()=> {
@@ -61,21 +59,13 @@ $(document).ready(()=>{
     });
 
     //-------wagon lifecycle-----
-    $("#far").click(()=> {
-        sendFarArrival();
-    });
+    $("#far").click(sendFarArrival);
 
-    $("#inner").click(()=> {
-        sendInnerInvoice();
-    });
+    $("#inner").click(sendInnerInvoice);
 
-    $("#inv").click(()=> {
-        sendInvoice();
-    });
+    $("#inv").click(sendInvoice);
 
-    $("#cur").click(()=> {
-        sendCurrentLocation();
-    });
+    $("#cur").click(sendCurrentLocation);
 
     $("#weigh").click(sendWeighing);
 
@@ -190,10 +180,9 @@ function sendCurrentLocation(){
 function sendWeighing(){
     let brutto = $('#brutto').val();
     let tare = $('#tare').val();
-    $.post(`/weght?brutto=${brutto}&tare=${tare}&isExternal=${resourceType}`)
-    // $.post(`/weigh/${brutto}&${tare}&${resourceType}`, function (){
-    //     console.log(`weighing data sent to backend`);
-    // });
+    $.post(`/weght?brutto=${brutto}&tare=${tare}&isExternal=${resourceType}`,
+        ()=>{console.log(`weighing data sent to backend`);
+    });
 }
 
 function sendInnerInvoice(){
@@ -214,7 +203,7 @@ function cloneWagon(){
             number: Number(lastRow.last().children()[1].textContent) + 1,
             weight: lastRow.last().children()[2].textContent,
             type: lastRow.last().children()[3].textContent
-        }), // access in body
+        }),
     }).done(function () {
         console.log(`data sent to backend`);
         getAllWagons();
