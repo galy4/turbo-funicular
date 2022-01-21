@@ -146,13 +146,21 @@ function readResources(type){
 
 function getNSIResourceData(){
     let opt = $("#resources option:selected").text();
+    $('.resource').find('p').remove();
     $.getJSON(`/resourceData/${opt}/${resourceType}`,
         function (data) {
             $.each(data, function (key, value){
-                $('body').append("<p>" + key+ " : " + value + "</p>")
+                $('.resource').append("<p>" + key+ " : " + value + "</p>")
             });
         });
     $('#kafka').fadeIn(1000);
+    if(resourceType==='internal'){
+        $("#far,#inv").hide();
+        $("#inner").show();
+    }else {
+        $("#inner").hide();
+        $("#far,#inv").show();
+    }
 }
 
 function sendFarArrival(){
