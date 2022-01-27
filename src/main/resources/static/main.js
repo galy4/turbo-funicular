@@ -1,9 +1,7 @@
 let wagonId = 0;
-let resourceType = "";
 $(document).ready(()=>{
 
     getAllWagons();
-    $('#kafka').hide();
     $("#q").click(()=> {
         if (wagonId === 0) {
             alert("No row for update selected");
@@ -15,14 +13,6 @@ $(document).ready(()=>{
             weight: $("#weight").val(),
             type: $("#type").val()
         });
-    });
-
-    // readResources();
-
-    //Обработчики:
-
-    $('input[name="int_ext"]').click( ()=> {
-        readResources($("input[type='radio']:checked").val());
     });
 
     //выбираем все теги с именем  modal
@@ -56,42 +46,13 @@ $(document).ready(()=>{
         cloneWagon();
     });
 
-    $('#resourceData').click(()=>{
-       getNSIResourceData();
-    });
-
-    //-------wagon lifecycle-----
-    $("#far").click(()=> {
-        sendFarArrival();
-    });
-
-    $("#inner").click(()=> {
-        sendInnerInvoice();
-    });
-
-    $("#inv").click(()=> {
-        sendInvoice();
-    });
-
-    $("#cur").click(()=> {
-        sendCurrentLocation();
-    });
-
-    $("#weigh").click(()=> {
-        sendWeighing();
-    });
-
-
 });
 //Функции:
-function getWagon(id) {
-    $.getJSON(`/wagon/${id}`,
-        function (data) {
-            $("#number").val(data.number);
-            $("#weight").val(data.weight);
-            $("#type").val(data.type);
-        });
-}
+var getWagon = (id) => $.getJSON(`/wagon/${id}`, ({number, weight, type}) => {
+    $("#number").val(number);
+    $("#weight").val(weight);
+    $("#type").val(type);
+});
 
 function updateWagon(data) {
     $.ajax({
@@ -146,67 +107,6 @@ function createWagon(){
     });
 }
 
-function readResources(type){
-    resourceType = type;
-    $('#resources').find('option').remove();
-    $.getJSON(`/resource/${type}`, (items) =>{
-        $.each(items, (key, value)=> {
-            $('#resources')
-                .append($("<option></option>")
-                    .attr("value", key)
-                    .text(value));
-        });
-    });
-}
-
-function getNSIResourceData(){
-    let opt = $("#resources option:selected").text();
-    $.getJSON(`/resourceData/${opt}/${resourceType}`,
-        function (data) {
-            $.each(data, function (key, value){
-                $('body').append("<p>" + key+ " : " + value + "</p>")
-            });
-        });
-    $('#kafka').fadeIn(1000);
-}
-
-function sendFarArrival(){
-    let inv = $('#invoice').val();
-    $.post(`/farArrival/${inv}`, function (){
-        console.log(`Far arrival data sent to backend`);
-        });
-}
-
-function sendInvoice(){
-    let inv = $('#invoice').val();
-    $.post(`/invoice/${inv}`, function (){
-        console.log(`Invoice data sent to backend`);
-    });
-}
-
-function sendCurrentLocation(){
-    let path = $('#path').val();
-    let time = $('#time').val();
-    $.post(`/currentLocation/${path}&${time}`, function () {
-        console.log(`Current location data sent to backend`);
-    });
-}
-
-function sendWeighing(){
-    let brutto = $('#brutto').val();
-    let tare = $('#tare').val();
-    $.post(`/weigh/${brutto}&${tare}`, function (){
-        console.log(`weighing data sent to backend`);
-    });
-}
-
-function sendInnerInvoice(){
-    let inv = $('#invoice').val();
-    $.post(`/innerInvoice/${inv}`, function (){
-        console.log(`Invoice data sent to backend`);
-    });
-}
-
 function cloneWagon(){
     let lastRow = $('tbody tr').last();
     $.ajax({
@@ -218,7 +118,7 @@ function cloneWagon(){
             number: Number(lastRow.last().children()[1].textContent) + 1,
             weight: lastRow.last().children()[2].textContent,
             type: lastRow.last().children()[3].textContent
-        }), // access in body
+        }),
     }).done(function () {
         console.log(`data sent to backend`);
         getAllWagons();

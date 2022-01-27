@@ -1,4 +1,6 @@
 HELP.md
+sqlDB.mv.db
+sqlDB.trace.db
 target/
 allure-results/
 .allure/

@@ -1,0 +1,150 @@
+2022-01-20 12:03:03 database: wrong user or password; user: "SA"
+org.h2.message.DbException: Неверное имя пользователя или пароль
+Wrong user name or password [28000-200]
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.engine.Engine.openSession(Engine.java:131)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:309)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:289)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:785)
+	at org.h2.server.web.WebApp.login(WebApp.java:1008)
+	at org.h2.server.web.WebApp.process(WebApp.java:223)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:173)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:129)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:166)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Неверное имя пользователя или пароль
+Wrong user name or password [28000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:461)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 55 more
+2022-01-20 18:38:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "path" не найдена
+Table "path" not found; SQL statement:
+select code from "path" where short_name = ? [42102-200]
+2022-01-20 18:48:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "path" не найдена
+Table "path" not found; SQL statement:
+select code from "path" where short_name = ? [42102-200]
+2022-01-20 18:48:51 database: wrong user or password; user: "SA"
+org.h2.message.DbException: Неверное имя пользователя или пароль
+Wrong user name or password [28000-200]
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.engine.Engine.openSession(Engine.java:131)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:309)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:289)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:785)
+	at org.h2.server.web.WebApp.login(WebApp.java:1008)
+	at org.h2.server.web.WebApp.process(WebApp.java:223)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:173)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:129)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:166)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Неверное имя пользователя или пароль
+Wrong user name or password [28000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:461)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 55 more
+2022-01-20 18:50:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "PATH" уже существует
+Table "PATH" already exists; SQL statement:
+create table path ( id int NOT NULL AUTO_INCREMENT, "name" varchar(50), short_name varchar(50), full_name varchar(50), ins_time timestamp, upd_time timestamp, code varchar(20), path_type varchar(50), path_capacity int, source_up_agp_code varchar(50), park_id int, source_transport_code varchar(20), source_axapta_code varchar(20), source_lab_code varchar(20), source_lifnr_code varchar(20), inside_lode_code varchar(20), PRIMARY KEY (ID) ) [42101-200]
+2022-01-20 19:01:36 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "SELECT CODE FROM PATH WHERE SHORT_NAME = :[*]SHORT_NAME"; ожидалось "ALL, ANY, SOME"
+Syntax error in SQL statement "SELECT CODE FROM PATH WHERE SHORT_NAME = :[*]SHORT_NAME"; expected "ALL, ANY, SOME"; SQL statement:
+select code from path where short_name = :short_name [42001-200]
+2022-01-20 19:02:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "PATH" не найдена
+Table "PATH" not found; SQL statement:
+INSERT INTO path ("name",short_name,full_name,ins_time,upd_time,code,path_type,path_capacity,source_up_agp_code,park_id,source_transport_code,source_axapta_code,source_lab_code,source_lifnr_code,inside_lode_code) VALUES ('Путь 4','4А','Ст. Новолипецк, Парк А, Путь 4','2022-01-19 16:59:40.448',NULL,'111101','ACCUMULATOR_PATH',79,'1805041',1,NULL,NULL,NULL,NULL,NULL), ('Путь 5','5А','Ст. Новолипецк, Парк А, Путь 5','2022-01-19 16:59:40.448',NULL,'111102','ACCUMULATOR_PATH',71,'1805042',1,NULL,NULL,NULL,NULL,NULL), ('Путь 6','6А','Ст. Новолипецк, Парк А, Путь 6','2022-01-19 16:59:40.448',NULL,'111103','ACCUMULATOR_PATH',78,'1805043',1,NULL,NULL,NULL,NULL,NULL), ('Путь 7','7А','Ст. Новолипецк, Парк А, Путь 7','2022-01-19 16:59:40.448',NULL,'110104','ACCUMULATOR_PATH',83,'1805044',1,NULL,NULL,NULL,NULL,NULL), ('Путь 8','8А','Ст. Новолипецк, Парк А, Путь 8','2022-01-19 16:59:40.448',NULL,'111105','ACCUMULATOR_PATH',71,'1805045',1,NULL,NULL,NULL,NULL,NULL), ('Путь 9','9А','Ст. Новолипецк, Парк А, Путь 9','2022-01-19 16:59:40.448',NULL,'111106','ACCUMULATOR_PATH',71,'1805046',1,NULL,NULL,NULL,NULL,NULL), ('Путь 10','10А','Ст. Новолипецк, Парк А, Путь 10','2022-01-19 16:59:40.448',NULL,'111107','ACCUMULATOR_PATH',70,'1805047',1,NULL,NULL,NULL,NULL,NULL), ('Путь 20','20А','Ст. Новолипецк, Парк А, Путь 20','2022-01-19 16:59:40.448',NULL,'110110','ACCUMULATOR_PATH',34,'18050412',1,NULL,NULL,NULL,NULL,NULL), ('Путь 22','22А','Ст. Новолипецк, Парк А, Путь 22','2022-01-19 16:59:40.448',NULL,'111122','ACCUMULATOR_PATH',16,'18050413',1,NULL,NULL,NULL,NULL,NULL), ('Путь 23','23А','Ст. Новолипецк, Парк А, Путь 23','2022-01-19 16:59:40.448',NULL,'110113','ACCUMULATOR_PATH',16,'18050414',1,NULL,NULL,NULL,NULL,NULL) [42102-200]
+2022-01-20 19:05:32 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "PATH" не найдена
+Table "PATH" not found; SQL statement:
+drop table path [42102-200]

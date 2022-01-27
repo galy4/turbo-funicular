@@ -37,7 +37,7 @@ public class RetrieveNsiData {
 
     public Resource retrieveInnerResourceData(String name){
         return namedParameterJdbcTemplate.queryForObject(
-                "select mr.full_name as material_name, mr.source_transport_code as material_code, s.code as supplier_code, s.\"name\" \n" +
+                "select mr.full_name as material_name, mr.inside_lode_code as material_code, s.code as supplier_code, s.\"name\" \n" +
                         "as supplier_name  from material_resource mr join structure_company_material_resource smr on smr.material_resource_id = mr.id \n" +
                         "join structure_company s on s.id = smr.structure_company_id where mr.full_name = :material_name  limit 1",
                 Collections.singletonMap("material_name", name), resourceDataMapper);
@@ -55,7 +55,7 @@ public class RetrieveNsiData {
 
     public String retrievePathCode(String shortName){
         Optional<List<String>> pathcode;
-        pathcode = Optional.of(namedParameterJdbcTemplate.queryForList("select code from \"path\" where short_name = :short_name",
+        pathcode = Optional.of(namedParameterJdbcTemplate.queryForList("select code from railway where short_name = :short_name limit 1",
                 Collections.singletonMap("short_name", shortName), String.class));
         log.info(pathcode.orElse(Collections.singletonList("110236")).get(0));
         return pathcode.orElse(Collections.singletonList("110236")).get(0);
