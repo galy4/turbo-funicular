@@ -15,13 +15,4 @@ public class ResourceConvertor {
                 resource.getSupplierCode()
         );
     }
-
-    public Resource convertResource(ResourceDto resourceDto){
-        return new Resource(
-                resourceDto.getMaterialName(),
-                resourceDto.getMaterialCode(),
-                resourceDto.getSupplierName(),
-                resourceDto.getSupplierCode()
-        );
-    }
 }

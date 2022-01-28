@@ -16,6 +16,7 @@ public class Wagon implements Comparable<Wagon>{
     private double weightNet;
     private String wagonType;
     private String wagonLink;
+    private String wayBillNum;
 
     @Override
     public int compareTo(Wagon w) {

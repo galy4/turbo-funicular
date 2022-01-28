@@ -4,6 +4,8 @@ $(document).ready(()=> {
     getAllQualityIndicators();
 
     $("#indicatorData").click(addChemistryData);
+
+    $('#sgok').click(sendCertificate);
 });
 
 function getAllWagons(){
@@ -42,4 +44,8 @@ function addChemistryData(){
                 $('.chemList').append("<p>" + key+ " : " + value + "</p>")
             });
         });
+}
+
+function sendCertificate(){
+    $.post("/certificate");
 }

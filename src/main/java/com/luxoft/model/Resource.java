@@ -8,6 +8,7 @@ import lombok.Setter;
 @Getter @Setter
 public class Resource {
 
+    private final String code;
     private final String materialName;
     private final String materialCode;
     private final String supplierName;

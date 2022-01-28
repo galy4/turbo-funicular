@@ -30,7 +30,7 @@ public class InnerInvoiceService {
 
     @SneakyThrows
     private InnerInvoice buildInnerInvoice(String wayBillNum){
-        wagonService.addWagonLinks(wayBillNum);
+        wagonService.enrichWagonData(wayBillNum);
         List<RecordPositions> recordPositions = new ArrayList<>(wagonRepository.getWagonList().size());
         wagonRepository.getWagonList().forEach(w-> recordPositions.add(
                 RecordPositions.newBuilder()

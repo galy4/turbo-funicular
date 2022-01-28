@@ -2,7 +2,7 @@ let resourceType = "";
 $(document).ready(()=> {
 
     getAllWagons();
-    $('#kafka').hide();
+    $('#kafka,#crt').hide();
 
     $('input[name="int_ext"]').click( ()=> {
         readResources($("input[type='radio']:checked").val());
@@ -64,11 +64,11 @@ function getNSIResourceData(){
         });
     $('#kafka').fadeIn(1000);
     if(resourceType==='internal'){
-        $("#far,#inv").hide();
+        $("#far,#inv,#crt").hide();
         $("#inner").show();
     }else {
         $("#inner").hide();
-        $("#far,#inv").show();
+        $("#far,#inv,#crt").show();
     }
 }
 

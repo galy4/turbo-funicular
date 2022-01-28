@@ -37,6 +37,7 @@ public class WagonConvertor {
                 String.valueOf(v.getNumber()),
                 v.getWeight(),
                 v.getType(),
+                "",
                 ""
         );
     }

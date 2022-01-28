@@ -1,192 +1,191 @@
 {
-    "type": "record",
     "name": "SupplierCertificate",
-    "namespace": "nlmk.l3.transport",
     "doc": "Сертификат качества поставщика",
+    "type": "record",
     "fields": [
         {
             "name": "ts",
-            "type": "string",
-            "doc": "Дата и время передачи"
+            "doc": "Дата и время передачи",
+            "type": "string"
         },
         {
             "name": "op",
+            "doc": "Код операции",
             "type": {
-                "type": "enum",
-                "name": "enum_op",
                 "symbols": [
                     "I",
-                    "D",
-                    "U"
-                ]
-            },
-            "doc": "Код операции"
+                    "D"
+                ],
+                "name": "enum_op",
+                "type": "enum"
+            }
         },
         {
             "name": "pk",
+            "doc": "Ключ записи",
             "type": {
-                "type": "record",
                 "name": "RecordPk",
+                "type": "record",
                 "fields": [
                     {
                         "name": "id",
-                        "type": "string",
-                        "doc": "Идентификатор сертификата"
+                        "doc": "Идентификатор сертификата",
+                        "type": "string"
                     }
                 ]
-            },
-            "doc": "Ключ записи"
+            }
         },
         {
             "name": "data",
             "type": [
                 "null",
                 {
-                    "type": "record",
                     "name": "RecordData",
                     "doc": "Список передаваемых данных",
+                    "type": "record",
                     "fields": [
                         {
                             "name": "certNum",
-                            "type": "string",
-                            "doc": "Номер сертификата качества"
+                            "doc": "Номер сертификата качества",
+                            "type": "string"
                         },
                         {
                             "name": "certDate",
-                            "type": "string",
-                            "doc": "Дата сертификата качества в формате YYYY-MM-DD"
+                            "doc": "Дата сертификата качества в формате YYYY-MM-DD",
+                            "type": "string"
                         },
                         {
                             "name": "supplierCode",
-                            "type": "string",
-                            "doc": "Код внешнего поставщика"
+                            "doc": "Код внешнего поставщика",
+                            "type": "string"
                         },
                         {
                             "name": "supplierName",
-                            "type": "string",
-                            "doc": "Наименование внешнего поставщика"
+                            "doc": "Наименование внешнего поставщика",
+                            "type": "string"
                         },
                         {
                             "name": "materialCode",
-                            "type": "string",
-                            "doc": "Код ресурса"
+                            "doc": "Код ресурса",
+                            "type": "string"
                         },
                         {
                             "name": "materialName",
-                            "type": "string",
-                            "doc": "Наименование ресурса (сырья)"
+                            "doc": "Наименование ресурса (сырья)",
+                            "type": "string"
                         },
                         {
                             "name": "materialOZM",
-                            "type": "string",
-                            "doc": "ОЗМ материального ресурса"
+                            "doc": "ОЗМ материального ресурса",
+                            "type": "string"
                         },
                         {
                             "name": "standart",
-                            "type": "string",
-                            "doc": "Наименование нормативного документа"
+                            "doc": "Наименование нормативного документа",
+                            "type": "string"
                         },
                         {
                             "name": "lotNum",
+                            "doc": "Номер партии",
                             "type": [
                                 "null",
                                 "string"
-                            ],
-                            "doc": "Номер партии"
+                            ]
                         },
                         {
                             "name": "shipmentOperDate",
-                            "type": "string",
-                            "doc": "Дата отгрузки в формате YYYY-MM-DD"
+                            "doc": "Дата отгрузки в формате YYYY-MM-DD",
+                            "type": "string"
                         },
                         {
                             "name": "vehicles",
+                            "doc": "Средства транспортировки",
                             "type": {
-                                "type": "array",
                                 "items": {
-                                    "type": "record",
                                     "name": "RecordVehicles",
+                                    "type": "record",
                                     "fields": [
                                         {
                                             "name": "vehicleNum",
-                                            "type": "string",
-                                            "doc": "Номер средства транспортировки"
+                                            "doc": "Номер средства транспортировки",
+                                            "type": "string"
                                         },
                                         {
                                             "name": "weightNet",
-                                            "type": "float",
-                                            "doc": "Вес ресурса"
+                                            "doc": "Вес ресурса",
+                                            "type": "float"
                                         },
                                         {
                                             "name": "waybillNum",
+                                            "doc": "Номер накладной",
                                             "type": [
                                                 "null",
                                                 "string"
-                                            ],
-                                            "doc": "Номер накладной"
+                                            ]
                                         }
                                     ]
-                                }
-                            },
-                            "doc": "Средства транспортировки"
+                                },
+                                "type": "array"
+                            }
                         },
                         {
                             "name": "qualityIndicators",
+                            "doc": "Показатели качества",
                             "type": {
-                                "type": "array",
                                 "items": {
-                                    "type": "record",
                                     "name": "RecordQualityindicators",
+                                    "type": "record",
                                     "fields": [
                                         {
                                             "name": "qualityIndicatorCode",
-                                            "type": "string",
-                                            "doc": "Код показателя качества"
+                                            "doc": "Код показателя качества",
+                                            "type": "string"
                                         },
                                         {
                                             "name": "qualityIndicatorName",
-                                            "type": "string",
-                                            "doc": "Наименование показателя качества"
+                                            "doc": "Наименование показателя качества",
+                                            "type": "string"
                                         },
                                         {
                                             "name": "qualityIndicatorType",
-                                            "type": "int",
-                                            "doc": "Тип данных показателя качества"
+                                            "doc": "Тип данных показателя качества",
+                                            "type": "int"
                                         },
                                         {
                                             "name": "qualityIndicatorTypeName",
-                                            "type": "string",
-                                            "doc": "Наименование типа данных показателя качества"
+                                            "doc": "Наименование типа данных показателя качества",
+                                            "type": "string"
                                         },
                                         {
                                             "name": "qualityIndicatorValue",
-                                            "type": "string",
-                                            "doc": "Значение показателя качества"
+                                            "doc": "Значение показателя качества",
+                                            "type": "string"
                                         },
                                         {
                                             "name": "qualityIndicatorFormat",
+                                            "doc": "Формат передачи показателя качества",
                                             "type": [
                                                 "null",
                                                 "string"
-                                            ],
-                                            "doc": "Формат передачи показателя качества"
+                                            ]
                                         },
                                         {
                                             "name": "qualityIndicatorMeasure",
+                                            "doc": "Единица измерения",
                                             "type": [
                                                 "null",
                                                 "string"
-                                            ],
-                                            "doc": "Единица измерения"
+                                            ]
                                         }
                                     ]
-                                }
-                            },
-                            "doc": "Показатели качества"
+                                },
+                                "type": "array"
+                            }
                         }
                     ]
                 }
             ]
         }
-    ]
+    ],
+    "namespace": "nlmk.l3.transport"
 }
