@@ -1,5 +1,6 @@
 package com.luxoft.repository;
 
+import com.luxoft.model.Indicator;
 import com.luxoft.model.Resource;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +20,7 @@ public class RetrieveNsiData {
     private final JdbcTemplate jdbcTemplate;
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     private final ResourceDataMapper resourceDataMapper;
+    private final QualityIndicatorMapper qualityIndicatorMapper;
 
     public Resource retrieveResourceData(String name){
         return namedParameterJdbcTemplate.queryForObject(
@@ -59,5 +61,14 @@ public class RetrieveNsiData {
                 Collections.singletonMap("short_name", shortName), String.class));
         log.info(pathcode.orElse(Collections.singletonList("110236")).get(0));
         return pathcode.orElse(Collections.singletonList("110236")).get(0);
+    }
+
+    public Indicator getQualityIndicatorData(String name){
+        return namedParameterJdbcTemplate.queryForObject("select code, quality_indicator_type, short_name, measure from quality_indicator where \"name\" = :name",
+                Collections.singletonMap("name", name), qualityIndicatorMapper);
+    }
+
+    public List<String> getIndicators() {
+        return jdbcTemplate.queryForList("select \"name\" from quality_indicator", String.class);
     }
 }

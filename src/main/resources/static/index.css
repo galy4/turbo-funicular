@@ -68,9 +68,10 @@ h2 {
     font-family: arial, serif;
 }
 
-.form {
+form {
     text-align: left;
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .mwl{
@@ -84,4 +85,13 @@ h2 {
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+a{
+    margin-right: 20px;
+}
+
+.child{
+    display: inline-block;
+    margin-right: 20px;
 }

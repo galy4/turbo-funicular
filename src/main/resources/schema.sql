@@ -4,6 +4,9 @@ drop table if exists supplier;
 drop table if exists structure_company;
 drop table if exists structure_company_material_resource;
 drop table if exists railway;
+drop table if exists regulatory_document_material_resource;
+drop table if exists regulatory_document;
+drop table if exists quality_indicator;
 
 create table material_resource
 (
@@ -104,11 +107,47 @@ create table railway
     PRIMARY KEY (ID)
 );
 
+create table regulatory_document_material_resource
+(
+    id                      int NOT NULL AUTO_INCREMENT,
+    ins_time                timestamp,
+    upd_time                timestamp,
+    material_resource_id    int,
+    regulatory_document_id  int,
+    quality_deviation_check boolean,
+    PRIMARY KEY (ID)
+);
+
+create table regulatory_document
+(
+    id         int NOT NULL AUTO_INCREMENT,
+    ins_time   timestamp,
+    short_name varchar(100),
+    upd_time   timestamp,
+    end_date   timestamp,
+    is_active  boolean,
+    start_date timestamp,
+    PRIMARY KEY (ID)
+);
+
+create table quality_indicator
+(
+    id                     int NOT NULL AUTO_INCREMENT,
+    ins_time               timestamp,
+    "name"                 varchar(75),
+    upd_time               timestamp,
+    code                   varchar(10),
+    quality_indicator_type varchar(50),
+    short_name             varchar(50),
+    measure                varchar(10),
+    PRIMARY KEY (ID)
+);
+
 create table if not exists message_history
 (
-    id          int NOT NULL AUTO_INCREMENT,
-    created_at  timestamp,
-    message     varchar(5000),
+    id int NOT NULL AUTO_INCREMENT,
+    created_at timestamp,
+    message varchar(5000),
     PRIMARY KEY(ID)
 );
 

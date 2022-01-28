@@ -3,18 +3,6 @@ $(document).ready(()=> {
 
     getAllWagons();
     $('#kafka').hide();
-    $("#q").click(() => {
-        if (wagonId === 0) {
-            alert("No row for update selected");
-            return;
-        }
-        updateWagon({
-            id: wagonId,
-            number: $("#number").val(),
-            weight: $("#weight").val(),
-            type: $("#type").val()
-        });
-    });
 
     $('input[name="int_ext"]').click( ()=> {
         readResources($("input[type='radio']:checked").val());
