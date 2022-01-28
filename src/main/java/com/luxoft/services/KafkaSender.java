@@ -69,7 +69,6 @@ public class KafkaSender {
 //
         String avroString = AvroUtils.toJsonString(body);
 //        log.info(avroString);
-//        var dto = messageBatchMapper.buildBatchFromRecords("EEFAC958B41BCFE3324292D66CD244D7", Arrays.asList(body));
 
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("{\"value_schema\":")
