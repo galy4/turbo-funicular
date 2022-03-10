@@ -147,7 +147,7 @@ create table if not exists message_history
 (
     id int NOT NULL AUTO_INCREMENT,
     created_at timestamp,
-    message varchar(5000),
+    message varchar(10000),
     PRIMARY KEY(ID)
 );
 
