@@ -47,5 +47,7 @@ function addChemistryData(){
 }
 
 function sendCertificate(){
-    $.post("/certificate");
+    $.post("/certificate", ()=> {
+        $('#sgok').css('background', 'grey')
+    });
 }
