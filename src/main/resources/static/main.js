@@ -120,7 +120,6 @@ function cloneWagon(){
             type: lastRow.last().children()[3].textContent
         }),
     }).done(function () {
-        console.log(`data sent to backend`);
         getAllWagons();
     });
 }

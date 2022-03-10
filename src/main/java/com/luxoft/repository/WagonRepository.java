@@ -17,7 +17,7 @@ public class WagonRepository {
     private List<Wagon> wagonList = new ArrayList<>();
 
     public WagonRepository() {
-        wagonList.add(new Wagon(5,"10", 52.30,  WagonType.HALF.getType(), ""));
-        wagonList.add(new Wagon(10,"20", 41.34,  WagonType.OK.getType(), ""));
+        wagonList.add(new Wagon(5,"10", 52.30,  WagonType.HALF.getType(), "", ""));
+        wagonList.add(new Wagon(10,"20", 41.34,  WagonType.OK.getType(), "", ""));
     }
 }

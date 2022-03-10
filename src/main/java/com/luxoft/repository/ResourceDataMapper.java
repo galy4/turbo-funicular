@@ -14,6 +14,7 @@ public class ResourceDataMapper implements RowMapper<Resource> {
     @Override
     public Resource mapRow(ResultSet rs, int i) throws SQLException {
         return new Resource(
+                rs.getString("code"),
                 rs.getString("material_name"),
                 rs.getString("material_code"),
                 rs.getString("supplier_name"),

@@ -17,17 +17,8 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class WagonService {
-
-//    private final List<WagonDto> wagons = new ArrayList<>();
-//    private final List<Wagon> wagonList = new ArrayList<>();
     private final WagonRepository wagonRepository;
     private final WagonConvertor wagonConvertor;
-
-//    public WagonService() {
-////        wagonRepository.getWagonList().add(new Wagon(5,"10", 52.30,  WagonType.HALF.getType(), ""));
-////        wagonRepository.getWagonList().add(new Wagon(10,"20", 41.34,  WagonType.OK.getType(), ""));
-//        this.wagonConvertor = new WagonConvertor();
-//    }
 
     public List<WagonDto> getWagons() {
         return wagonConvertor.convertAll(wagonRepository.getWagonList());
@@ -59,10 +50,11 @@ public class WagonService {
         wagonRepository.getWagonList().add(wagonConvertor.convert(wagonDto));
     }
 
-    public void addWagonLinks(String wayBillNum){
+    public void enrichWagonData(String wayBillNum){
         String prefix = wayBillNum.replaceAll("[A-Za-zА-Яа-я]+", "");
-        wagonRepository.getWagonList().forEach(w->
-                w.setWagonLink(prefix + w.getVehicleNumber())
-        );
+        wagonRepository.getWagonList().forEach(w-> {
+            w.setWagonLink(prefix + w.getVehicleNumber());
+            w.setWayBillNum(wayBillNum);
+        });
     }
 }

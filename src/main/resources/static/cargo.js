@@ -2,19 +2,7 @@ let resourceType = "";
 $(document).ready(()=> {
 
     getAllWagons();
-    $('#kafka').hide();
-    $("#q").click(() => {
-        if (wagonId === 0) {
-            alert("No row for update selected");
-            return;
-        }
-        updateWagon({
-            id: wagonId,
-            number: $("#number").val(),
-            weight: $("#weight").val(),
-            type: $("#type").val()
-        });
-    });
+    $('#kafka,#crt').hide();
 
     $('input[name="int_ext"]').click( ()=> {
         readResources($("input[type='radio']:checked").val());
@@ -76,11 +64,11 @@ function getNSIResourceData(){
         });
     $('#kafka').fadeIn(1000);
     if(resourceType==='internal'){
-        $("#far,#inv").hide();
+        $("#far,#inv,#crt").hide();
         $("#inner").show();
     }else {
         $("#inner").hide();
-        $("#far,#inv").show();
+        $("#far,#inv,#crt").show();
     }
 }
 
@@ -88,6 +76,7 @@ function sendFarArrival(){
     let inv = $('#invoice').val();
     $.post(`/farArrival/${inv}`, function (){
         console.log(`Far arrival data sent to backend`);
+        $('#far').css('background', 'grey');
     });
 }
 
@@ -95,6 +84,7 @@ function sendInvoice(){
     let inv = $('#invoice').val();
     $.post(`/invoice/${inv}`, function (){
         console.log(`Invoice data sent to backend`);
+        $('#inv').css('background', 'grey');
     });
 }
 
@@ -103,6 +93,7 @@ function sendCurrentLocation(){
     let time = $('#time').val();
     $.post(`/currentLocation/${path}&${time}`, function () {
         console.log(`Current location data sent to backend`);
+        $('#cur').css('background', 'grey');
     });
 }
 
@@ -111,13 +102,15 @@ function sendWeighing(){
     let tare = $('#tare').val();
     $.post(`/weght?brutto=${brutto}&tare=${tare}&isExternal=${resourceType}`,
         ()=>{console.log(`weighing data sent to backend`);
-        });
+        $('#weigh').css('background', 'grey');
+    });
 }
 
 function sendInnerInvoice(){
     let inv = $('#invoice').val();
     $.post(`/innerInvoice/${inv}`, function (){
         console.log(`Invoice data sent to backend`);
+        $('#inner').css('background', 'grey');
     });
 }
 

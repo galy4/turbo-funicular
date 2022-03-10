@@ -15,7 +15,6 @@ import static com.luxoft.utils.TimeStampGenerator.getCurrentTimeStamp;
 @Slf4j
 public class MessageRepository {
 
-    private final JdbcTemplate jdbcTemplateH2;
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
 

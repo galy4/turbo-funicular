@@ -23,7 +23,7 @@ public class TimeStampGenerator {
     }
 
     public static String getCurrentDate(){
-        DateTimeFormatter ft = DateTimeFormatter.ofPattern("ddMMyy");
+        DateTimeFormatter ft = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return ft.format(ZonedDateTime.now());
     }
 

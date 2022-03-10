@@ -25,13 +25,6 @@ public class ResourceService {
             return retrieveNsiData.retrieveInnerResourceNames();
     }
 
-//    public ResourceDto getResource(String fullName){
-//        resourceRepository.setResource(
-//                retrieveNsiData.retrieveResourceData(fullName)
-//        );
-//        return resourceConvertor.convertResource(resourceRepository.getResource());
-//    }
-
     public ResourceDto getResource(String fullName, String type){
         resource = type.equalsIgnoreCase("external") ? retrieveNsiData.retrieveResourceData(fullName)
                 : retrieveNsiData.retrieveInnerResourceData(fullName);
