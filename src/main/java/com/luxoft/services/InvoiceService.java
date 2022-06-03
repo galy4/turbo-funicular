@@ -59,7 +59,7 @@ public class InvoiceService {
                         .setStationDepartureName("ЗАРИНСКАЯ")
                         .setRecipientCode("18")
                         .setArrivalDate(getDepartureDate(3))
-                        .setRecipientName(null)
+                        .setRecipientName("АГЦ")
                         .build()
                 )
                 .build();

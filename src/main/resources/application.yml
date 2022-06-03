@@ -28,7 +28,7 @@ application:
         - name: weighing
           url: https://kafka-rest-000-1.dp.nlmk.com/topics/000-1.l3-transport.db.nlmk.weighing.2
         - name: innerinvoice
-          url: https://kafka-rest-000-1.dp.nlmk.com/topics/000-1.l3-transport.db.nlmk.inner-invoice.1
+          url: https://kafka-rest-000-1.dp.nlmk.com/topics/000-1.l3-transport.db.nlmk.inner-invoice.2
         - name: certificates
           url: https://kafka-rest-000-1.dp.nlmk.com/topics/000-1.l3-transport.db.nlmk.supplier-certificate.1
 

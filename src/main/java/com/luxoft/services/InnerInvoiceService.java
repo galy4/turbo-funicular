@@ -38,6 +38,8 @@ public class InnerInvoiceService {
                         .setWagonType(w.getWagonType())
                         .setWeightNet((float) w.getWeightNet())
                         .setWaybillWagonLink(w.getWagonLink())
+                        .setExternalWaybillWagonNumber(null)
+                        .setSignArrival(null)
                         .build()
         ));
         var innerInvoice = InnerInvoice.newBuilder()
@@ -63,6 +65,8 @@ public class InnerInvoiceService {
                         .setKcehName("АГЦ")
                         .setArrivalDate(getDepartureDate(3))
                         .setDepartureDate(getDepartureDate(4))
+                        .setSignReserve(null)
+                        .setWaybillState(1)
                         .build()
                 )
                 .build();

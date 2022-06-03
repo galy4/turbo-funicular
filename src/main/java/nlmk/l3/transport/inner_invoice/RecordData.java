@@ -15,8 +15,8 @@ import org.apache.avro.message.SchemaStore;
 /** Данные операции */
 @org.apache.avro.specific.AvroGenerated
 public class RecordData extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -8062258312717670069L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordData\",\"namespace\":\"nlmk.l3.transport.inner_invoice\",\"doc\":\"Данные операции\",\"fields\":[{\"name\":\"departureDate\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Дата отправления (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"},{\"name\":\"arrivalDate\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Дата прибытия (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"},{\"name\":\"supplierCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код грузоотправителя\"},{\"name\":\"supplierName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование грузоотправителя\"},{\"name\":\"stationDepartureCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции отправления\"},{\"name\":\"stationDepartureName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование станции отправления\"},{\"name\":\"stationArrivalCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции назначения\"},{\"name\":\"stationArrivalName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование станции назначения\"},{\"name\":\"kceh\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код грузополучателя\"},{\"name\":\"kcehName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование грузополучателя\"},{\"name\":\"materialCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код груза\"},{\"name\":\"materialName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование груза\"},{\"name\":\"weighingID\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Идентификатор отвесной\"},{\"name\":\"supplierType\",\"type\":{\"type\":\"enum\",\"name\":\"enum_supplierType\",\"symbols\":[\"INTERNAL\",\"EXTERNAL\"]},\"doc\":\"Тип поставщика (внутренний, внешний)\"},{\"name\":\"positions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"RecordPositions\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"wagonType\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Тип вагона\"},{\"name\":\"weightNet\",\"type\":\"float\",\"doc\":\"Вес груза, т\"},{\"name\":\"waybillWagonLink\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Идентификатор конкретного вагона в конкретной накладной\"}]}},\"doc\":\"Позиции накладной\"}]}");
+  private static final long serialVersionUID = 5659175154535374456L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordData\",\"namespace\":\"nlmk.l3.transport.inner_invoice\",\"doc\":\"Данные операции\",\"fields\":[{\"name\":\"departureDate\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Дата отправления (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"},{\"name\":\"arrivalDate\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Дата прибытия (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"},{\"name\":\"supplierCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код грузоотправителя\"},{\"name\":\"supplierName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование грузоотправителя\"},{\"name\":\"stationDepartureCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции отправления\"},{\"name\":\"stationDepartureName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование станции отправления\"},{\"name\":\"stationArrivalCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции назначения\"},{\"name\":\"stationArrivalName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование станции назначения\"},{\"name\":\"kceh\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код грузополучателя\"},{\"name\":\"kcehName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование грузополучателя\"},{\"name\":\"materialCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код груза\"},{\"name\":\"materialName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование груза\"},{\"name\":\"weighingID\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Идентификатор отвесной\"},{\"name\":\"supplierType\",\"type\":{\"type\":\"enum\",\"name\":\"enum_supplierType\",\"symbols\":[\"INTERNAL\",\"EXTERNAL\"]},\"doc\":\"Тип поставщика (внутренний, внешний)\"},{\"name\":\"waybillState\",\"type\":\"int\",\"doc\":\"Состояние накладной\"},{\"name\":\"signReserve\",\"type\":[\"null\",\"int\"],\"doc\":\"Признак в запас\"},{\"name\":\"positions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"RecordPositions\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"wagonType\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Тип вагона\"},{\"name\":\"weightNet\",\"type\":\"float\",\"doc\":\"Вес груза, т\"},{\"name\":\"signArrival\",\"type\":[\"null\",\"int\"],\"doc\":\"Признак неприбыл\"},{\"name\":\"externalWaybillWagonNumber\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Номер накладной РЖД\"},{\"name\":\"waybillWagonLink\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Идентификатор конкретного вагона в конкретной накладной\"}]}},\"doc\":\"Позиции накладной\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -100,6 +100,10 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    private java.lang.String weighingID;
   /** Тип поставщика (внутренний, внешний) */
    private nlmk.l3.transport.inner_invoice.enum_supplierType supplierType;
+  /** Состояние накладной */
+   private int waybillState;
+  /** Признак в запас */
+   private java.lang.Integer signReserve;
   /** Позиции накладной */
    private java.util.List<nlmk.l3.transport.inner_invoice.RecordPositions> positions;
 
@@ -126,9 +130,11 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
    * @param materialName Наименование груза
    * @param weighingID Идентификатор отвесной
    * @param supplierType Тип поставщика (внутренний, внешний)
+   * @param waybillState Состояние накладной
+   * @param signReserve Признак в запас
    * @param positions Позиции накладной
    */
-  public RecordData(java.lang.String departureDate, java.lang.String arrivalDate, java.lang.String supplierCode, java.lang.String supplierName, java.lang.String stationDepartureCode, java.lang.String stationDepartureName, java.lang.String stationArrivalCode, java.lang.String stationArrivalName, java.lang.String kceh, java.lang.String kcehName, java.lang.String materialCode, java.lang.String materialName, java.lang.String weighingID, nlmk.l3.transport.inner_invoice.enum_supplierType supplierType, java.util.List<nlmk.l3.transport.inner_invoice.RecordPositions> positions) {
+  public RecordData(java.lang.String departureDate, java.lang.String arrivalDate, java.lang.String supplierCode, java.lang.String supplierName, java.lang.String stationDepartureCode, java.lang.String stationDepartureName, java.lang.String stationArrivalCode, java.lang.String stationArrivalName, java.lang.String kceh, java.lang.String kcehName, java.lang.String materialCode, java.lang.String materialName, java.lang.String weighingID, nlmk.l3.transport.inner_invoice.enum_supplierType supplierType, java.lang.Integer waybillState, java.lang.Integer signReserve, java.util.List<nlmk.l3.transport.inner_invoice.RecordPositions> positions) {
     this.departureDate = departureDate;
     this.arrivalDate = arrivalDate;
     this.supplierCode = supplierCode;
@@ -143,6 +149,8 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
     this.materialName = materialName;
     this.weighingID = weighingID;
     this.supplierType = supplierType;
+    this.waybillState = waybillState;
+    this.signReserve = signReserve;
     this.positions = positions;
   }
 
@@ -165,7 +173,9 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
     case 11: return materialName;
     case 12: return weighingID;
     case 13: return supplierType;
-    case 14: return positions;
+    case 14: return waybillState;
+    case 15: return signReserve;
+    case 16: return positions;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -188,7 +198,9 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
     case 11: materialName = value$ != null ? value$.toString() : null; break;
     case 12: weighingID = value$ != null ? value$.toString() : null; break;
     case 13: supplierType = (nlmk.l3.transport.inner_invoice.enum_supplierType)value$; break;
-    case 14: positions = (java.util.List<nlmk.l3.transport.inner_invoice.RecordPositions>)value$; break;
+    case 14: waybillState = (java.lang.Integer)value$; break;
+    case 15: signReserve = (java.lang.Integer)value$; break;
+    case 16: positions = (java.util.List<nlmk.l3.transport.inner_invoice.RecordPositions>)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -446,6 +458,42 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /**
+   * Gets the value of the 'waybillState' field.
+   * @return Состояние накладной
+   */
+  public int getWaybillState() {
+    return waybillState;
+  }
+
+
+  /**
+   * Sets the value of the 'waybillState' field.
+   * Состояние накладной
+   * @param value the value to set.
+   */
+  public void setWaybillState(int value) {
+    this.waybillState = value;
+  }
+
+  /**
+   * Gets the value of the 'signReserve' field.
+   * @return Признак в запас
+   */
+  public java.lang.Integer getSignReserve() {
+    return signReserve;
+  }
+
+
+  /**
+   * Sets the value of the 'signReserve' field.
+   * Признак в запас
+   * @param value the value to set.
+   */
+  public void setSignReserve(java.lang.Integer value) {
+    this.signReserve = value;
+  }
+
+  /**
    * Gets the value of the 'positions' field.
    * @return Позиции накладной
    */
@@ -532,6 +580,10 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
     private java.lang.String weighingID;
     /** Тип поставщика (внутренний, внешний) */
     private nlmk.l3.transport.inner_invoice.enum_supplierType supplierType;
+    /** Состояние накладной */
+    private int waybillState;
+    /** Признак в запас */
+    private java.lang.Integer signReserve;
     /** Позиции накладной */
     private java.util.List<nlmk.l3.transport.inner_invoice.RecordPositions> positions;
 
@@ -602,9 +654,17 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
         this.supplierType = data().deepCopy(fields()[13].schema(), other.supplierType);
         fieldSetFlags()[13] = other.fieldSetFlags()[13];
       }
-      if (isValidValue(fields()[14], other.positions)) {
-        this.positions = data().deepCopy(fields()[14].schema(), other.positions);
+      if (isValidValue(fields()[14], other.waybillState)) {
+        this.waybillState = data().deepCopy(fields()[14].schema(), other.waybillState);
         fieldSetFlags()[14] = other.fieldSetFlags()[14];
+      }
+      if (isValidValue(fields()[15], other.signReserve)) {
+        this.signReserve = data().deepCopy(fields()[15].schema(), other.signReserve);
+        fieldSetFlags()[15] = other.fieldSetFlags()[15];
+      }
+      if (isValidValue(fields()[16], other.positions)) {
+        this.positions = data().deepCopy(fields()[16].schema(), other.positions);
+        fieldSetFlags()[16] = other.fieldSetFlags()[16];
       }
     }
 
@@ -670,9 +730,17 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
         this.supplierType = data().deepCopy(fields()[13].schema(), other.supplierType);
         fieldSetFlags()[13] = true;
       }
-      if (isValidValue(fields()[14], other.positions)) {
-        this.positions = data().deepCopy(fields()[14].schema(), other.positions);
+      if (isValidValue(fields()[14], other.waybillState)) {
+        this.waybillState = data().deepCopy(fields()[14].schema(), other.waybillState);
         fieldSetFlags()[14] = true;
+      }
+      if (isValidValue(fields()[15], other.signReserve)) {
+        this.signReserve = data().deepCopy(fields()[15].schema(), other.signReserve);
+        fieldSetFlags()[15] = true;
+      }
+      if (isValidValue(fields()[16], other.positions)) {
+        this.positions = data().deepCopy(fields()[16].schema(), other.positions);
+        fieldSetFlags()[16] = true;
       }
     }
 
@@ -1293,6 +1361,93 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /**
+      * Gets the value of the 'waybillState' field.
+      * Состояние накладной
+      * @return The value.
+      */
+    public int getWaybillState() {
+      return waybillState;
+    }
+
+
+    /**
+      * Sets the value of the 'waybillState' field.
+      * Состояние накладной
+      * @param value The value of 'waybillState'.
+      * @return This builder.
+      */
+    public nlmk.l3.transport.inner_invoice.RecordData.Builder setWaybillState(int value) {
+      validate(fields()[14], value);
+      this.waybillState = value;
+      fieldSetFlags()[14] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'waybillState' field has been set.
+      * Состояние накладной
+      * @return True if the 'waybillState' field has been set, false otherwise.
+      */
+    public boolean hasWaybillState() {
+      return fieldSetFlags()[14];
+    }
+
+
+    /**
+      * Clears the value of the 'waybillState' field.
+      * Состояние накладной
+      * @return This builder.
+      */
+    public nlmk.l3.transport.inner_invoice.RecordData.Builder clearWaybillState() {
+      fieldSetFlags()[14] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'signReserve' field.
+      * Признак в запас
+      * @return The value.
+      */
+    public java.lang.Integer getSignReserve() {
+      return signReserve;
+    }
+
+
+    /**
+      * Sets the value of the 'signReserve' field.
+      * Признак в запас
+      * @param value The value of 'signReserve'.
+      * @return This builder.
+      */
+    public nlmk.l3.transport.inner_invoice.RecordData.Builder setSignReserve(java.lang.Integer value) {
+      validate(fields()[15], value);
+      this.signReserve = value;
+      fieldSetFlags()[15] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'signReserve' field has been set.
+      * Признак в запас
+      * @return True if the 'signReserve' field has been set, false otherwise.
+      */
+    public boolean hasSignReserve() {
+      return fieldSetFlags()[15];
+    }
+
+
+    /**
+      * Clears the value of the 'signReserve' field.
+      * Признак в запас
+      * @return This builder.
+      */
+    public nlmk.l3.transport.inner_invoice.RecordData.Builder clearSignReserve() {
+      signReserve = null;
+      fieldSetFlags()[15] = false;
+      return this;
+    }
+
+    /**
       * Gets the value of the 'positions' field.
       * Позиции накладной
       * @return The value.
@@ -1309,9 +1464,9 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public nlmk.l3.transport.inner_invoice.RecordData.Builder setPositions(java.util.List<nlmk.l3.transport.inner_invoice.RecordPositions> value) {
-      validate(fields()[14], value);
+      validate(fields()[16], value);
       this.positions = value;
-      fieldSetFlags()[14] = true;
+      fieldSetFlags()[16] = true;
       return this;
     }
 
@@ -1321,7 +1476,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'positions' field has been set, false otherwise.
       */
     public boolean hasPositions() {
-      return fieldSetFlags()[14];
+      return fieldSetFlags()[16];
     }
 
 
@@ -1332,7 +1487,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       */
     public nlmk.l3.transport.inner_invoice.RecordData.Builder clearPositions() {
       positions = null;
-      fieldSetFlags()[14] = false;
+      fieldSetFlags()[16] = false;
       return this;
     }
 
@@ -1355,7 +1510,9 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
         record.materialName = fieldSetFlags()[11] ? this.materialName : (java.lang.String) defaultValue(fields()[11]);
         record.weighingID = fieldSetFlags()[12] ? this.weighingID : (java.lang.String) defaultValue(fields()[12]);
         record.supplierType = fieldSetFlags()[13] ? this.supplierType : (nlmk.l3.transport.inner_invoice.enum_supplierType) defaultValue(fields()[13]);
-        record.positions = fieldSetFlags()[14] ? this.positions : (java.util.List<nlmk.l3.transport.inner_invoice.RecordPositions>) defaultValue(fields()[14]);
+        record.waybillState = fieldSetFlags()[14] ? this.waybillState : (java.lang.Integer) defaultValue(fields()[14]);
+        record.signReserve = fieldSetFlags()[15] ? this.signReserve : (java.lang.Integer) defaultValue(fields()[15]);
+        record.positions = fieldSetFlags()[16] ? this.positions : (java.util.List<nlmk.l3.transport.inner_invoice.RecordPositions>) defaultValue(fields()[16]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -1434,6 +1591,16 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
 
     out.writeEnum(this.supplierType.ordinal());
 
+    out.writeInt(this.waybillState);
+
+    if (this.signReserve == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeInt(this.signReserve);
+    }
+
     long size0 = this.positions.size();
     out.writeArrayStart();
     out.setItemCount(size0);
@@ -1497,6 +1664,15 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
 
       this.supplierType = nlmk.l3.transport.inner_invoice.enum_supplierType.values()[in.readEnum()];
 
+      this.waybillState = in.readInt();
+
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.signReserve = null;
+      } else {
+        this.signReserve = in.readInt();
+      }
+
       long size0 = in.readArrayStart();
       java.util.List<nlmk.l3.transport.inner_invoice.RecordPositions> a0 = this.positions;
       if (a0 == null) {
@@ -1516,7 +1692,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
       }
 
     } else {
-      for (int i = 0; i < 15; i++) {
+      for (int i = 0; i < 17; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           if (in.readIndex() != 1) {
@@ -1590,6 +1766,19 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
           break;
 
         case 14:
+          this.waybillState = in.readInt();
+          break;
+
+        case 15:
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.signReserve = null;
+          } else {
+            this.signReserve = in.readInt();
+          }
+          break;
+
+        case 16:
           long size0 = in.readArrayStart();
           java.util.List<nlmk.l3.transport.inner_invoice.RecordPositions> a0 = this.positions;
           if (a0 == null) {
