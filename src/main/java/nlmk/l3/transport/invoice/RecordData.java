@@ -16,12 +16,10 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class RecordData extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 4480474569053106326L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordData\",\"namespace\":\"nlmk.l3.transport.invoice\",\"doc\":\"Данные операции\",\"fields\":[{\"name\":\"arrivalDate\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата прибытия (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"},{\"name\":\"stationDepartureCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции отправления\"},{\"name\":\"stationDepartureName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Название станции отправления\"},{\"name\":\"stationArrivalCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции назначения\"},{\"name\":\"stationArrivalName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Название станции назначения\"},{\"name\":\"supplierCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код грузоотправителя\"},{\"name\":\"supplierName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование грузоотправителя\"},{\"name\":\"recipientCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код грузополучателя\"},{\"name\":\"recipientName\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Наименование грузополучателя\"},{\"name\":\"materialCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код груза\"},{\"name\":\"materialName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование груза\"},{\"name\":\"positions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"RecordPositions\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"wagonType\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Тип вагона\"},{\"name\":\"weightNet\",\"type\":\"float\",\"doc\":\"Вес груза, т\"},{\"name\":\"waybillWagonLink\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Идентификатор конкретного вагона в конкретной накладной\"}]}},\"doc\":\"Позиции накладной\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
+  private static SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<RecordData> ENCODER =
       new BinaryMessageEncoder<RecordData>(MODEL$, SCHEMA$);
@@ -75,29 +73,29 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /** Дата прибытия (в формате YYYY-MM-DDThh:mm:ss+hh:mm) */
-  private java.lang.String arrivalDate;
+   private java.lang.String arrivalDate;
   /** Код станции отправления */
-  private java.lang.String stationDepartureCode;
+   private java.lang.String stationDepartureCode;
   /** Название станции отправления */
-  private java.lang.String stationDepartureName;
+   private java.lang.String stationDepartureName;
   /** Код станции назначения */
-  private java.lang.String stationArrivalCode;
+   private java.lang.String stationArrivalCode;
   /** Название станции назначения */
-  private java.lang.String stationArrivalName;
+   private java.lang.String stationArrivalName;
   /** Код грузоотправителя */
-  private java.lang.String supplierCode;
+   private java.lang.String supplierCode;
   /** Наименование грузоотправителя */
-  private java.lang.String supplierName;
+   private java.lang.String supplierName;
   /** Код грузополучателя */
-  private java.lang.String recipientCode;
+   private java.lang.String recipientCode;
   /** Наименование грузополучателя */
-  private java.lang.String recipientName;
+   private java.lang.String recipientName;
   /** Код груза */
-  private java.lang.String materialCode;
+   private java.lang.String materialCode;
   /** Наименование груза */
-  private java.lang.String materialName;
+   private java.lang.String materialName;
   /** Позиции накладной */
-  private java.util.List<nlmk.l3.transport.invoice.RecordPositions> positions;
+   private java.util.List<nlmk.l3.transport.invoice.RecordPositions> positions;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -461,7 +459,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -525,7 +523,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
      * @param other The existing instance to copy.
      */
     private Builder(nlmk.l3.transport.invoice.RecordData other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.arrivalDate)) {
         this.arrivalDate = data().deepCopy(fields()[0].schema(), other.arrivalDate);
         fieldSetFlags()[0] = true;

@@ -15,12 +15,10 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 5085820955883906901L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordPositions\",\"namespace\":\"nlmk.l3.transport.far_arrival\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"wagonType\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Тип вагона\"},{\"name\":\"weightNet\",\"type\":\"float\",\"doc\":\"Вес груза, т\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
+  private static SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<RecordPositions> ENCODER =
       new BinaryMessageEncoder<RecordPositions>(MODEL$, SCHEMA$);
@@ -74,11 +72,11 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
   }
 
   /** Номер вагона */
-  private int wagonNum;
+   private int wagonNum;
   /** Тип вагона */
-  private java.lang.String wagonType;
+   private java.lang.String wagonType;
   /** Вес груза, т */
-  private float weightNet;
+   private float weightNet;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -226,7 +224,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -254,7 +252,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
      * @param other The existing instance to copy.
      */
     private Builder(nlmk.l3.transport.far_arrival.RecordPositions other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.wagonNum)) {
         this.wagonNum = data().deepCopy(fields()[0].schema(), other.wagonNum);
         fieldSetFlags()[0] = true;

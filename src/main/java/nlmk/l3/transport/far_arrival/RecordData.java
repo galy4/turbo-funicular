@@ -16,12 +16,10 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class RecordData extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 4237066131091929286L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordData\",\"namespace\":\"nlmk.l3.transport.far_arrival\",\"doc\":\"Данные операции\",\"fields\":[{\"name\":\"stationDepartureCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции отправления\"},{\"name\":\"stationDepartureName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Название станции отправления\"},{\"name\":\"stationArrivalCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции назначения\"},{\"name\":\"stationArrivalName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Название станции назначения\"},{\"name\":\"supplierCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код грузоотправителя\"},{\"name\":\"supplierName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование грузоотправителя\"},{\"name\":\"materialCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код груза\"},{\"name\":\"materialName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование груза\"},{\"name\":\"positions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"RecordPositions\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"wagonType\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Тип вагона\"},{\"name\":\"weightNet\",\"type\":\"float\",\"doc\":\"Вес груза, т\"}]}},\"doc\":\"Позиции накладной\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
+  private static SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<RecordData> ENCODER =
       new BinaryMessageEncoder<RecordData>(MODEL$, SCHEMA$);
@@ -75,23 +73,23 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /** Код станции отправления */
-  private java.lang.String stationDepartureCode;
+   private java.lang.String stationDepartureCode;
   /** Название станции отправления */
-  private java.lang.String stationDepartureName;
+   private java.lang.String stationDepartureName;
   /** Код станции назначения */
-  private java.lang.String stationArrivalCode;
+   private java.lang.String stationArrivalCode;
   /** Название станции назначения */
-  private java.lang.String stationArrivalName;
+   private java.lang.String stationArrivalName;
   /** Код грузоотправителя */
-  private java.lang.String supplierCode;
+   private java.lang.String supplierCode;
   /** Наименование грузоотправителя */
-  private java.lang.String supplierName;
+   private java.lang.String supplierName;
   /** Код груза */
-  private java.lang.String materialCode;
+   private java.lang.String materialCode;
   /** Наименование груза */
-  private java.lang.String materialName;
+   private java.lang.String materialName;
   /** Позиции накладной */
-  private java.util.List<nlmk.l3.transport.far_arrival.RecordPositions> positions;
+   private java.util.List<nlmk.l3.transport.far_arrival.RecordPositions> positions;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -383,7 +381,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -435,7 +433,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
      * @param other The existing instance to copy.
      */
     private Builder(nlmk.l3.transport.far_arrival.RecordData other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.stationDepartureCode)) {
         this.stationDepartureCode = data().deepCopy(fields()[0].schema(), other.stationDepartureCode);
         fieldSetFlags()[0] = true;

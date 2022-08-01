@@ -16,12 +16,10 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class CurrentLocation extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 5354809653265976685L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CurrentLocation\",\"namespace\":\"nlmk.l3.transport.current_location\",\"doc\":\"Текущее местоположение\",\"fields\":[{\"name\":\"ts\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата и время передачи\"},{\"name\":\"op\",\"type\":{\"type\":\"enum\",\"name\":\"enum_op\",\"symbols\":[\"I\",\"U\"]},\"doc\":\"Код операции\"},{\"name\":\"pk\",\"type\":{\"type\":\"record\",\"name\":\"RecordPk\",\"fields\":[{\"name\":\"id\",\"type\":\"long\",\"doc\":\"ИД операции перемещения\"}]},\"doc\":\"Ключ объекта\"},{\"name\":\"data\",\"type\":{\"type\":\"record\",\"name\":\"RecordData\",\"doc\":\"Данные операции\",\"fields\":[{\"name\":\"stationCurrentCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код текущей станции\"},{\"name\":\"stationCurrentName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование текущей станции\"},{\"name\":\"pathCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код текущего пути\"},{\"name\":\"pathName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование текущего пути\"},{\"name\":\"dateBegin\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата постановки на текущий путь (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"},{\"name\":\"positions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"RecordPositions\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"waybillWagonLink\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Идентификатор конкретного вагона в конкретной накладной\"},{\"name\":\"wagonType\",\"type\":\"int\",\"doc\":\"Пустой-порожний\"},{\"name\":\"elemNum\",\"type\":\"int\",\"doc\":\"порядковый номер\"}]}},\"doc\":\"Позиции\"}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
+  private static SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<CurrentLocation> ENCODER =
       new BinaryMessageEncoder<CurrentLocation>(MODEL$, SCHEMA$);
@@ -75,12 +73,12 @@ public class CurrentLocation extends org.apache.avro.specific.SpecificRecordBase
   }
 
   /** Дата и время передачи */
-  private java.lang.String ts;
+   private java.lang.String ts;
   /** Код операции */
-  private nlmk.l3.transport.current_location.enum_op op;
+   private nlmk.l3.transport.current_location.enum_op op;
   /** Ключ объекта */
-  private nlmk.l3.transport.current_location.RecordPk pk;
-  private nlmk.l3.transport.current_location.RecordData data;
+   private nlmk.l3.transport.current_location.RecordPk pk;
+   private nlmk.l3.transport.current_location.RecordData data;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -252,7 +250,7 @@ public class CurrentLocation extends org.apache.avro.specific.SpecificRecordBase
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -290,7 +288,7 @@ public class CurrentLocation extends org.apache.avro.specific.SpecificRecordBase
      * @param other The existing instance to copy.
      */
     private Builder(nlmk.l3.transport.current_location.CurrentLocation other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.ts)) {
         this.ts = data().deepCopy(fields()[0].schema(), other.ts);
         fieldSetFlags()[0] = true;
@@ -454,7 +452,6 @@ public class CurrentLocation extends org.apache.avro.specific.SpecificRecordBase
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-
     public nlmk.l3.transport.current_location.CurrentLocation.Builder setPkBuilder(nlmk.l3.transport.current_location.RecordPk.Builder value) {
       clearPk();
       pkBuilder = value;
@@ -532,7 +529,6 @@ public class CurrentLocation extends org.apache.avro.specific.SpecificRecordBase
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-
     public nlmk.l3.transport.current_location.CurrentLocation.Builder setDataBuilder(nlmk.l3.transport.current_location.RecordData.Builder value) {
       clearData();
       dataBuilder = value;

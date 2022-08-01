@@ -15,12 +15,10 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -255568079847249839L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordPk\",\"namespace\":\"nlmk.l3.transport.weighing\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"ИД отвесной\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
+  private static SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<RecordPk> ENCODER =
       new BinaryMessageEncoder<RecordPk>(MODEL$, SCHEMA$);
@@ -74,7 +72,7 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
   }
 
   /** ИД отвесной */
-  private java.lang.String id;
+   private java.lang.String id;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -174,7 +172,7 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -194,7 +192,7 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
      * @param other The existing instance to copy.
      */
     private Builder(nlmk.l3.transport.weighing.RecordPk other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;

@@ -40,6 +40,7 @@ public class InnerInvoiceService {
                         .setWaybillWagonLink(w.getWagonLink())
                         .setExternalWaybillWagonNumber(null)
                         .setSignArrival(null)
+                        .setReserveWaybillNum(null)
                         .build()
         ));
         var innerInvoice = InnerInvoice.newBuilder()

@@ -16,12 +16,10 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class Invoice extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -5896504147062978386L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Invoice\",\"namespace\":\"nlmk.l3.transport.invoice\",\"doc\":\"Накладная По прибытию\",\"fields\":[{\"name\":\"ts\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата и время передачи\"},{\"name\":\"op\",\"type\":{\"type\":\"enum\",\"name\":\"enum_op\",\"symbols\":[\"I\",\"U\",\"D\"]},\"doc\":\"Код операции\"},{\"name\":\"pk\",\"type\":{\"type\":\"record\",\"name\":\"RecordPk\",\"fields\":[{\"name\":\"waybillNum\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Номер накладной\"},{\"name\":\"departureDate\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата отправления (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"}]},\"doc\":\"Ключ объекта\"},{\"name\":\"data\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"RecordData\",\"doc\":\"Данные операции\",\"fields\":[{\"name\":\"arrivalDate\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата прибытия (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"},{\"name\":\"stationDepartureCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции отправления\"},{\"name\":\"stationDepartureName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Название станции отправления\"},{\"name\":\"stationArrivalCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код станции назначения\"},{\"name\":\"stationArrivalName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Название станции назначения\"},{\"name\":\"supplierCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код грузоотправителя\"},{\"name\":\"supplierName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование грузоотправителя\"},{\"name\":\"recipientCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код грузополучателя\"},{\"name\":\"recipientName\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Наименование грузополучателя\"},{\"name\":\"materialCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код груза\"},{\"name\":\"materialName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование груза\"},{\"name\":\"positions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"RecordPositions\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"wagonType\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Тип вагона\"},{\"name\":\"weightNet\",\"type\":\"float\",\"doc\":\"Вес груза, т\"},{\"name\":\"waybillWagonLink\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Идентификатор конкретного вагона в конкретной накладной\"}]}},\"doc\":\"Позиции накладной\"}]}]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
+  private static SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<Invoice> ENCODER =
       new BinaryMessageEncoder<Invoice>(MODEL$, SCHEMA$);
@@ -75,12 +73,12 @@ public class Invoice extends org.apache.avro.specific.SpecificRecordBase impleme
   }
 
   /** Дата и время передачи */
-  private java.lang.String ts;
+   private java.lang.String ts;
   /** Код операции */
-  private nlmk.l3.transport.invoice.enum_op op;
+   private nlmk.l3.transport.invoice.enum_op op;
   /** Ключ объекта */
-  private nlmk.l3.transport.invoice.RecordPk pk;
-  private nlmk.l3.transport.invoice.RecordData data;
+   private nlmk.l3.transport.invoice.RecordPk pk;
+   private nlmk.l3.transport.invoice.RecordData data;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -252,7 +250,7 @@ public class Invoice extends org.apache.avro.specific.SpecificRecordBase impleme
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -290,7 +288,7 @@ public class Invoice extends org.apache.avro.specific.SpecificRecordBase impleme
      * @param other The existing instance to copy.
      */
     private Builder(nlmk.l3.transport.invoice.Invoice other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.ts)) {
         this.ts = data().deepCopy(fields()[0].schema(), other.ts);
         fieldSetFlags()[0] = true;
@@ -454,7 +452,6 @@ public class Invoice extends org.apache.avro.specific.SpecificRecordBase impleme
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-
     public nlmk.l3.transport.invoice.Invoice.Builder setPkBuilder(nlmk.l3.transport.invoice.RecordPk.Builder value) {
       clearPk();
       pkBuilder = value;
@@ -532,7 +529,6 @@ public class Invoice extends org.apache.avro.specific.SpecificRecordBase impleme
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-
     public nlmk.l3.transport.invoice.Invoice.Builder setDataBuilder(nlmk.l3.transport.invoice.RecordData.Builder value) {
       clearData();
       dataBuilder = value;

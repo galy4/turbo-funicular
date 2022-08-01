@@ -15,12 +15,10 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 8324540909435326802L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordPositions\",\"namespace\":\"nlmk.l3.transport.current_location\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"waybillWagonLink\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Идентификатор конкретного вагона в конкретной накладной\"},{\"name\":\"wagonType\",\"type\":\"int\",\"doc\":\"Пустой-порожний\"},{\"name\":\"elemNum\",\"type\":\"int\",\"doc\":\"порядковый номер\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
+  private static SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<RecordPositions> ENCODER =
       new BinaryMessageEncoder<RecordPositions>(MODEL$, SCHEMA$);
@@ -74,13 +72,13 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
   }
 
   /** Номер вагона */
-  private int wagonNum;
+   private int wagonNum;
   /** Идентификатор конкретного вагона в конкретной накладной */
-  private java.lang.String waybillWagonLink;
+   private java.lang.String waybillWagonLink;
   /** Пустой-порожний */
-  private int wagonType;
+   private int wagonType;
   /** порядковый номер */
-  private int elemNum;
+   private int elemNum;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -252,7 +250,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -284,7 +282,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
      * @param other The existing instance to copy.
      */
     private Builder(nlmk.l3.transport.current_location.RecordPositions other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.wagonNum)) {
         this.wagonNum = data().deepCopy(fields()[0].schema(), other.wagonNum);
         fieldSetFlags()[0] = true;
