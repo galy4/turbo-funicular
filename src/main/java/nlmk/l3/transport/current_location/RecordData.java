@@ -16,12 +16,10 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class RecordData extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -387220948564982709L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordData\",\"namespace\":\"nlmk.l3.transport.current_location\",\"doc\":\"Данные операции\",\"fields\":[{\"name\":\"stationCurrentCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код текущей станции\"},{\"name\":\"stationCurrentName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование текущей станции\"},{\"name\":\"pathCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код текущего пути\"},{\"name\":\"pathName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование текущего пути\"},{\"name\":\"dateBegin\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата постановки на текущий путь (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"},{\"name\":\"positions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"RecordPositions\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"waybillWagonLink\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Идентификатор конкретного вагона в конкретной накладной\"},{\"name\":\"wagonType\",\"type\":\"int\",\"doc\":\"Пустой-порожний\"},{\"name\":\"elemNum\",\"type\":\"int\",\"doc\":\"порядковый номер\"}]}},\"doc\":\"Позиции\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
+  private static SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<RecordData> ENCODER =
       new BinaryMessageEncoder<RecordData>(MODEL$, SCHEMA$);
@@ -75,17 +73,17 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /** Код текущей станции */
-  private java.lang.String stationCurrentCode;
+   private java.lang.String stationCurrentCode;
   /** Наименование текущей станции */
-  private java.lang.String stationCurrentName;
+   private java.lang.String stationCurrentName;
   /** Код текущего пути */
-  private java.lang.String pathCode;
+   private java.lang.String pathCode;
   /** Наименование текущего пути */
-  private java.lang.String pathName;
+   private java.lang.String pathName;
   /** Дата постановки на текущий путь (в формате YYYY-MM-DDThh:mm:ss+hh:mm) */
-  private java.lang.String dateBegin;
+   private java.lang.String dateBegin;
   /** Позиции */
-  private java.util.List<nlmk.l3.transport.current_location.RecordPositions> positions;
+   private java.util.List<nlmk.l3.transport.current_location.RecordPositions> positions;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -305,7 +303,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -345,7 +343,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
      * @param other The existing instance to copy.
      */
     private Builder(nlmk.l3.transport.current_location.RecordData other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.stationCurrentCode)) {
         this.stationCurrentCode = data().deepCopy(fields()[0].schema(), other.stationCurrentCode);
         fieldSetFlags()[0] = true;

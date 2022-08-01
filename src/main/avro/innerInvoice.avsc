@@ -184,6 +184,15 @@
                                             "doc": "Номер накладной РЖД"
                                         },
                                         {
+                                            "name": "reserveWaybillNum",
+                                            "type": [
+                                                "null",
+                                                "string"
+                                            ],
+                                            "doc": "Номер предыдущей накладной в запас",
+                                            "default": null
+                                        },
+                                        {
                                             "name": "waybillWagonLink",
                                             "doc": "Идентификатор конкретного вагона в конкретной накладной",
                                             "type": [

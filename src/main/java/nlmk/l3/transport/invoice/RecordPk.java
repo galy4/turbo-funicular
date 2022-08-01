@@ -15,12 +15,10 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -8872669101049104677L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordPk\",\"namespace\":\"nlmk.l3.transport.invoice\",\"fields\":[{\"name\":\"waybillNum\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Номер накладной\"},{\"name\":\"departureDate\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата отправления (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
+  private static SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<RecordPk> ENCODER =
       new BinaryMessageEncoder<RecordPk>(MODEL$, SCHEMA$);
@@ -74,9 +72,9 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
   }
 
   /** Номер накладной */
-  private java.lang.String waybillNum;
+   private java.lang.String waybillNum;
   /** Дата отправления (в формате YYYY-MM-DDThh:mm:ss+hh:mm) */
-  private java.lang.String departureDate;
+   private java.lang.String departureDate;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -200,7 +198,7 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -224,7 +222,7 @@ public class RecordPk extends org.apache.avro.specific.SpecificRecordBase implem
      * @param other The existing instance to copy.
      */
     private Builder(nlmk.l3.transport.invoice.RecordPk other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.waybillNum)) {
         this.waybillNum = data().deepCopy(fields()[0].schema(), other.waybillNum);
         fieldSetFlags()[0] = true;

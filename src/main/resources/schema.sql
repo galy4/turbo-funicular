@@ -7,6 +7,7 @@ drop table if exists railway;
 drop table if exists regulatory_document_material_resource;
 drop table if exists regulatory_document;
 drop table if exists quality_indicator;
+drop table if exists material_resource_mapping;
 
 create table material_resource
 (
@@ -19,12 +20,6 @@ create table material_resource
     full_name                   varchar(255),
     is_generic                  boolean,
     short_name_for_shift_report varchar(50),
-    source_transport_code       varchar(50),
-    source_axapta_code          varchar(50),
-    source_up_agp_code          varchar(50),
-    source_lab_code             varchar(50),
-    source_lifnr_code           varchar(50),
-    inside_lode_code            varchar(50),
     PRIMARY KEY (ID)
 );
 
@@ -140,6 +135,17 @@ create table quality_indicator
     quality_indicator_type varchar(50),
     short_name             varchar(50),
     measure                varchar(10),
+    PRIMARY KEY (ID)
+);
+
+create table material_resource_mapping
+(
+    id  int NOT NULL AUTO_INCREMENT,
+    ins_time    timestamp,
+    upd_time    timestamp,
+    source_code varchar(50),
+    "source"    varchar(20),
+    material_resource_id    int,
     PRIMARY KEY (ID)
 );
 

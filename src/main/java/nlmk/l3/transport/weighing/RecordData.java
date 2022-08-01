@@ -16,12 +16,10 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class RecordData extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 4376457302648096917L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordData\",\"namespace\":\"nlmk.l3.transport.weighing\",\"doc\":\"Данные операции\",\"fields\":[{\"name\":\"templateDocType\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код шаблона документа\"},{\"name\":\"weighingDocNum\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Номер документа\"},{\"name\":\"weighingDocDate\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата документа (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"},{\"name\":\"scalesCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код весов\"},{\"name\":\"scalesName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование весов\"},{\"name\":\"positions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"RecordPositions\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"materialCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код груза\"},{\"name\":\"materialName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование груза\"},{\"name\":\"weighingDate\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата провески вагона (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"},{\"name\":\"weightGross\",\"type\":\"float\",\"doc\":\"Вес брутто, т\"},{\"name\":\"weightTare\",\"type\":\"float\",\"doc\":\"Вес тары, т\"},{\"name\":\"weightTareEmpty\",\"type\":[\"null\",\"float\"],\"doc\":\"Вес тары до выгрузки\"},{\"name\":\"tonnage\",\"type\":[\"null\",\"float\"],\"doc\":\"Грузоподъёмность\"},{\"name\":\"waybillWagonLink\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Идентификатор конкретного вагона в конкретной накладной\"},{\"name\":\"supplierType\",\"type\":{\"type\":\"enum\",\"name\":\"enum_supplierType\",\"symbols\":[\"INTERNAL\",\"EXTERNAL\"]},\"doc\":\"Тип поставщика (EXTERNAL - внешний INTERNAL - внутренний)\"}]}},\"doc\":\"Позиции отвесной\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
+  private static SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<RecordData> ENCODER =
       new BinaryMessageEncoder<RecordData>(MODEL$, SCHEMA$);
@@ -75,17 +73,17 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /** Код шаблона документа */
-  private java.lang.String templateDocType;
+   private java.lang.String templateDocType;
   /** Номер документа */
-  private java.lang.String weighingDocNum;
+   private java.lang.String weighingDocNum;
   /** Дата документа (в формате YYYY-MM-DDThh:mm:ss+hh:mm) */
-  private java.lang.String weighingDocDate;
+   private java.lang.String weighingDocDate;
   /** Код весов */
-  private java.lang.String scalesCode;
+   private java.lang.String scalesCode;
   /** Наименование весов */
-  private java.lang.String scalesName;
+   private java.lang.String scalesName;
   /** Позиции отвесной */
-  private java.util.List<nlmk.l3.transport.weighing.RecordPositions> positions;
+   private java.util.List<nlmk.l3.transport.weighing.RecordPositions> positions;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -305,7 +303,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -345,7 +343,7 @@ public class RecordData extends org.apache.avro.specific.SpecificRecordBase impl
      * @param other The existing instance to copy.
      */
     private Builder(nlmk.l3.transport.weighing.RecordData other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.templateDocType)) {
         this.templateDocType = data().deepCopy(fields()[0].schema(), other.templateDocType);
         fieldSetFlags()[0] = true;

@@ -16,12 +16,10 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class Weighing extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -8103424524607461436L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Weighing\",\"namespace\":\"nlmk.l3.transport.weighing\",\"doc\":\"Отвесная\",\"fields\":[{\"name\":\"ts\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата и время передачи\"},{\"name\":\"op\",\"type\":{\"type\":\"enum\",\"name\":\"enum_op\",\"symbols\":[\"I\",\"U\",\"D\"]},\"doc\":\"Код операции\"},{\"name\":\"pk\",\"type\":{\"type\":\"record\",\"name\":\"RecordPk\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"ИД отвесной\"}]},\"doc\":\"Ключ записи\"},{\"name\":\"data\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"RecordData\",\"doc\":\"Данные операции\",\"fields\":[{\"name\":\"templateDocType\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код шаблона документа\"},{\"name\":\"weighingDocNum\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Номер документа\"},{\"name\":\"weighingDocDate\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата документа (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"},{\"name\":\"scalesCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код весов\"},{\"name\":\"scalesName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование весов\"},{\"name\":\"positions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"RecordPositions\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"materialCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код груза\"},{\"name\":\"materialName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование груза\"},{\"name\":\"weighingDate\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата провески вагона (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"},{\"name\":\"weightGross\",\"type\":\"float\",\"doc\":\"Вес брутто, т\"},{\"name\":\"weightTare\",\"type\":\"float\",\"doc\":\"Вес тары, т\"},{\"name\":\"weightTareEmpty\",\"type\":[\"null\",\"float\"],\"doc\":\"Вес тары до выгрузки\"},{\"name\":\"tonnage\",\"type\":[\"null\",\"float\"],\"doc\":\"Грузоподъёмность\"},{\"name\":\"waybillWagonLink\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Идентификатор конкретного вагона в конкретной накладной\"},{\"name\":\"supplierType\",\"type\":{\"type\":\"enum\",\"name\":\"enum_supplierType\",\"symbols\":[\"INTERNAL\",\"EXTERNAL\"]},\"doc\":\"Тип поставщика (EXTERNAL - внешний INTERNAL - внутренний)\"}]}},\"doc\":\"Позиции отвесной\"}]}]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
+  private static SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<Weighing> ENCODER =
       new BinaryMessageEncoder<Weighing>(MODEL$, SCHEMA$);
@@ -75,12 +73,12 @@ public class Weighing extends org.apache.avro.specific.SpecificRecordBase implem
   }
 
   /** Дата и время передачи */
-  private java.lang.String ts;
+   private java.lang.String ts;
   /** Код операции */
-  private nlmk.l3.transport.weighing.enum_op op;
+   private nlmk.l3.transport.weighing.enum_op op;
   /** Ключ записи */
-  private nlmk.l3.transport.weighing.RecordPk pk;
-  private nlmk.l3.transport.weighing.RecordData data;
+   private nlmk.l3.transport.weighing.RecordPk pk;
+   private nlmk.l3.transport.weighing.RecordData data;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -252,7 +250,7 @@ public class Weighing extends org.apache.avro.specific.SpecificRecordBase implem
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -290,7 +288,7 @@ public class Weighing extends org.apache.avro.specific.SpecificRecordBase implem
      * @param other The existing instance to copy.
      */
     private Builder(nlmk.l3.transport.weighing.Weighing other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.ts)) {
         this.ts = data().deepCopy(fields()[0].schema(), other.ts);
         fieldSetFlags()[0] = true;
@@ -454,7 +452,6 @@ public class Weighing extends org.apache.avro.specific.SpecificRecordBase implem
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-
     public nlmk.l3.transport.weighing.Weighing.Builder setPkBuilder(nlmk.l3.transport.weighing.RecordPk.Builder value) {
       clearPk();
       pkBuilder = value;
@@ -532,7 +529,6 @@ public class Weighing extends org.apache.avro.specific.SpecificRecordBase implem
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-
     public nlmk.l3.transport.weighing.Weighing.Builder setDataBuilder(nlmk.l3.transport.weighing.RecordData.Builder value) {
       clearData();
       dataBuilder = value;

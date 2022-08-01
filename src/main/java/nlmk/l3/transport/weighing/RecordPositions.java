@@ -15,12 +15,10 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -8975148515758206693L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordPositions\",\"namespace\":\"nlmk.l3.transport.weighing\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"materialCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Код груза\"},{\"name\":\"materialName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Наименование груза\"},{\"name\":\"weighingDate\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Дата провески вагона (в формате YYYY-MM-DDThh:mm:ss+hh:mm)\"},{\"name\":\"weightGross\",\"type\":\"float\",\"doc\":\"Вес брутто, т\"},{\"name\":\"weightTare\",\"type\":\"float\",\"doc\":\"Вес тары, т\"},{\"name\":\"weightTareEmpty\",\"type\":[\"null\",\"float\"],\"doc\":\"Вес тары до выгрузки\"},{\"name\":\"tonnage\",\"type\":[\"null\",\"float\"],\"doc\":\"Грузоподъёмность\"},{\"name\":\"waybillWagonLink\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Идентификатор конкретного вагона в конкретной накладной\"},{\"name\":\"supplierType\",\"type\":{\"type\":\"enum\",\"name\":\"enum_supplierType\",\"symbols\":[\"INTERNAL\",\"EXTERNAL\"]},\"doc\":\"Тип поставщика (EXTERNAL - внешний INTERNAL - внутренний)\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
+  private static SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<RecordPositions> ENCODER =
       new BinaryMessageEncoder<RecordPositions>(MODEL$, SCHEMA$);
@@ -74,25 +72,25 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
   }
 
   /** Номер вагона */
-  private int wagonNum;
+   private int wagonNum;
   /** Код груза */
-  private java.lang.String materialCode;
+   private java.lang.String materialCode;
   /** Наименование груза */
-  private java.lang.String materialName;
+   private java.lang.String materialName;
   /** Дата провески вагона (в формате YYYY-MM-DDThh:mm:ss+hh:mm) */
-  private java.lang.String weighingDate;
+   private java.lang.String weighingDate;
   /** Вес брутто, т */
-  private float weightGross;
+   private float weightGross;
   /** Вес тары, т */
-  private float weightTare;
+   private float weightTare;
   /** Вес тары до выгрузки */
-  private java.lang.Float weightTareEmpty;
+   private java.lang.Float weightTareEmpty;
   /** Грузоподъёмность */
-  private java.lang.Float tonnage;
+   private java.lang.Float tonnage;
   /** Идентификатор конкретного вагона в конкретной накладной */
-  private java.lang.String waybillWagonLink;
+   private java.lang.String waybillWagonLink;
   /** Тип поставщика (EXTERNAL - внешний INTERNAL - внутренний) */
-  private nlmk.l3.transport.weighing.enum_supplierType supplierType;
+   private nlmk.l3.transport.weighing.enum_supplierType supplierType;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -408,7 +406,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -464,7 +462,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
      * @param other The existing instance to copy.
      */
     private Builder(nlmk.l3.transport.weighing.RecordPositions other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.wagonNum)) {
         this.wagonNum = data().deepCopy(fields()[0].schema(), other.wagonNum);
         fieldSetFlags()[0] = true;

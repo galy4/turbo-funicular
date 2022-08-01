@@ -24,9 +24,13 @@ public class RetrieveNsiData {
 
     public Resource retrieveResourceData(String name){
         return namedParameterJdbcTemplate.queryForObject(
-                "select mr.code as ozm_code, mr.full_name as material_name, mr.source_transport_code as material_code, s.code as supplier_code, s.\"name\" " +
-                "as supplier_name  from material_resource mr join supplier_material_resource smr on smr.material_resource_id = mr.id \n" +
-                "join supplier s on s.id = smr.supplier_id where mr.full_name = :material_name limit 1",
+                "select mr.code as ozm_code, mr.full_name as material_name, mrm.source_code as material_code, s.code as supplier_code, s.\"name\" as supplier_name " +
+                        "from material_resource mr join material_resource_mapping mrm on mrm.material_resource_id = mr.id \n" +
+                        "join supplier_material_resource smr on smr.material_resource_id = mr.id\n" +
+                        "join supplier s on s.id = smr.supplier_id\n" +
+                        "where mrm.\"source\" = 'TRANSPORT'\n" +
+                        "and s.structure_company_id = 4\n" +
+                        "and mr.full_name = :material_name limit 1",
 //                Collections.singletonMap("material_name", name), resourceDataMapper);
                 Collections.singletonMap("material_name", name), (rs, i) -> new Resource(
                         rs.getString("ozm_code"),
@@ -40,20 +44,24 @@ public class RetrieveNsiData {
 
     public Resource retrieveInnerResourceData(String name){
         return namedParameterJdbcTemplate.queryForObject(
-                "select mr.full_name as material_name, mr.inside_lode_code as material_code, s.code as supplier_code, s.\"name\" \n" +
-                        "as supplier_name  from material_resource mr join structure_company_material_resource smr on smr.material_resource_id = mr.id \n" +
-                        "join structure_company s on s.id = smr.structure_company_id where mr.full_name = :material_name  limit 1",
+                "select mr.full_name as material_name, mrm.source_code as material_code, s.code as supplier_code, s.\"name\" as supplier_name\n" +
+                        "from material_resource mr join structure_company_material_resource smr on smr.material_resource_id = mr.id\n" +
+                        "join structure_company s on s.id = smr.structure_company_id\n" +
+                        "join material_resource_mapping mrm on mrm.material_resource_id = mr.id \n" +
+                        "where mrm.\"source\" = 'INSIDE_LODE'\n" +
+                        "and s.code <> '18'\n" +
+                        "and mr.full_name = :material_name limit 1",
                 Collections.singletonMap("material_name", name), resourceDataMapper);
     }
 
     public List<String> retrieveResourceNames()  {
-        return jdbcTemplate.queryForList("select full_name as material_name from material_resource mr join supplier_material_resource smr " +
+        return jdbcTemplate.queryForList("select distinct full_name as material_name from material_resource mr join supplier_material_resource smr " +
                 "on smr.material_resource_id = mr.id", String.class);
     }
 
     public List<String> retrieveInnerResourceNames()  {
         return jdbcTemplate.queryForList("select distinct full_name as material_name from material_resource mr join structure_company_material_resource smr \n" +
-                "on smr.material_resource_id = mr.id", String.class);
+                "on smr.material_resource_id = mr.id where smr.structure_company_id <> 4", String.class);
     }
 
     public String retrievePathCode(String shortName){
