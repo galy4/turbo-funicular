@@ -22,6 +22,8 @@ $(document).ready(()=> {
     $("#cur").click(sendCurrentLocation);
 
     $("#weigh").click(sendWeighing);
+
+    $("#forward").click(sendForward);
 });
 
 function getAllWagons(){
@@ -113,6 +115,15 @@ function sendInnerInvoice(){
     $.post(`/innerInvoice/${inv}`, function (){
         console.log(`Invoice data sent to backend`);
         $('#inner').css('background', 'grey');
+    });
+}
+
+function sendForward(){
+    let inv = $('#invoice').val();
+    let newInv = $('#newInvoice').val();
+    $.post(`/forward?newInvoice=${newInv}&oldInvoice=${inv}`, function (){
+        console.log(`Invoice data sent to backend`);
+        $('#forward').css('background', 'grey');
     });
 }
 

@@ -41,4 +41,9 @@ public class LifeCycleController {
     private void weighWagons(@PathParam("brutto") float brutto, @PathParam("tare") float tare, @PathParam("isExternal") String isExternal) {
         weighingService.sendWeighing(brutto, tare, isExternal);
     }
+
+    @PostMapping("/forward")
+    private void forwardWagons(@PathParam("newInvoice") String newInvoice, @PathParam("oldInvoice") String oldInvoice){
+        innerInvoiceService.sendForward(newInvoice, oldInvoice);
+    }
 }

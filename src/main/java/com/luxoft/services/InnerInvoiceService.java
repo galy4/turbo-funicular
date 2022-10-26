@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static com.luxoft.utils.TimeStampGenerator.getCurrentTimeStamp;
 import static com.luxoft.utils.TimeStampGenerator.getDepartureDate;
@@ -25,11 +26,17 @@ public class InnerInvoiceService {
     private final KafkaSender kafkaSender;
 
     public void sendInnerInvoice(String innerInvoice){
-        kafkaSender.sendMessage(buildInnerInvoice(innerInvoice), "innerinvoice");
+        kafkaSender.sendMessage(buildInnerInvoice(innerInvoice, Optional.empty()), "innerinvoice");
+    }
+
+    public void sendForward(String newInvoice, String oldInvoice) {
+        kafkaSender.sendMessage(buildInnerInvoice(newInvoice, Optional.of(oldInvoice)), "innerinvoice");
     }
 
     @SneakyThrows
-    private InnerInvoice buildInnerInvoice(String wayBillNum){
+    private InnerInvoice buildInnerInvoice(String wayBillNum, Optional<String> newWayBillNum){
+        String supplierCode = newWayBillNum.isEmpty() ? resourceService.getResource().getSupplierCode() : "18";
+        String kceh = newWayBillNum.isEmpty() ? "18":"337";
         wagonService.enrichWagonData(wayBillNum);
         List<RecordPositions> recordPositions = new ArrayList<>(wagonRepository.getWagonList().size());
         wagonRepository.getWagonList().forEach(w-> recordPositions.add(
@@ -38,7 +45,7 @@ public class InnerInvoiceService {
                         .setWagonType(w.getWagonType())
                         .setWeightNet((float) w.getWeightNet())
                         .setWaybillWagonLink(w.getWagonLink())
-                        .setExternalWaybillWagonNumber(null)
+                        .setExternalWaybillWagonNumber(newWayBillNum.orElse(null))
                         .setSignArrival(null)
                         .setReserveWaybillNum(null)
                         .build()
@@ -54,7 +61,7 @@ public class InnerInvoiceService {
                         .setPositions(recordPositions)
                         .setMaterialCode(resourceService.getResource().getMaterialCode())
                         .setMaterialName(resourceService.getResource().getMaterialName())
-                        .setSupplierCode(resourceService.getResource().getSupplierCode())
+                        .setSupplierCode(supplierCode)
                         .setSupplierName(resourceService.getResource().getSupplierName())
                         .setSupplierType(enum_supplierType.INTERNAL)
                         .setWeighingID(null)
@@ -62,7 +69,7 @@ public class InnerInvoiceService {
                         .setStationArrivalCode("8")
                         .setStationArrivalName("Угольная")
                         .setStationDepartureName("Шихтовая")
-                        .setKceh("18")
+                        .setKceh(kceh)
                         .setKcehName("АГЦ")
                         .setArrivalDate(getDepartureDate(3))
                         .setDepartureDate(getDepartureDate(4))
@@ -74,6 +81,5 @@ public class InnerInvoiceService {
         log.info(innerInvoice.toString());
         return innerInvoice;
     }
-
 
 }

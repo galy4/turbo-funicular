@@ -94,6 +94,8 @@ function getAllWagons(){
 `);
 
         $("tbody tr").click(function () {
+            $("tbody tr").css("background", "white")
+            $(this).css("background", "yellow");
             wagonId = $(this).children()[0].textContent;
             getWagon(wagonId);
         });
