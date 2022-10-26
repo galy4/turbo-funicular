@@ -57,4 +57,9 @@ public class WagonService {
             w.setWayBillNum(wayBillNum);
         });
     }
+
+    public void delete(WagonDto wagonDto) {
+        wagonRepository.getWagonList().remove(wagonRepository.getWagonList().stream().filter(w-> w.getId() == wagonDto.getId()).findFirst()
+                .orElse(null));
+    }
 }

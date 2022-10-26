@@ -63,6 +63,7 @@ function getNSIResourceData(){
             });
         });
     $('#kafka').fadeIn(1000);
+    $('#forward').hide();
     if(resourceType==='internal'){
         $("#far,#inv,#crt").hide();
         $("#inner").show();
@@ -94,6 +95,7 @@ function sendCurrentLocation(){
     $.post(`/currentLocation/${path}&${time}`, function () {
         console.log(`Current location data sent to backend`);
         $('#cur').css('background', 'grey');
+        $('#forward').show();
     });
 }
 

@@ -46,6 +46,15 @@ $(document).ready(()=>{
         cloneWagon();
     });
 
+    $("#rem").click(()=> {
+        removeWagon({
+            id: wagonId,
+            number: $("#number").val(),
+            weight: $("#weight").val(),
+            type: $("#type").val()
+        });
+    });
+
 });
 //Функции:
 var getWagon = (id) => $.getJSON(`/wagon/${id}`, ({number, weight, type}) => {
@@ -119,6 +128,18 @@ function cloneWagon(){
             weight: lastRow.last().children()[2].textContent,
             type: lastRow.last().children()[3].textContent
         }),
+    }).done(function () {
+        getAllWagons();
+    });
+
+}
+
+function removeWagon(data) {
+    $.ajax({
+        type: 'DELETE',
+        url: '/wagon',
+        contentType: 'application/json',
+        data: JSON.stringify(data), // access in body
     }).done(function () {
         getAllWagons();
     });
