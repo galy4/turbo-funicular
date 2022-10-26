@@ -22,6 +22,8 @@ $(document).ready(()=> {
     $("#cur").click(sendCurrentLocation);
 
     $("#weigh").click(sendWeighing);
+
+    $("#forward").click(sendForward);
 });
 
 function getAllWagons(){
@@ -63,6 +65,7 @@ function getNSIResourceData(){
             });
         });
     $('#kafka').fadeIn(1000);
+    $('#forward').hide();
     if(resourceType==='internal'){
         $("#far,#inv,#crt").hide();
         $("#inner").show();
@@ -94,6 +97,7 @@ function sendCurrentLocation(){
     $.post(`/currentLocation/${path}&${time}`, function () {
         console.log(`Current location data sent to backend`);
         $('#cur').css('background', 'grey');
+        $('#forward').show();
     });
 }
 
@@ -111,6 +115,15 @@ function sendInnerInvoice(){
     $.post(`/innerInvoice/${inv}`, function (){
         console.log(`Invoice data sent to backend`);
         $('#inner').css('background', 'grey');
+    });
+}
+
+function sendForward(){
+    let inv = $('#invoice').val();
+    let newInv = $('#newInvoice').val();
+    $.post(`/forward?newInvoice=${newInv}&oldInvoice=${inv}`, function (){
+        console.log(`Invoice data sent to backend`);
+        $('#forward').css('background', 'grey');
     });
 }
 

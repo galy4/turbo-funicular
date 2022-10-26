@@ -39,4 +39,9 @@ public class WagonController {
         wagonService.create(wagonDto);
     }
 
+    @DeleteMapping("/wagon")
+    private void delete(@RequestBody WagonDto wagonDto){
+         wagonService.delete(wagonDto);
+    }
+
 }
