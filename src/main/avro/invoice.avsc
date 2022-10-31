@@ -136,6 +136,14 @@
                                             "name": "waybillWagonLink",
                                             "type": "string",
                                             "doc": "Идентификатор конкретного вагона в конкретной накладной"
+                                        },
+                                        {
+                                            "name": "addWaybillNum",
+                                            "type": [
+                                                "null",
+                                                "string"
+                                            ],
+                                            "doc": "Номер досылочной накладной"
                                         }
                                     ]
                                 }

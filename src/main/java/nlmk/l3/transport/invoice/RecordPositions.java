@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 858537200812368051L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordPositions\",\"namespace\":\"nlmk.l3.transport.invoice\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"wagonType\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Тип вагона\"},{\"name\":\"weightNet\",\"type\":\"float\",\"doc\":\"Вес груза, т\"},{\"name\":\"waybillWagonLink\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Идентификатор конкретного вагона в конкретной накладной\"}]}");
+  private static final long serialVersionUID = -6693486908476512120L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordPositions\",\"namespace\":\"nlmk.l3.transport.invoice\",\"fields\":[{\"name\":\"wagonNum\",\"type\":\"int\",\"doc\":\"Номер вагона\"},{\"name\":\"wagonType\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Тип вагона\"},{\"name\":\"weightNet\",\"type\":\"float\",\"doc\":\"Вес груза, т\"},{\"name\":\"waybillWagonLink\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Идентификатор конкретного вагона в конкретной накладной\"},{\"name\":\"addWaybillNum\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Номер досылочной накладной\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -79,6 +79,8 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
    private float weightNet;
   /** Идентификатор конкретного вагона в конкретной накладной */
    private java.lang.String waybillWagonLink;
+  /** Номер досылочной накладной */
+   private java.lang.String addWaybillNum;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -93,12 +95,14 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
    * @param wagonType Тип вагона
    * @param weightNet Вес груза, т
    * @param waybillWagonLink Идентификатор конкретного вагона в конкретной накладной
+   * @param addWaybillNum Номер досылочной накладной
    */
-  public RecordPositions(java.lang.Integer wagonNum, java.lang.String wagonType, java.lang.Float weightNet, java.lang.String waybillWagonLink) {
+  public RecordPositions(java.lang.Integer wagonNum, java.lang.String wagonType, java.lang.Float weightNet, java.lang.String waybillWagonLink, java.lang.String addWaybillNum) {
     this.wagonNum = wagonNum;
     this.wagonType = wagonType;
     this.weightNet = weightNet;
     this.waybillWagonLink = waybillWagonLink;
+    this.addWaybillNum = addWaybillNum;
   }
 
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
@@ -110,6 +114,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
     case 1: return wagonType;
     case 2: return weightNet;
     case 3: return waybillWagonLink;
+    case 4: return addWaybillNum;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -122,6 +127,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
     case 1: wagonType = value$ != null ? value$.toString() : null; break;
     case 2: weightNet = (java.lang.Float)value$; break;
     case 3: waybillWagonLink = value$ != null ? value$.toString() : null; break;
+    case 4: addWaybillNum = value$ != null ? value$.toString() : null; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -199,6 +205,24 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
   }
 
   /**
+   * Gets the value of the 'addWaybillNum' field.
+   * @return Номер досылочной накладной
+   */
+  public java.lang.String getAddWaybillNum() {
+    return addWaybillNum;
+  }
+
+
+  /**
+   * Sets the value of the 'addWaybillNum' field.
+   * Номер досылочной накладной
+   * @param value the value to set.
+   */
+  public void setAddWaybillNum(java.lang.String value) {
+    this.addWaybillNum = value;
+  }
+
+  /**
    * Creates a new RecordPositions RecordBuilder.
    * @return A new RecordPositions RecordBuilder
    */
@@ -247,6 +271,8 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
     private float weightNet;
     /** Идентификатор конкретного вагона в конкретной накладной */
     private java.lang.String waybillWagonLink;
+    /** Номер досылочной накладной */
+    private java.lang.String addWaybillNum;
 
     /** Creates a new Builder */
     private Builder() {
@@ -275,6 +301,10 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
         this.waybillWagonLink = data().deepCopy(fields()[3].schema(), other.waybillWagonLink);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
+      if (isValidValue(fields()[4], other.addWaybillNum)) {
+        this.addWaybillNum = data().deepCopy(fields()[4].schema(), other.addWaybillNum);
+        fieldSetFlags()[4] = other.fieldSetFlags()[4];
+      }
     }
 
     /**
@@ -298,6 +328,10 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
       if (isValidValue(fields()[3], other.waybillWagonLink)) {
         this.waybillWagonLink = data().deepCopy(fields()[3].schema(), other.waybillWagonLink);
         fieldSetFlags()[3] = true;
+      }
+      if (isValidValue(fields()[4], other.addWaybillNum)) {
+        this.addWaybillNum = data().deepCopy(fields()[4].schema(), other.addWaybillNum);
+        fieldSetFlags()[4] = true;
       }
     }
 
@@ -475,6 +509,50 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
       return this;
     }
 
+    /**
+      * Gets the value of the 'addWaybillNum' field.
+      * Номер досылочной накладной
+      * @return The value.
+      */
+    public java.lang.String getAddWaybillNum() {
+      return addWaybillNum;
+    }
+
+
+    /**
+      * Sets the value of the 'addWaybillNum' field.
+      * Номер досылочной накладной
+      * @param value The value of 'addWaybillNum'.
+      * @return This builder.
+      */
+    public nlmk.l3.transport.invoice.RecordPositions.Builder setAddWaybillNum(java.lang.String value) {
+      validate(fields()[4], value);
+      this.addWaybillNum = value;
+      fieldSetFlags()[4] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'addWaybillNum' field has been set.
+      * Номер досылочной накладной
+      * @return True if the 'addWaybillNum' field has been set, false otherwise.
+      */
+    public boolean hasAddWaybillNum() {
+      return fieldSetFlags()[4];
+    }
+
+
+    /**
+      * Clears the value of the 'addWaybillNum' field.
+      * Номер досылочной накладной
+      * @return This builder.
+      */
+    public nlmk.l3.transport.invoice.RecordPositions.Builder clearAddWaybillNum() {
+      addWaybillNum = null;
+      fieldSetFlags()[4] = false;
+      return this;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public RecordPositions build() {
@@ -484,6 +562,7 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
         record.wagonType = fieldSetFlags()[1] ? this.wagonType : (java.lang.String) defaultValue(fields()[1]);
         record.weightNet = fieldSetFlags()[2] ? this.weightNet : (java.lang.Float) defaultValue(fields()[2]);
         record.waybillWagonLink = fieldSetFlags()[3] ? this.waybillWagonLink : (java.lang.String) defaultValue(fields()[3]);
+        record.addWaybillNum = fieldSetFlags()[4] ? this.addWaybillNum : (java.lang.String) defaultValue(fields()[4]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -524,6 +603,14 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
 
     out.writeString(this.waybillWagonLink);
 
+    if (this.addWaybillNum == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeString(this.addWaybillNum);
+    }
+
   }
 
   @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
@@ -539,8 +626,15 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
 
       this.waybillWagonLink = in.readString();
 
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.addWaybillNum = null;
+      } else {
+        this.addWaybillNum = in.readString();
+      }
+
     } else {
-      for (int i = 0; i < 4; i++) {
+      for (int i = 0; i < 5; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.wagonNum = in.readInt();
@@ -556,6 +650,15 @@ public class RecordPositions extends org.apache.avro.specific.SpecificRecordBase
 
         case 3:
           this.waybillWagonLink = in.readString();
+          break;
+
+        case 4:
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.addWaybillNum = null;
+          } else {
+            this.addWaybillNum = in.readString();
+          }
           break;
 
         default:

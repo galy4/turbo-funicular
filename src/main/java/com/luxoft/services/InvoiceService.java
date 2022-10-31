@@ -37,6 +37,7 @@ public class InvoiceService {
                         .setWagonType(w.getWagonType())
                         .setWeightNet((float) w.getWeightNet())
                         .setWaybillWagonLink(w.getWagonLink())
+                        .setAddWaybillNum(null)
                         .build()
         ));
         var invoice = Invoice.newBuilder()
